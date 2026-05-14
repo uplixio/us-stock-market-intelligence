@@ -1,0 +1,570 @@
+{
+  "generated_at": "2025-06-30 09:30:00",
+  "data_date": "2025-06-30",
+  "market_timing": {
+    "regime": "risk_on",
+    "regime_score": 2.8,
+    "regime_confidence": 72,
+    "signals": {
+      "vix": "risk_on",
+      "trend": "risk_on",
+      "breadth": "risk_on",
+      "credit": "neutral",
+      "yield_curve": "risk_on"
+    },
+    "adaptive_params": {
+      "stop_loss": "7%",
+      "max_drawdown_warning": "12%"
+    },
+    "gate": "CAUTION",
+    "gate_score": 65.6,
+    "sectors": [
+      {
+        "name": "Materials",
+        "ticker": "XLB",
+        "score": 46.2,
+        "signal": "BEARISH",
+        "rsi": 56.5,
+        "rs_vs_spy": -0.028,
+        "change_1d": -0.09
+      },
+      {
+        "name": "Communication",
+        "ticker": "XLC",
+        "score": 63.1,
+        "signal": "BULLISH",
+        "rsi": 74.5,
+        "rs_vs_spy": 0.0226,
+        "change_1d": 0.79
+      },
+      {
+        "name": "Energy",
+        "ticker": "XLE",
+        "score": 35.9,
+        "signal": "BEARISH",
+        "rsi": 50.9,
+        "rs_vs_spy": -0.0675,
+        "change_1d": -0.57
+      },
+      {
+        "name": "Financials",
+        "ticker": "XLF",
+        "score": 59.3,
+        "signal": "BULLISH",
+        "rsi": 67.7,
+        "rs_vs_spy": 0.0138,
+        "change_1d": 0.83
+      },
+      {
+        "name": "Industrials",
+        "ticker": "XLI",
+        "score": 56.3,
+        "signal": "NEUTRAL",
+        "rsi": 69.1,
+        "rs_vs_spy": -0.0007,
+        "change_1d": 0.5
+      },
+      {
+        "name": "Technology",
+        "ticker": "XLK",
+        "score": 63.8,
+        "signal": "BULLISH",
+        "rsi": 76.1,
+        "rs_vs_spy": 0.0225,
+        "change_1d": 0.98
+      },
+      {
+        "name": "Consumer Staples",
+        "ticker": "XLP",
+        "score": 45.0,
+        "signal": "BEARISH",
+        "rsi": 51.3,
+        "rs_vs_spy": -0.031,
+        "change_1d": 0.52
+      },
+      {
+        "name": "Real Estate",
+        "ticker": "XLRE",
+        "score": 43.4,
+        "signal": "BEARISH",
+        "rsi": 51.1,
+        "rs_vs_spy": -0.0403,
+        "change_1d": 0.73
+      },
+      {
+        "name": "Utilities",
+        "ticker": "XLU",
+        "score": 47.2,
+        "signal": "BEARISH",
+        "rsi": 57.4,
+        "rs_vs_spy": -0.0281,
+        "change_1d": 0.41
+      },
+      {
+        "name": "Healthcare",
+        "ticker": "XLV",
+        "score": 43.8,
+        "signal": "BEARISH",
+        "rsi": 55.0,
+        "rs_vs_spy": -0.0431,
+        "change_1d": 0.64
+      },
+      {
+        "name": "Consumer Disc",
+        "ticker": "XLY",
+        "score": 49.9,
+        "signal": "NEUTRAL",
+        "rsi": 58.8,
+        "rs_vs_spy": -0.0094,
+        "change_1d": -0.58
+      }
+    ],
+    "gate_metrics": {
+      "avg_score": 50.4,
+      "bullish_sectors": 3,
+      "bearish_sectors": 6,
+      "top_sector": "Technology",
+      "bottom_sector": "Energy"
+    },
+    "spy_divergence": {
+      "signal": "none",
+      "label": "",
+      "severity": "neutral",
+      "spy_price": 612.65,
+      "change_10d_pct": 3.8,
+      "vol_ratio_2d_vs_20d_avg": 1.2
+    },
+    "ml_predictor": {
+      "spy": {
+        "direction": "bullish",
+        "probability_up": 0.679,
+        "predicted_return": 0.715,
+        "confidence": "high",
+        "confidence_pct": 80,
+        "key_drivers": [
+          {
+            "feature": "spy_return_10d",
+            "importance": 0.09,
+            "value": 3.8,
+            "direction": "bullish"
+          },
+          {
+            "feature": "spy_rsi14",
+            "importance": 0.08,
+            "value": 72.0,
+            "direction": "bullish"
+          },
+          {
+            "feature": "vix_value",
+            "importance": 0.07,
+            "value": 16.73,
+            "direction": "bullish"
+          },
+          {
+            "feature": "spy_price_vs_20ma_pct",
+            "importance": 0.06,
+            "value": 2.894,
+            "direction": "bullish"
+          }
+        ],
+        "model_accuracy": 0.52,
+        "model_trained_at": "2026-04-14T09:00:00"
+      },
+      "qqq": {
+        "direction": "bullish",
+        "probability_up": 0.697,
+        "predicted_return": 0.787,
+        "confidence": "high",
+        "confidence_pct": 80,
+        "key_drivers": [
+          {
+            "feature": "qqq_return_10d",
+            "importance": 0.09,
+            "value": 4.8,
+            "direction": "bullish"
+          },
+          {
+            "feature": "qqq_rsi14",
+            "importance": 0.08,
+            "value": 73.0,
+            "direction": "bullish"
+          },
+          {
+            "feature": "vix_value",
+            "importance": 0.07,
+            "value": 16.73,
+            "direction": "bullish"
+          },
+          {
+            "feature": "qqq_price_vs_20ma_pct",
+            "importance": 0.06,
+            "value": 3.484,
+            "direction": "bullish"
+          }
+        ],
+        "model_accuracy": 0.52,
+        "model_trained_at": "2026-04-14T09:00:00"
+      }
+    }
+  },
+  "verdict": "CAUTION",
+  "stock_picks": [
+    {
+      "ticker": "WDC",
+      "company_name": "Western Digital Corporation",
+      "strategy": "Swing",
+      "setup": "Breakout",
+      "fundamental_score": 70,
+      "analyst_score": 60,
+      "13f_score": 55,
+      "volume_score": 60.0,
+      "composite_score": 78.9,
+      "grade": "A",
+      "grade_label": "Strong Accumulation",
+      "technical_score": 98,
+      "rs_score": 85.9,
+      "rs_vs_spy": 14.36,
+      "action": "SMALL BUY"
+    },
+    {
+      "ticker": "LRCX",
+      "company_name": "Lam Research Corporation",
+      "strategy": "Trend",
+      "setup": "Pullback",
+      "fundamental_score": 80,
+      "analyst_score": 72,
+      "13f_score": 65,
+      "volume_score": 50.0,
+      "composite_score": 78.5,
+      "grade": "A",
+      "grade_label": "Strong Accumulation",
+      "technical_score": 90,
+      "rs_score": 79.9,
+      "rs_vs_spy": 11.95,
+      "action": "SMALL BUY"
+    },
+    {
+      "ticker": "LITE",
+      "company_name": "Lumentum Holdings Inc.",
+      "strategy": "Swing",
+      "setup": "Breakout",
+      "fundamental_score": 60,
+      "analyst_score": 55,
+      "13f_score": 50,
+      "volume_score": 55.0,
+      "composite_score": 77.4,
+      "grade": "A",
+      "grade_label": "Strong Accumulation",
+      "technical_score": 98,
+      "rs_score": 98.9,
+      "rs_vs_spy": 19.57,
+      "action": "SMALL BUY"
+    },
+    {
+      "ticker": "CCL",
+      "company_name": "Carnival Corporation & plc",
+      "strategy": "Swing",
+      "setup": "Reversal",
+      "fundamental_score": 55,
+      "analyst_score": 58,
+      "13f_score": 48,
+      "volume_score": 60.0,
+      "composite_score": 75.7,
+      "grade": "A",
+      "grade_label": "Strong Accumulation",
+      "technical_score": 98,
+      "rs_score": 88.5,
+      "rs_vs_spy": 15.38,
+      "action": "SMALL BUY"
+    },
+    {
+      "ticker": "HPE",
+      "company_name": "Hewlett Packard Enterprise Co.",
+      "strategy": "Swing",
+      "setup": "Reversal",
+      "fundamental_score": 62,
+      "analyst_score": 58,
+      "13f_score": 50,
+      "volume_score": 50.0,
+      "composite_score": 75.4,
+      "grade": "A",
+      "grade_label": "Strong Accumulation",
+      "technical_score": 98,
+      "rs_score": 83.5,
+      "rs_vs_spy": 13.41,
+      "action": "SMALL BUY"
+    },
+    {
+      "ticker": "ETN",
+      "company_name": "Eaton Corporation plc",
+      "strategy": "Trend",
+      "setup": "Pullback",
+      "fundamental_score": 76,
+      "analyst_score": 70,
+      "13f_score": 65,
+      "volume_score": 50.0,
+      "composite_score": 72.3,
+      "grade": "B",
+      "grade_label": "Moderate Accumulation",
+      "technical_score": 82,
+      "rs_score": 64.3,
+      "rs_vs_spy": 5.73,
+      "action": "WATCH"
+    },
+    {
+      "ticker": "AMZN",
+      "company_name": "Amazon.com, Inc.",
+      "strategy": "Trend",
+      "setup": "Pullback",
+      "fundamental_score": 88,
+      "analyst_score": 85,
+      "13f_score": 80,
+      "volume_score": 55.0,
+      "composite_score": 71.2,
+      "grade": "B",
+      "grade_label": "Moderate Accumulation",
+      "technical_score": 66,
+      "rs_score": 55.0,
+      "rs_vs_spy": 2.0,
+      "action": "WATCH"
+    },
+    {
+      "ticker": "TER",
+      "company_name": "Teradyne, Inc.",
+      "strategy": "Trend",
+      "setup": "Breakout",
+      "fundamental_score": 72,
+      "analyst_score": 65,
+      "13f_score": 58,
+      "volume_score": 50.0,
+      "composite_score": 66.8,
+      "grade": "B",
+      "grade_label": "Moderate Accumulation",
+      "technical_score": 71,
+      "rs_score": 66.2,
+      "rs_vs_spy": 6.48,
+      "action": "WATCH"
+    },
+    {
+      "ticker": "DELL",
+      "company_name": "Dell Technologies Inc.",
+      "strategy": "Trend",
+      "setup": "Breakout",
+      "fundamental_score": 75,
+      "analyst_score": 55,
+      "13f_score": 50,
+      "volume_score": 50.0,
+      "composite_score": 64.9,
+      "grade": "B",
+      "grade_label": "Moderate Accumulation",
+      "technical_score": 72,
+      "rs_score": 59.5,
+      "rs_vs_spy": 3.81,
+      "action": "WATCH"
+    },
+    {
+      "ticker": "UNH",
+      "company_name": "UnitedHealth Group Incorporated",
+      "strategy": "Trend",
+      "setup": "Pullback",
+      "fundamental_score": 85,
+      "analyst_score": 78,
+      "13f_score": 70,
+      "volume_score": 50.0,
+      "composite_score": 63.8,
+      "grade": "B",
+      "grade_label": "Moderate Accumulation",
+      "technical_score": 55,
+      "rs_score": 48.7,
+      "rs_vs_spy": -0.51,
+      "action": "WATCH"
+    },
+    {
+      "ticker": "FITB",
+      "company_name": "Fifth Third Bancorp",
+      "strategy": "Swing",
+      "setup": "Breakout",
+      "fundamental_score": 65,
+      "analyst_score": 60,
+      "13f_score": 55,
+      "volume_score": 55.0,
+      "composite_score": 63.6,
+      "grade": "B",
+      "grade_label": "Moderate Accumulation",
+      "technical_score": 71,
+      "rs_score": 56.5,
+      "rs_vs_spy": 2.59,
+      "action": "WATCH"
+    },
+    {
+      "ticker": "SNDK",
+      "company_name": "Sandisk Corporation",
+      "strategy": "Swing",
+      "setup": "Breakout",
+      "fundamental_score": 58,
+      "analyst_score": 52,
+      "13f_score": 45,
+      "volume_score": 55.0,
+      "composite_score": 62.1,
+      "grade": "B",
+      "grade_label": "Moderate Accumulation",
+      "technical_score": 69,
+      "rs_score": 71.8,
+      "rs_vs_spy": 8.72,
+      "action": "WATCH"
+    },
+    {
+      "ticker": "ALB",
+      "company_name": "Albemarle Corporation",
+      "strategy": "Trend",
+      "setup": "Pullback",
+      "fundamental_score": 55,
+      "analyst_score": 50,
+      "13f_score": 45,
+      "volume_score": 50.0,
+      "composite_score": 61.5,
+      "grade": "C",
+      "grade_label": "Neutral / Watch",
+      "technical_score": 73,
+      "rs_score": 68.0,
+      "rs_vs_spy": 7.22,
+      "action": "WATCH"
+    },
+    {
+      "ticker": "LYV",
+      "company_name": "Live Nation Entertainment, Inc.",
+      "strategy": "Swing",
+      "setup": "Breakout",
+      "fundamental_score": 58,
+      "analyst_score": 55,
+      "13f_score": 48,
+      "volume_score": 50.0,
+      "composite_score": 58.9,
+      "grade": "C",
+      "grade_label": "Neutral / Watch",
+      "technical_score": 66,
+      "rs_score": 57.0,
+      "rs_vs_spy": 2.82,
+      "action": "WATCH"
+    },
+    {
+      "ticker": "FDS",
+      "company_name": "FactSet Research Systems Inc.",
+      "strategy": "Trend",
+      "setup": "Pullback",
+      "fundamental_score": 78,
+      "analyst_score": 65,
+      "13f_score": 60,
+      "volume_score": 50.0,
+      "composite_score": 57.7,
+      "grade": "C",
+      "grade_label": "Neutral / Watch",
+      "technical_score": 54,
+      "rs_score": 36.4,
+      "rs_vs_spy": -5.46,
+      "action": "WATCH"
+    },
+    {
+      "ticker": "BKR",
+      "company_name": "Baker Hughes Company",
+      "strategy": "Trend",
+      "setup": "Breakout",
+      "fundamental_score": 65,
+      "analyst_score": 68,
+      "13f_score": 55,
+      "volume_score": 50.0,
+      "composite_score": 55.3,
+      "grade": "C",
+      "grade_label": "Neutral / Watch",
+      "technical_score": 50,
+      "rs_score": 45.9,
+      "rs_vs_spy": -1.64,
+      "action": "WATCH"
+    },
+    {
+      "ticker": "SLB",
+      "company_name": "SLB N.V.",
+      "strategy": "Trend",
+      "setup": "Breakout",
+      "fundamental_score": 68,
+      "analyst_score": 70,
+      "13f_score": 60,
+      "volume_score": 55.0,
+      "composite_score": 54.0,
+      "grade": "C",
+      "grade_label": "Neutral / Watch",
+      "technical_score": 42,
+      "rs_score": 44.4,
+      "rs_vs_spy": -2.23,
+      "action": "WATCH"
+    },
+    {
+      "ticker": "DAL",
+      "company_name": "Delta Air Lines, Inc.",
+      "strategy": "Swing",
+      "setup": "Breakout",
+      "fundamental_score": 60,
+      "analyst_score": 62,
+      "13f_score": 50,
+      "volume_score": 60.0,
+      "composite_score": 53.8,
+      "grade": "C",
+      "grade_label": "Neutral / Watch",
+      "technical_score": 50,
+      "rs_score": 43.1,
+      "rs_vs_spy": -2.76,
+      "action": "WATCH"
+    },
+    {
+      "ticker": "UAL",
+      "company_name": "United Airlines Holdings, Inc.",
+      "strategy": "Swing",
+      "setup": "Breakout",
+      "fundamental_score": 58,
+      "analyst_score": 60,
+      "13f_score": 48,
+      "volume_score": 60.0,
+      "composite_score": 53.5,
+      "grade": "C",
+      "grade_label": "Neutral / Watch",
+      "technical_score": 52,
+      "rs_score": 41.8,
+      "rs_vs_spy": -3.28,
+      "action": "WATCH"
+    },
+    {
+      "ticker": "EIX",
+      "company_name": "Edison International",
+      "strategy": "Trend",
+      "setup": "Reversal",
+      "fundamental_score": 62,
+      "analyst_score": 58,
+      "13f_score": 52,
+      "volume_score": 50.0,
+      "composite_score": 47.6,
+      "grade": "D",
+      "grade_label": "Distribution",
+      "technical_score": 42,
+      "rs_score": 28.2,
+      "rs_vs_spy": -8.72,
+      "action": "WATCH"
+    }
+  ],
+  "summary": {
+    "total_screened": 20,
+    "grade_distribution": {
+      "A": 5,
+      "B": 7,
+      "C": 7,
+      "D": 1
+    },
+    "strategy_distribution": {
+      "Swing": 9,
+      "Trend": 11
+    },
+    "action_distribution": {
+      "SMALL BUY": 5,
+      "WATCH": 15
+    }
+  }
+}

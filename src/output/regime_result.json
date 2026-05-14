@@ -1,0 +1,45 @@
+{
+  "final_regime": "risk_on",
+  "weighted_score": 0.33,
+  "confidence": 97.5,
+  "signals": {
+    "vix": "neutral",
+    "trend": "risk_on",
+    "breadth": "risk_on",
+    "credit": "risk_on",
+    "yield_curve": "risk_on",
+    "put_call": "neutral"
+  },
+  "details": {
+    "vix": {
+      "vix_current": 17.48,
+      "vix_ma20": 23.44,
+      "vix_trend": "falling",
+      "vix_regime": "neutral"
+    },
+    "trend": {
+      "trend_regime": "risk_on",
+      "spy_above_50": true,
+      "spy_above_200": true,
+      "sma200_slope": 6.9871
+    },
+    "breadth": {
+      "breadth_above_200ma": 100.0,
+      "breadth_sectors_checked": 11,
+      "breadth_regime": "risk_on"
+    },
+    "credit": {
+      "credit_spread": 2.9,
+      "credit_source": "FRED_BAMLH0A0HYM2",
+      "credit_regime": "risk_on"
+    },
+    "yield_curve": {
+      "yield_spread": 0.65,
+      "yield_regime": "risk_on"
+    },
+    "put_call": {
+      "pcr_value": null,
+      "pcr_regime": "neutral"
+    }
+  }
+}

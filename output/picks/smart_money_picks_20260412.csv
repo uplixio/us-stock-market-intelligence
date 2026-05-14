@@ -1,0 +1,21 @@
+﻿ticker,company_name,composite_score,grade,grade_label,strategy,setup,technical_score,fundamental_score,analyst_score,rs_score,volume_score,13f_score,rs_vs_spy
+DAL,"Delta Air Lines, Inc.",70.3,B,Moderate Accumulation,Swing,Base,66,85,75,87.0,50.0,50,14.8
+WDC,Western Digital Corporation,69.5,B,Moderate Accumulation,Trend,Breakout,75,75,55,100.0,50.0,50,29.2
+HPE,Hewlett Packard Enterprise Company,69.5,B,Moderate Accumulation,Trend,Breakout,85,65,67,84.5,50.0,50,13.8
+CCL,Carnival Corporation & plc,68.5,B,Moderate Accumulation,Swing,Base,66,80,70,86.8,50.0,50,14.7
+SNDK,Sandisk Corporation,68.5,B,Moderate Accumulation,Trend,Breakout,75,70,55,100.0,50.0,50,35.4
+UAL,"United Airlines Holdings, Inc.",67.9,B,Moderate Accumulation,Swing,Base,66,80,80,72.8,50.0,50,9.1
+LYV,"Live Nation Entertainment, Inc.",67.7,B,Moderate Accumulation,Swing,Base,81,85,75,44.8,50.0,50,-2.1
+LITE,Lumentum Holdings Inc.,67.5,B,Moderate Accumulation,Trend,Breakout,75,65,55,100.0,50.0,50,43.4
+Q,"Qnity Electronics, Inc.",67.2,B,Moderate Accumulation,Trend,Breakout,75,55,67,99.5,50.0,50,19.8
+ALL,The Allstate Corporation,67.0,B,Moderate Accumulation,Trend,Base,81,80,70,51.5,50.0,50,0.6
+CVNA,Carvana Co.,66.7,B,Moderate Accumulation,Swing,Base,66,75,70,81.5,50.0,50,12.6
+TER,"Teradyne, Inc.",66.5,B,Moderate Accumulation,Trend,Breakout,75,60,55,100.0,50.0,50,26.1
+GLW,Corning Incorporated,66.5,B,Moderate Accumulation,Trend,Breakout,75,60,55,100.0,50.0,50,29.7
+MRK,"Merck & Co., Inc.",66.5,B,Moderate Accumulation,Trend,Base,81,75,67,58.0,50.0,50,3.2
+BKR,Baker Hughes Company,66.3,B,Moderate Accumulation,Trend,Base,81,70,55,75.2,50.0,50,10.1
+CRH,CRH plc,66.2,B,Moderate Accumulation,Swing,Base,60,70,75,89.8,50.0,50,15.9
+EBAY,eBay Inc.,66.2,B,Moderate Accumulation,Trend,Base,81,80,57,59.2,50.0,50,3.7
+WST,"West Pharmaceutical Services, Inc.",66.0,B,Moderate Accumulation,Trend,Base,81,60,70,71.8,50.0,50,8.7
+FITB,Fifth Third Bancorp,66.0,B,Moderate Accumulation,Swing,Base,60,80,70,79.8,50.0,50,11.9
+AMD,"Advanced Micro Devices, Inc.",66.0,B,Moderate Accumulation,Trend,Breakout,68,55,70,100.0,50.0,50,21.6

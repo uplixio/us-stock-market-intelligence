@@ -1,0 +1,34 @@
+{
+  "_comment": "Seed file. Populated by backtest-engineer on first cycle run.",
+  "as_of_date": null,
+  "lookback_days": 0,
+  "universe": "Top 10 equal-weighted",
+  "benchmark": "SPY",
+  "slippage_bps": 5,
+  "fees_bps": 1,
+  "metrics": {
+    "cumulative_return": null,
+    "annualized_return": null,
+    "sharpe": null,
+    "alpha_vs_spy": null,
+    "beta": null,
+    "max_drawdown": null,
+    "win_rate": null,
+    "avg_win": null,
+    "avg_loss": null,
+    "information_ratio": null
+  },
+  "horizon_breakdown": {
+    "1D": {"avg_return": null, "win_rate": null, "std": null},
+    "5D": {"avg_return": null, "win_rate": null, "std": null},
+    "20D": {"avg_return": null, "win_rate": null, "std": null}
+  },
+  "regime_breakdown": {
+    "risk_on": {"trading_days": 0, "win_rate": null, "avg_return": null},
+    "neutral": {"trading_days": 0, "win_rate": null, "avg_return": null},
+    "risk_off": {"trading_days": 0, "win_rate": null, "avg_return": null},
+    "crisis": {"trading_days": 0, "win_rate": null, "avg_return": null}
+  },
+  "weaknesses": [],
+  "history": []
+}

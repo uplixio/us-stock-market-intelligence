@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+.venv/
+
+# Next.js build output
+.next/
+frontend/.next/
+out/
+frontend/out/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+!.env.local.example
+
+# Runtime SQLite sidecars and local writable DBs
+*.db-shm
+*.db-wal
+frontend/board.db
+frontend/board.db-*
+
+# OS/editor noise
+.DS_Store
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+

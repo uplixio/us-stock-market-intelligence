@@ -1,0 +1,289 @@
+{
+  "HPE": {
+    "thesis": "HPE 분석 실패: 503 Server Error: Service Unavailable for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=AIzaSyDhlPw65Stq8lyvhmQib7EQvx67mHp8MQY",
+    "catalysts": [],
+    "bear_cases": [],
+    "recommendation": "HOLD",
+    "confidence": 0
+  },
+  "DAL": {
+    "thesis": "DAL 분석 실패: 503 Server Error: Service Unavailable for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=AIzaSyDhlPw65Stq8lyvhmQib7EQvx67mHp8MQY",
+    "catalysts": [],
+    "bear_cases": [],
+    "recommendation": "HOLD",
+    "confidence": 0
+  },
+  "DELL": {
+    "thesis": "DELL 분석 실패: 503 Server Error: Service Unavailable for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=AIzaSyDhlPw65Stq8lyvhmQib7EQvx67mHp8MQY",
+    "catalysts": [],
+    "bear_cases": [],
+    "recommendation": "HOLD",
+    "confidence": 0
+  },
+  "WDC": {
+    "thesis": "WDC 분석 실패: 503 Server Error: Service Unavailable for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=AIzaSyDhlPw65Stq8lyvhmQib7EQvx67mHp8MQY",
+    "catalysts": [],
+    "bear_cases": [],
+    "recommendation": "HOLD",
+    "confidence": 0
+  },
+  "SNDK": {
+    "thesis": "SanDisk (SNDK)는 최근 칩 산업 전반의 강세와 함께 자체적인 강력한 모멘텀을 보이며 우량주 목록에 이름을 올리고 있습니다. S&P 500 대비 우수한 20일 수익률과 긍정적인 뉴스 흐름은 추가 상승 가능성을 시사하며, 'Moderate Accumulation' 등급과 68.5/100의 종합 점수를 뒷받침합니다.",
+    "catalysts": [
+      {
+        "point": "S&P 500 대비 20일 수익률 29.1%를 기록하며 시장을 크게 상회하는 강력한 상대적 성과를 보이고 있습니다.",
+        "evidence": "[S&P 500 대비 20일 수익률, N/A]"
+      },
+      {
+        "point": "SanDisk (SNDK)가 최고의 성과를 내는 우량주 목록에 포함되었습니다.",
+        "evidence": "[Yahoo, 2026-04-09]"
+      },
+      {
+        "point": "주가가 사상 최고치를 경신하며 랠리를 연장하고 있으며, 이는 강력한 투자자 관심과 모멘텀을 반영합니다.",
+        "evidence": "[TipRanks (Google), 2026-04-09]"
+      },
+      {
+        "point": "전반적인 칩 주식 시장이 강세를 보이며 투자자들의 관심을 끌고 있어 SNDK에도 긍정적인 영향을 미치고 있습니다.",
+        "evidence": "[Finnhub, 2026-04-10]"
+      }
+    ],
+    "bear_cases": [
+      {
+        "point": "핵심 펀더멘털 지표(P/E, 매출 성장률)가 제공되지 않아 기업의 내재가치 및 장기적인 재무 건전성을 평가하기 어렵습니다.",
+        "evidence": "[P/E: N/A, 매출 성장률: N/A]"
+      },
+      {
+        "point": "RSI, MA Signal 등 주요 기술적 지표와 기관 보유율이 모두 'N/A'로 제공되어 주가의 기술적 추세 및 수급 상황을 정확히 분석하기 어렵습니다.",
+        "evidence": "[RSI: N/A, 기관 보유율: N/A]"
+      },
+      {
+        "point": "최근 주가가 사상 최고치를 경신하며 급등한 점은 단기적으로 과매수 상태에 진입했을 가능성을 시사하며, 이는 잠재적인 조정 리스크로 작용할 수 있습니다.",
+        "evidence": "[TipRanks (Google), 2026-04-09]"
+      }
+    ],
+    "data_conflicts": [
+      "긍정적인 뉴스 흐름과 S&P 500 대비 우수한 수익률에도 불구하고, 핵심 펀더멘털 지표(P/E, 매출 성장률) 및 기술적 지표(RSI, MA Signal)가 모두 'N/A'로 제공되어 현재 주가 상승의 근거를 데이터 기반으로 엄격하게 평가하기 어렵습니다. 이는 현재의 긍정적인 모멘텀이 견고한 펀더멘털이나 기술적 지지 없이 뉴스에 의해 과도하게 부양되었을 가능성을 배제할 수 없음을 의미합니다."
+    ],
+    "key_metrics": {
+      "pe": 0,
+      "growth": 0,
+      "rsi": 50,
+      "inst_pct": 0
+    },
+    "recommendation": "BUY",
+    "confidence": 75
+  },
+  "LITE": {
+    "thesis": "Lumentum은 최근 Nvidia AI 파트너십 부각과 AI Capex 급증에 대한 기대감으로 강력한 모멘텀을 보이며 S&P 500 대비 긍정적인 수익률을 기록했습니다. 애널리스트들의 목표가 상향 조정과 주가 사상 최고치 경신은 추가 상승 여력을 시사하며, 'Moderate Accumulation' 등급에 부합합니다.",
+    "catalysts": [
+      {
+        "point": "AI Capex 및 Nvidia 파트너십 부각: Lumentum은 Nvidia AI 파트너십을 통해 AI Capex 급증의 핵심 수혜주로 부상하며 대차대조표를 재편하고 있습니다.",
+        "evidence": "[Yahoo, 2026-04-09], [Finnhub, 2026-04-10]"
+      },
+      {
+        "point": "강력한 시장 성과 및 애널리스트 낙관론: Lumentum 주가는 사상 최고치를 경신했으며, 한 애널리스트는 목표가를 68% 상향 조정할 충분한 이유가 있다고 언급했습니다. 또한, S&P 500 대비 20일 수익률이 32.3%를 기록하며 우수한 성과를 보였습니다.",
+        "evidence": "[Google, 2026-04-09], [제공된 데이터, N/A]"
+      },
+      {
+        "point": "블루칩 주식으로서의 인정: Lumentum은 최근 가장 실적이 좋은 블루칩 주식 중 하나로 평가받고 있습니다.",
+        "evidence": "[Yahoo, 2026-04-09]"
+      }
+    ],
+    "bear_cases": [
+      {
+        "point": "핵심 재무 지표 부재: P/E, 매출 성장률 등 핵심 펀더멘털 지표가 제공되지 않아 현재 밸류에이션 수준을 판단하기 어렵고, 이는 투자 결정의 불확실성을 높입니다.",
+        "evidence": "[제공된 데이터, N/A]"
+      },
+      {
+        "point": "AI Capex 및 Nvidia 의존도: AI Capex 급증과 Nvidia 파트너십에 대한 기대감이 주가에 과도하게 반영되었을 수 있으며, AI 시장의 변동성이나 Nvidia와의 관계 변화 시 리스크가 될 수 있습니다.",
+        "evidence": "[Yahoo, 2026-04-09], [Finnhub, 2026-04-10]"
+      },
+      {
+        "point": "공급망 병목 현상 리스크: AI Capex 급증 관련 뉴스에서 언급된 '병목 현상'은 Lumentum의 생산 및 공급 능력에 부정적인 영향을 미쳐 예상 매출 성장을 저해할 수 있습니다.",
+        "evidence": "[Finnhub, 2026-04-10]"
+      }
+    ],
+    "data_conflicts": [
+      "제공된 데이터에는 현재가, P/E, 매출 성장률, RSI, 기관 보유율 등 투자 분석에 필수적인 대부분의 펀더멘털 및 기술적 지표가 'N/A'로 표기되어 있습니다. 이는 Lumentum이 S&P 500 대비 32.3%의 높은 20일 수익률을 기록하고, 'Moderate Accumulation' 등급 및 67.5점의 종합 점수를 받았으며, 긍정적인 뉴스 흐름(Nvidia AI 파트너십, 애널리스트 목표가 상향, 주가 사상 최고치)을 보이는 것과 상충됩니다. 핵심 데이터의 부재로 인해 강력한 뉴스 및 모멘텀을 정량적으로 뒷받침하거나 반박하기 어렵습니다."
+    ],
+    "key_metrics": {
+      "pe": 0,
+      "growth": 0,
+      "rsi": 50,
+      "inst_pct": 0
+    },
+    "recommendation": "BUY",
+    "confidence": 65
+  },
+  "SO": {
+    "thesis": "The Southern Company (SO)는 유틸리티 섹터 내에서 매력적인 배당주로서의 잠재력과 함께 올해 10%의 수익률을 기대할 수 있는 종목으로 평가됩니다. 그러나 핵심 펀더멘털 및 기술적 지표의 부재로 인해 투자 결정에 대한 확신을 높이는 데 제약이 있습니다.",
+    "catalysts": [
+      {
+        "point": "SO는 다음 배당 귀족(Dividend Aristocrat)이 될 잠재력을 가지고 있으며, 올해 10%의 수익률을 기대할 수 있습니다.",
+        "evidence": "[Yahoo, 2026-04-09]"
+      },
+      {
+        "point": "SO는 유틸리티 섹터 내에서 가장 높은 배당금을 지급하는 15개 기업 중 하나로, 안정적인 현금 흐름과 배당 매력을 제공합니다.",
+        "evidence": "[Yahoo, 2026-04-09]"
+      },
+      {
+        "point": "S&P 500 대비 20일 수익률이 0.6%로, 시장 대비 소폭의 아웃퍼폼을 기록했습니다.",
+        "evidence": "[펀더멘털, N/A]"
+      }
+    ],
+    "bear_cases": [
+      {
+        "point": "P/E, 매출 성장률, RSI, 기관 보유율 등 핵심 펀더멘털 및 기술적 지표가 부재하여 엄격한 데이터 기반 분석 및 가치 평가가 불가능합니다.",
+        "evidence": "[Provided Data, N/A]"
+      },
+      {
+        "point": "메인 주의 데이터 센터 금지 사례와 같이 유틸리티 산업 전반에 걸친 규제 리스크는 미래 전력 수요 성장 및 사업 확장에 부정적인 영향을 미칠 수 있습니다.",
+        "evidence": "[Finnhub, 2026-04-09]"
+      },
+      {
+        "point": "종합 점수 67.3/100 및 'B (Moderate Accumulation)' 등급은 긍정적이지만, 강력한 매수 신호라기보다는 신중한 접근을 요하는 중간 수준의 평가로 해석될 수 있습니다.",
+        "evidence": "[종목 정보, N/A]"
+      }
+    ],
+    "data_conflicts": [
+      "기술적 및 펀더멘털 핵심 지표(P/E, 매출 성장률, RSI 등)의 부재로 인해 종합 점수(67.3/100) 및 'Moderate Accumulation' 등급의 근거를 데이터 기반으로 엄격하게 검증하기 어렵습니다. 긍정적인 뉴스(배당 매력, 10% 수익률 잠재력)가 제시되지만, 이를 뒷받침하거나 반박할 수 있는 구체적인 재무 및 기술적 데이터가 부족하여 분석의 깊이에 한계가 있습니다."
+    ],
+    "key_metrics": {
+      "pe": 0,
+      "growth": 0,
+      "rsi": 50,
+      "inst_pct": 0
+    },
+    "recommendation": "BUY",
+    "confidence": 35
+  },
+  "UAL": {
+    "thesis": "United Airlines (UAL)는 최근 S&P 500 대비 아웃퍼폼하고 주가에 긍정적인 모멘텀을 보이며 'Moderate Accumulation' 등급을 받았으나, 핵심 펀더멘털 및 기술적 지표의 부재로 인해 심층적인 데이터 기반 분석이 제한적입니다. 긍정적인 시장 대비 성과와 산업 전반의 수익성 개선 가능성은 매력적이지만, 노동 비용 증가 및 지배구조 관련 불확실성은 리스크 요인으로 작용합니다.",
+    "catalysts": [
+      {
+        "point": "S&P 500 대비 20일 수익률 6.9%를 기록하며 시장을 아웃퍼폼하는 강한 상대적 성과를 보이고 있습니다.",
+        "evidence": "[Yahoo, 2026-04-09]"
+      },
+      {
+        "point": "최근 7.9%의 주가 급등과 함께 'Strength Seen in United'라는 뉴스 보도는 단기적인 주가 모멘텀이 강함을 시사합니다.",
+        "evidence": "[Yahoo, 2026-04-09]"
+      },
+      {
+        "point": "경쟁사인 American Airlines의 수하물 수수료 인상 소식은 항공 산업 전반의 수익성 개선 가능성을 시사하며, UAL 또한 유사한 전략을 통해 매출을 증대할 수 있습니다.",
+        "evidence": "[Finnhub, 2026-04-09]"
+      }
+    ],
+    "bear_cases": [
+      {
+        "point": "승무원과의 '풍부한 계약(Rich Flight Attendant Deal)'은 인건비 상승으로 이어져 향후 수익성에 부정적인 영향을 미칠 수 있습니다.",
+        "evidence": "[Yahoo, 2026-04-09]"
+      },
+      {
+        "point": "진행 중인 '위임장 대결(Proxy Fight)'은 경영진의 전략적 방향성에 대한 불확실성을 야기하고, 단기적으로 기업 지배구조의 불안정성을 초래할 수 있습니다.",
+        "evidence": "[Yahoo, 2026-04-09]"
+      },
+      {
+        "point": "핵심 펀더멘털 지표(P/E, 매출 성장률) 및 기술적 지표(RSI, MA Signal)의 부재는 기업의 내재 가치 및 시장 심리를 정확히 평가하기 어렵게 만들어, 투자 결정의 불확실성을 높입니다.",
+        "evidence": "[N/A, N/A]"
+      }
+    ],
+    "data_conflicts": [
+      "기술적 분석 지표(RSI, MA Signal, Cross Signal) 및 핵심 펀더멘털 지표(P/E, 매출 성장률)가 부재하여, 'B (Moderate Accumulation)' 등급 및 67.1점의 종합 점수를 뒷받침하거나 반박할 구체적인 데이터 기반 분석이 불가능합니다. 이는 긍정적인 뉴스 흐름(시장 대비 아웃퍼폼, 주가 급등)과 대조적으로, 투자 결정에 필요한 핵심 정보가 부족함을 의미합니다."
+    ],
+    "key_metrics": {
+      "pe": 0,
+      "growth": 0,
+      "rsi": 50,
+      "inst_pct": 0
+    },
+    "recommendation": "BUY",
+    "confidence": 67.1
+  },
+  "JBL": {
+    "thesis": "Jabil은 AI 인프라 및 차세대 통신 솔루션 수요 증가에 힘입어 긍정적인 실적 추정치 상향 조정이 기대되며, 최근 S&P 500 대비 긍정적인 단기 성과를 보이고 있습니다. [Yahoo, 2026-04-09], [Finnhub, 2026-04-10]",
+    "catalysts": [
+      {
+        "point": "AI 인프라 구축 수요 증가의 간접적 수혜 기대",
+        "evidence": "[Finnhub, 2026-04-10]"
+      },
+      {
+        "point": "차세대 통신 솔루션이 미래 성장을 견인할 잠재력 보유",
+        "evidence": "[Yahoo, 2026-04-09]"
+      },
+      {
+        "point": "긍정적인 실적 추정치 상향 조정으로 인한 주가 상승 기대",
+        "evidence": "[Yahoo, 2026-04-09]"
+      },
+      {
+        "point": "S&P 500 대비 20일 수익률 13.9%로 단기 시장 대비 우수한 성과",
+        "evidence": "[제공된 데이터, N/A]"
+      }
+    ],
+    "bear_cases": [
+      {
+        "point": "주요 펀더멘털 지표(P/E, 매출 성장률)가 N/A로 제공되어 적정 가치 평가에 대한 불확실성 존재",
+        "evidence": "[제공된 데이터, N/A]"
+      },
+      {
+        "point": "지난 1년간 122%의 주가 급등으로 인해 고평가 논란 및 추가 상승 여력 제한 가능성",
+        "evidence": "[simplywall.st, 2026-04-09]"
+      },
+      {
+        "point": "수급/기술적 분석 지표(RSI, MA Signal 등)가 N/A로 제공되어 단기적인 시장 심리 및 모멘텀 파악의 한계",
+        "evidence": "[제공된 데이터, N/A]"
+      }
+    ],
+    "data_conflicts": [
+      "\"Moderate Accumulation\" 등급과 긍정적인 뉴스 흐름(실적 추정치 상향, 성장 동력)은 매수 관점을 지지하지만, P/E, 매출 성장률 등 핵심 펀더멘털 지표가 N/A로 제공되어 정량적인 가치 평가가 불가능하다는 점에서 충돌이 발생합니다. [제공된 데이터, N/A]",
+      "S&P 500 대비 20일 수익률 13.9%는 강한 단기 모멘텀을 시사하지만, RSI, MA Signal 등 다른 기술적 지표들이 N/A여서 기술적 분석의 전체적인 그림을 파악하기 어렵습니다. [제공된 데이터, N/A]",
+      "지난 1년간 122%의 주가 급등 소식은 긍정적이지만, \"너무 늦었는가?\"라는 질문을 제기하며 현재 가격에서의 추가 상승 여력에 대한 의문을 남겨 \"Moderate Accumulation\" 등급과 상충될 수 있습니다. [simplywall.st, 2026-04-09]"
+    ],
+    "key_metrics": {
+      "pe": 0,
+      "growth": 0,
+      "rsi": 50,
+      "inst_pct": 0
+    },
+    "recommendation": "BUY",
+    "confidence": 65
+  },
+  "ALL": {
+    "thesis": "The Allstate Corporation (ALL)은 'B (Moderate Accumulation)' 등급과 66.6/100의 종합 점수를 바탕으로 완만한 매수 의견을 제시합니다. S&P 500 대비 긍정적인 20일 수익률과 시장 대비 높은 상승세를 보인다는 최근 뉴스는 긍정적인 모멘텀을 시사합니다. 그러나 핵심 펀더멘털 및 기술적 지표의 부재로 인해 투자 결정에 상당한 불확실성이 존재합니다.",
+    "catalysts": [
+      {
+        "point": "시장 대비 우수한 주가 성과",
+        "evidence": "[Yahoo, 2026-04-09], [펀더멘털, N/A]"
+      },
+      {
+        "point": "긍정적인 등급 및 종합 점수",
+        "evidence": "[종목 정보, N/A]"
+      }
+    ],
+    "bear_cases": [
+      {
+        "point": "핵심 펀더멘털 지표 부재로 인한 가치 평가 불확실성",
+        "evidence": "[펀더멘털, N/A]"
+      },
+      {
+        "point": "주요 기술적 지표 부재로 인한 모멘텀 및 추세 분석 불가",
+        "evidence": "[수급/기술적 분석, N/A]"
+      },
+      {
+        "point": "등급 'B (Moderate Accumulation)'는 강력한 매수 신호가 아니며, 추가 상승 여력에 대한 의문 제기",
+        "evidence": "[종목 정보, N/A]"
+      }
+    ],
+    "data_conflicts": [
+      "뉴스(긍정적 모멘텀) vs 기술적 지표(부재): 'S&P 500 대비 20일 수익률 3.5%' 및 'Allstate (ALL) Rises Higher Than Market' 뉴스는 긍정적인 주가 모멘텀을 시사하지만, RSI, MA Signal 등 핵심 기술적 지표가 모두 N/A로 제공되어 이를 객관적으로 검증하거나 추가 분석할 수 없습니다. [펀더멘털, N/A], [Yahoo, 2026-04-09]",
+      "등급(긍정적) vs 펀더멘털 지표(부재): 'B (Moderate Accumulation)' 등급과 66.6/100의 종합 점수는 긍정적인 투자 의견을 제시하지만, P/E, 매출 성장률 등 기업의 가치를 평가할 핵심 펀더멘털 지표가 모두 N/A로 제공되어 등급의 근거를 펀더멘털적으로 뒷받침하기 어렵습니다. [종목 정보, N/A], [펀더멘털, N/A]"
+    ],
+    "key_metrics": {
+      "pe": 0,
+      "growth": 0,
+      "rsi": 50,
+      "inst_pct": 0
+    },
+    "recommendation": "BUY",
+    "confidence": 30
+  }
+}

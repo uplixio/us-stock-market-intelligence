@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Light mode (default) ─────────────────────────────────────────── */
+:root {
+  /* Surface */
+  --color-surface-container-lowest:  #ffffff;
+  --color-surface-container-low:     #f3f5fb;
+  --color-surface-container:         #eaecf5;
+  --color-surface-container-high:    #e0e3ef;
+  --color-surface-container-highest: #d6daeb;
+  --color-surface-bright:            #e8eaf6;
+  --color-surface-variant:           #d6daeb;
+  --color-surface-dim:               #f0f2f8;
+  --color-surface-tint:              #16a34a;
+  --color-surface:                   #f8f9fe;
+  --color-background:                #f8f9fe;
+  /* Primary (green — adjusted for white bg) */
+  --color-primary:                   #16a34a;
+  --color-primary-fixed:             #15803d;
+  --color-primary-fixed-dim:         #14532d;
+  --color-primary-container:         #dcfce7;
+  --color-inverse-primary:           #86efac;
+  --color-on-primary:                #ffffff;
+  --color-on-primary-fixed:          #ffffff;
+  --color-on-primary-fixed-variant:  #166534;
+  --color-on-primary-container:      #14532d;
+  /* Secondary (amber) */
+  --color-secondary:                 #78350f;
+  --color-secondary-fixed:           #d97706;
+  --color-secondary-fixed-dim:       #b45309;
+  --color-secondary-container:       #fef3c7;
+  --color-on-secondary:              #ffffff;
+  --color-on-secondary-fixed:        #451a03;
+  --color-on-secondary-fixed-variant:#713f12;
+  --color-on-secondary-container:    #78350f;
+  /* Tertiary (rose) */
+  --color-tertiary:                  #be185d;
+  --color-tertiary-fixed:            #fce7f3;
+  --color-tertiary-fixed-dim:        #fbcfe8;
+  --color-tertiary-container:        #fce7f3;
+  --color-on-tertiary:               #ffffff;
+  --color-on-tertiary-fixed:         #831843;
+  --color-on-tertiary-fixed-variant: #9d174d;
+  --color-on-tertiary-container:     #831843;
+  /* Error (red — adjusted for white bg) */
+  --color-error:                     #dc2626;
+  --color-error-container:           #fee2e2;
+  --color-on-error:                  #ffffff;
+  --color-on-error-container:        #7f1d1d;
+  /* Text */
+  --color-on-surface:                #0f172a;
+  --color-on-surface-variant:        #475569;
+  --color-on-background:             #0f172a;
+  --color-inverse-surface:           #0f172a;
+  --color-inverse-on-surface:        #f8f9fe;
+  /* Borders */
+  --color-outline:                   #94a3b8;
+  --color-outline-variant:           #cbd5e1;
+  /* Regime chart colors */
+  --color-regime-risk-on:            #16a34a;
+  --color-regime-neutral:            #d97706;
+  --color-regime-risk-off:           #dc2626;
+  --color-regime-crisis:             #7f1d1d;
+  --color-regime-risk-on-bg:         rgba(22, 163, 74, 0.08);
+  --color-regime-neutral-bg:         rgba(217, 119, 6, 0.08);
+  --color-regime-risk-off-bg:        rgba(220, 38, 38, 0.08);
+  --color-regime-crisis-bg:          rgba(127, 29, 29, 0.08);
+}
+
+/* ─── Dark mode ─────────────────────────────────────────────────────── */
+.dark {
+  /* Surface */
+  --color-surface-container-lowest:  #0b0e14;
+  --color-surface-container-low:     #191c22;
+  --color-surface-container:         #1d2026;
+  --color-surface-container-high:    #272a31;
+  --color-surface-container-highest: #32353c;
+  --color-surface-bright:            #363940;
+  --color-surface-variant:           #32353c;
+  --color-surface-dim:               #10131a;
+  --color-surface-tint:              #3ce36a;
+  --color-surface:                   #10131a;
+  --color-background:                #10131a;
+  /* Primary */
+  --color-primary:                   #3fe56c;
+  --color-primary-fixed:             #69ff87;
+  --color-primary-fixed-dim:         #3ce36a;
+  --color-primary-container:         #00c853;
+  --color-inverse-primary:           #006e2a;
+  --color-on-primary:                #003912;
+  --color-on-primary-fixed:          #002108;
+  --color-on-primary-fixed-variant:  #00531e;
+  --color-on-primary-container:      #004c1b;
+  /* Secondary */
+  --color-secondary:                 #fff3d2;
+  --color-secondary-fixed:           #ffe170;
+  --color-secondary-fixed-dim:       #e9c400;
+  --color-secondary-container:       #fdd400;
+  --color-on-secondary:              #3a3000;
+  --color-on-secondary-fixed:        #221b00;
+  --color-on-secondary-fixed-variant:#544600;
+  --color-on-secondary-container:    #6f5c00;
+  /* Tertiary */
+  --color-tertiary:                  #ffb7a6;
+  --color-tertiary-fixed:            #ffdad2;
+  --color-tertiary-fixed-dim:        #ffb4a2;
+  --color-tertiary-container:        #ff8e72;
+  --color-on-tertiary:               #621100;
+  --color-on-tertiary-fixed:         #3c0700;
+  --color-on-tertiary-fixed-variant: #8a1d00;
+  --color-on-tertiary-container:     #7f1a00;
+  /* Error */
+  --color-error:                     #ffb4ab;
+  --color-error-container:           #93000a;
+  --color-on-error:                  #690005;
+  --color-on-error-container:        #ffdad6;
+  /* Text */
+  --color-on-surface:                #e1e2eb;
+  --color-on-surface-variant:        #bbcbb8;
+  --color-on-background:             #e1e2eb;
+  --color-inverse-surface:           #e1e2eb;
+  --color-inverse-on-surface:        #2e3037;
+  /* Borders */
+  --color-outline:                   #869583;
+  --color-outline-variant:           #3c4a3c;
+  /* Regime chart colors */
+  --color-regime-risk-on:            #3fe56c;
+  --color-regime-neutral:            #fdd400;
+  --color-regime-risk-off:           #ffb4ab;
+  --color-regime-crisis:             #93000a;
+  --color-regime-risk-on-bg:         rgba(63, 229, 108, 0.08);
+  --color-regime-neutral-bg:         rgba(253, 212, 0, 0.08);
+  --color-regime-risk-off-bg:        rgba(255, 180, 171, 0.08);
+  --color-regime-crisis-bg:          rgba(147, 0, 10, 0.08);
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: var(--color-surface-container-lowest);
+  color: var(--color-on-surface);
+}
+
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ─── Glass panel ───────────────────────────────────────────────────── */
+.glass-panel {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+.dark .glass-panel {
+  background: rgba(39, 42, 49, 0.7);
+  border: none;
+}
+
+/* ─── Glow effects ─────────────────────────────────────────────────── */
+.glow-primary   { box-shadow: 0 4px 16px rgba(22, 163, 74, 0.18); }
+.glow-secondary { box-shadow: 0 4px 16px rgba(217, 119, 6, 0.18); }
+.glow-error     { box-shadow: 0 4px 16px rgba(185, 28, 28, 0.18); }
+.text-glow-primary { text-shadow: 0 0 8px rgba(22, 163, 74, 0.25); }
+
+.dark .glow-primary   { box-shadow: 0 0 15px rgba(63, 229, 108, 0.3); }
+.dark .glow-secondary { box-shadow: 0 0 15px rgba(253, 212, 0, 0.3); }
+.dark .glow-error     { box-shadow: 0 0 15px rgba(255, 61, 0, 0.3); }
+.dark .text-glow-primary { text-shadow: 0 0 12px rgba(63, 229, 108, 0.4); }
+
+@keyframes glow {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--color-primary); }
+  50%       { opacity: 0.4; box-shadow: none; }
+}
+.animate-glow { animation: glow 2s infinite; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up { animation: fadeInUp 0.4s ease-out both; }
+
+.stagger-1  { animation-delay: 0.05s; }
+.stagger-2  { animation-delay: 0.10s; }
+.stagger-3  { animation-delay: 0.15s; }
+.stagger-4  { animation-delay: 0.20s; }
+.stagger-5  { animation-delay: 0.25s; }
+.stagger-6  { animation-delay: 0.30s; }
+.stagger-7  { animation-delay: 0.35s; }
+.stagger-8  { animation-delay: 0.40s; }
+.stagger-9  { animation-delay: 0.45s; }
+.stagger-10 { animation-delay: 0.50s; }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
+}

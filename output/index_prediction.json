@@ -1,0 +1,87 @@
+{
+  "date": "2026-05-14",
+  "predictions": {
+    "spy": {
+      "direction": "bullish",
+      "probability_up": 0.632,
+      "predicted_return": 0.433,
+      "confidence": "moderate",
+      "confidence_pct": 63.2,
+      "key_drivers": [
+        {
+          "feature": "spy_vol_trend_5d",
+          "importance": 0.0794,
+          "value": -0.035,
+          "direction": "bearish"
+        },
+        {
+          "feature": "spy_price_vs_50ma_pct",
+          "importance": 0.077,
+          "value": 7.953,
+          "direction": "bullish"
+        },
+        {
+          "feature": "xlu_relative_1m",
+          "importance": 0.0721,
+          "value": -10.764,
+          "direction": "bullish"
+        },
+        {
+          "feature": "spy_return_1m",
+          "importance": 0.0683,
+          "value": 6.89,
+          "direction": "bullish"
+        },
+        {
+          "feature": "yield_spread_proxy",
+          "importance": 0.0677,
+          "value": 0.351,
+          "direction": "bullish"
+        }
+      ],
+      "model_trained_at": "2026-05-14T10:07:45.139425",
+      "model_accuracy": 0.497
+    },
+    "qqq": {
+      "direction": "bullish",
+      "probability_up": 0.833,
+      "predicted_return": 0.797,
+      "confidence": "high",
+      "confidence_pct": 83.3,
+      "key_drivers": [
+        {
+          "feature": "yield_spread_proxy",
+          "importance": 0.0836,
+          "value": 0.351,
+          "direction": "bullish"
+        },
+        {
+          "feature": "spy_return_1m",
+          "importance": 0.0766,
+          "value": 6.89,
+          "direction": "bullish"
+        },
+        {
+          "feature": "spy_vol_trend_5d",
+          "importance": 0.0759,
+          "value": -0.035,
+          "direction": "bearish"
+        },
+        {
+          "feature": "xlk_relative_1m",
+          "importance": 0.0734,
+          "value": 12.651,
+          "direction": "bullish"
+        },
+        {
+          "feature": "xlu_relative_1m",
+          "importance": 0.0675,
+          "value": -10.764,
+          "direction": "bullish"
+        }
+      ],
+      "model_trained_at": "2026-05-14T10:07:48.281415",
+      "model_accuracy": 0.4439
+    }
+  }
+}

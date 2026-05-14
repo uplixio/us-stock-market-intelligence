@@ -1,0 +1,268 @@
+[
+  {
+    "date": "2026-04-05",
+    "spy": {
+      "direction": null,
+      "probability": null,
+      "predicted_return": null
+    },
+    "qqq": {
+      "direction": null,
+      "probability": null,
+      "predicted_return": null
+    },
+    "model_accuracy": 0.0
+  },
+  {
+    "date": "2026-04-05",
+    "spy": {
+      "direction": "bearish",
+      "probability": 0.085,
+      "predicted_return": -3.135
+    },
+    "qqq": {
+      "direction": "bearish",
+      "probability": 0.138,
+      "predicted_return": -3.59
+    },
+    "model_accuracy": 53.2
+  },
+  {
+    "date": "2026-04-05",
+    "spy": {
+      "direction": "bearish",
+      "probability": 0.085,
+      "predicted_return": -3.135
+    },
+    "qqq": {
+      "direction": "bearish",
+      "probability": 0.138,
+      "predicted_return": -3.59
+    },
+    "model_accuracy": 53.2
+  },
+  {
+    "date": "2026-04-08",
+    "spy": {
+      "direction": "bullish",
+      "probability": 0.574,
+      "predicted_return": -0.592
+    },
+    "qqq": {
+      "direction": "bearish",
+      "probability": 0.151,
+      "predicted_return": -1.623
+    },
+    "model_accuracy": 53.2
+  },
+  {
+    "date": "2026-04-09",
+    "spy": {
+      "direction": "bullish",
+      "probability": 0.673,
+      "predicted_return": -0.879
+    },
+    "qqq": {
+      "direction": "bullish",
+      "probability": 0.554,
+      "predicted_return": -0.663
+    },
+    "model_accuracy": 53.2
+  },
+  {
+    "date": "2026-04-10",
+    "spy": {
+      "direction": "bullish",
+      "probability": 0.625,
+      "predicted_return": -0.59
+    },
+    "qqq": {
+      "direction": "bearish",
+      "probability": 0.152,
+      "predicted_return": -1.405
+    },
+    "model_accuracy": 53.2
+  },
+  {
+    "date": "2026-04-10",
+    "spy": {
+      "direction": "bullish",
+      "probability": 0.625,
+      "predicted_return": -0.59
+    },
+    "qqq": {
+      "direction": "bearish",
+      "probability": 0.152,
+      "predicted_return": -1.456
+    },
+    "model_accuracy": 53.2
+  },
+  {
+    "date": "2026-04-12",
+    "spy": {
+      "direction": "bullish",
+      "probability": 0.546,
+      "predicted_return": -0.822
+    },
+    "qqq": {
+      "direction": "bearish",
+      "probability": 0.182,
+      "predicted_return": -1.475
+    },
+    "model_accuracy": 53.2
+  },
+  {
+    "date": "2026-04-14",
+    "spy": {
+      "direction": "bullish",
+      "probability": 0.654,
+      "predicted_return": 0.502
+    },
+    "qqq": {
+      "direction": "bearish",
+      "probability": 0.301,
+      "predicted_return": -0.039
+    },
+    "model_accuracy": 52.7
+  },
+  {
+    "date": "2026-04-14",
+    "spy": {
+      "direction": "bullish",
+      "probability": 0.618,
+      "predicted_return": 0.509
+    },
+    "qqq": {
+      "direction": "bearish",
+      "probability": 0.299,
+      "predicted_return": -0.039
+    },
+    "model_accuracy": 52.7
+  },
+  {
+    "date": "2026-04-14",
+    "spy": {
+      "direction": "bullish",
+      "probability": 0.618,
+      "predicted_return": 0.509
+    },
+    "qqq": {
+      "direction": "bearish",
+      "probability": 0.299,
+      "predicted_return": -0.039
+    },
+    "model_accuracy": 52.7
+  },
+  {
+    "date": "2026-04-14",
+    "spy": {
+      "direction": "bullish",
+      "probability": 0.744,
+      "predicted_return": 0.451
+    },
+    "qqq": {
+      "direction": "bearish",
+      "probability": 0.286,
+      "predicted_return": -0.072
+    },
+    "model_accuracy": 52.7
+  },
+  {
+    "date": "2026-04-15",
+    "spy": {
+      "direction": "bearish",
+      "probability": 0.47,
+      "predicted_return": -0.184
+    },
+    "qqq": {
+      "direction": "bearish",
+      "probability": 0.31,
+      "predicted_return": 0.077
+    },
+    "model_accuracy": 52.7
+  },
+  {
+    "date": "2026-04-16",
+    "spy": {
+      "direction": "bullish",
+      "probability": 0.583,
+      "predicted_return": -0.32
+    },
+    "qqq": {
+      "direction": "bearish",
+      "probability": 0.15,
+      "predicted_return": -0.349
+    },
+    "model_accuracy": 52.7
+  },
+  {
+    "date": "2026-04-16",
+    "spy": {
+      "direction": "bullish",
+      "probability": 0.583,
+      "predicted_return": -0.32
+    },
+    "qqq": {
+      "direction": "bearish",
+      "probability": 0.15,
+      "predicted_return": -0.349
+    },
+    "model_accuracy": 52.7
+  },
+  {
+    "date": "2026-04-17",
+    "spy": {
+      "direction": "bearish",
+      "probability": 0.419,
+      "predicted_return": -0.725
+    },
+    "qqq": {
+      "direction": "bearish",
+      "probability": 0.276,
+      "predicted_return": -0.777
+    },
+    "model_accuracy": 52.7
+  },
+  {
+    "date": "2026-04-18",
+    "spy": {
+      "direction": "bearish",
+      "probability": 0.407,
+      "predicted_return": -0.453
+    },
+    "qqq": {
+      "direction": "bearish",
+      "probability": 0.157,
+      "predicted_return": -1.46
+    },
+    "model_accuracy": 52.7
+  },
+  {
+    "date": "2026-05-14",
+    "spy": {
+      "direction": "bullish",
+      "probability": 0.632,
+      "predicted_return": 0.433
+    },
+    "qqq": {
+      "direction": "bullish",
+      "probability": 0.836,
+      "predicted_return": 0.797
+    },
+    "model_accuracy": 49.7
+  },
+  {
+    "date": "2026-05-14",
+    "spy": {
+      "direction": "bullish",
+      "probability": 0.632,
+      "predicted_return": 0.433
+    },
+    "qqq": {
+      "direction": "bullish",
+      "probability": 0.833,
+      "predicted_return": 0.797
+    },
+    "model_accuracy": 49.7
+  }
+]

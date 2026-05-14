@@ -1,0 +1,147 @@
+{
+  "total": 20,
+  "top": [
+    {
+      "ticker": "ALB",
+      "gbm_score": 0.561,
+      "gbm_rank": 1,
+      "company_name": "Albemarle Corporation",
+      "sector": "Materials"
+    },
+    {
+      "ticker": "ADI",
+      "gbm_score": 0.5573,
+      "gbm_rank": 2,
+      "company_name": "Analog Devices",
+      "sector": "Information Technology"
+    },
+    {
+      "ticker": "ALGN",
+      "gbm_score": 0.5573,
+      "gbm_rank": 3,
+      "company_name": "Align Technology",
+      "sector": "Health Care"
+    },
+    {
+      "ticker": "AMAT",
+      "gbm_score": 0.5573,
+      "gbm_rank": 4,
+      "company_name": "Applied Materials",
+      "sector": "Information Technology"
+    },
+    {
+      "ticker": "ARE",
+      "gbm_score": 0.5426,
+      "gbm_rank": 5,
+      "company_name": "Alexandria Real Estate Equities",
+      "sector": "Real Estate"
+    },
+    {
+      "ticker": "AES",
+      "gbm_score": 0.5379,
+      "gbm_rank": 6,
+      "company_name": "AES Corporation",
+      "sector": "Utilities"
+    },
+    {
+      "ticker": "AAPL",
+      "gbm_score": 0.5372,
+      "gbm_rank": 7,
+      "company_name": "Apple Inc.",
+      "sector": "Information Technology"
+    },
+    {
+      "ticker": "ADM",
+      "gbm_score": 0.5363,
+      "gbm_rank": 8,
+      "company_name": "Archer Daniels Midland",
+      "sector": "Consumer Staples"
+    },
+    {
+      "ticker": "ABNB",
+      "gbm_score": 0.5339,
+      "gbm_rank": 9,
+      "company_name": "Airbnb",
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "ticker": "AMCR",
+      "gbm_score": 0.5298,
+      "gbm_rank": 10,
+      "company_name": "Amcor",
+      "sector": "Materials"
+    },
+    {
+      "ticker": "AKAM",
+      "gbm_score": 0.5295,
+      "gbm_rank": 11,
+      "company_name": "Akamai Technologies",
+      "sector": "Information Technology"
+    },
+    {
+      "ticker": "AFL",
+      "gbm_score": 0.526,
+      "gbm_rank": 12,
+      "company_name": "Aflac",
+      "sector": "Financials"
+    },
+    {
+      "ticker": "ATO",
+      "gbm_score": 0.5246,
+      "gbm_rank": 13,
+      "company_name": "Atmos Energy",
+      "sector": "Utilities"
+    },
+    {
+      "ticker": "APO",
+      "gbm_score": 0.5238,
+      "gbm_rank": 14,
+      "company_name": "Apollo Global Management",
+      "sector": "Financials"
+    },
+    {
+      "ticker": "APTV",
+      "gbm_score": 0.5211,
+      "gbm_rank": 15,
+      "company_name": "Aptiv",
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "ticker": "T",
+      "gbm_score": 0.521,
+      "gbm_rank": 16,
+      "company_name": "AT&T",
+      "sector": "Communication Services"
+    },
+    {
+      "ticker": "AMD",
+      "gbm_score": 0.5192,
+      "gbm_rank": 17,
+      "company_name": "Advanced Micro Devices",
+      "sector": "Information Technology"
+    },
+    {
+      "ticker": "MO",
+      "gbm_score": 0.5174,
+      "gbm_rank": 18,
+      "company_name": "Altria",
+      "sector": "Consumer Staples"
+    },
+    {
+      "ticker": "ACN",
+      "gbm_score": 0.5131,
+      "gbm_rank": 19,
+      "company_name": "Accenture",
+      "sector": "Information Technology"
+    },
+    {
+      "ticker": "AMP",
+      "gbm_score": 0.5131,
+      "gbm_rank": 20,
+      "company_name": "Ameriprise Financial",
+      "sector": "Financials"
+    }
+  ],
+  "model": "GradientBoosting (cross-sectional, 20-day horizon)",
+  "generated_from": "output/gbm_predictions.csv"
+}

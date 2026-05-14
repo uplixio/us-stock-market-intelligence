@@ -1,0 +1,2 @@
+﻿VIX,regime,regime_description,fear_greed
+"{'value': np.float64(17.87), 'regime': 'neutral'}",neutral,시장이 보통 수준입니다. 균형 잡힌 포지션 유지.,"{'score': 65.8571428571429, 'rating': 'greed'}"

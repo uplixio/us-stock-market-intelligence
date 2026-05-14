@@ -1,0 +1,713 @@
+import { useCallback } from "react";
+import { useLang, type Lang } from "@/components/LangProvider";
+
+type Dict = Record<string, string>;
+
+const EN: Dict = {
+  // Navigation - sidebar
+  "nav.overview": "Overview",
+  "nav.regime": "Market Regime",
+  "nav.topPicks": "Top Picks",
+  "nav.ai": "AI Analysis",
+  "nav.forecast": "Index Forecast",
+  "nav.ml": "ML Rankings",
+  "nav.risk": "Risk Monitor",
+  "nav.performance": "Performance",
+  "nav.graph": "System Graph",
+  "nav.aiBuilder": "AI Builder",
+  "nav.board": "Board",
+  "nav.download": "Download",
+  "nav.costs": "API Costs",
+  // Mobile short forms
+  "nav.mobile.overview": "Overview",
+  "nav.mobile.regime": "Regime",
+  "nav.mobile.topPicks": "Picks",
+  "nav.mobile.ai": "AI",
+  "nav.mobile.forecast": "Forecast",
+  "nav.mobile.ml": "ML",
+  "nav.mobile.risk": "Risk",
+  "nav.mobile.performance": "Perf",
+  "nav.mobile.graph": "Graph",
+  "nav.mobile.aiBuilder": "Builder",
+  "nav.mobile.board": "Board",
+  "nav.mobile.download": "Files",
+  "nav.mobile.costs": "Cost",
+  // Sidebar meta
+  "side.title": "Frindle Tools",
+  "side.subtitle": "Executive Intelligence",
+  "side.status": "System Status",
+  "side.synced": "Synced",
+  // Top nav
+  "top.tools": "Tools",
+  "top.board": "Board",
+  "top.download": "Download",
+  // Common
+  "common.reportDate": "Report Date",
+  "common.verdict": "Verdict",
+  "common.confidence": "Confidence",
+  "common.screened": "Screened",
+  "common.stocksAnalyzed": "stocks analyzed",
+  "common.marketGate": "Market Gate",
+  "common.score": "Score",
+  "common.regime": "Regime",
+  "common.gate": "Gate",
+  "common.noData": "No data available",
+  "common.loading": "Loading...",
+  "common.critical": "critical",
+  "common.warning": "warning",
+  // Dashboard
+  "dash.heroTitle": "US Stock Market Intelligence",
+  "dash.heroSubtitle": "Real-time regime detection · Smart money screening · AI analysis",
+  "dash.coreIndicators": "Core Regime Indicators",
+  "dash.topAlphaPicks": "Top 5 Alpha Picks",
+  "dash.fullTerminal": "Full Terminal View",
+  "dash.integratedVerdict": "Integrated Verdict",
+  "dash.gateScore": "Gate Score",
+  "dash.breadthGauge": "Breadth Gauge",
+  "dash.aiFeed": "AI Feed",
+  "dash.bearish": "Bearish",
+  "dash.neutral": "Neutral",
+  "dash.bullish": "Bullish",
+  "dash.riskStatus": "Risk Status",
+  "dash.allocation": "Allocation",
+  "dash.var5d": "VaR (5D)",
+  "dash.portfolio": "Portfolio",
+  "dash.totalValue": "Total value",
+  "dash.riskAlerts": "Risk Alerts",
+  "dash.allClear": "All Clear — no risk items",
+  "dash.positionSizing": "Position Sizing",
+  "dash.stopLossStatus": "Stop-Loss Status",
+  "dash.breached": "BREACHED",
+  "dash.warningCount": "WARNING",
+  "dash.ok": "OK",
+  "dash.fullRiskMonitor": "Full Risk Monitor",
+  "dash.alert": "ALERT",
+  "dash.watch": "WATCH",
+  "dash.clear": "CLEAR",
+  "dash.invested": "Invested",
+  "dash.cash": "Cash",
+  "dash.budget": "Budget",
+  "dash.reportNotFound": "No report found for this date",
+  "dash.reportNotFoundHint": "Pick another date or run the pipeline",
+  // Regime page
+  "regime.globalStatus": "Global Status",
+  "regime.regimeScore": "Regime Score",
+  "regime.stopLoss": "Stop Loss",
+  "regime.mddWarning": "MDD Warning",
+  "regime.strategy": "Strategy",
+  "regime.aiInsight": "AI Insight",
+  "regime.insightRiskOn": "Market expansion — momentum active",
+  "regime.insightOther": "Market consolidating before expansion",
+  "regime.sensorStatus": "5 Sensor Status",
+  "regime.noSensors": "No sensor data",
+  "regime.adaptiveParams": "Adaptive Parameters",
+  "regime.volumeDivergence": "Volume-Price Divergence (SPY)",
+  "regime.divergenceSub": "Volume-price divergence / Climax alert",
+  "regime.noSignal": "No special signal",
+  "regime.noDivergence": "No SPY volume-price divergence detected (lookback 10D)",
+  "regime.sectorGate": "Sector Gate · 11 SPDR ETFs",
+  "regime.noSectorGate": "No sector gate data",
+  "regime.sectorFormula": "Score ≥60 BULLISH · 40~60 NEUTRAL · <40 BEARISH · Formula: RSI 30% + MACD 30% + Volume 20% + RS vs SPY 20%",
+  "regime.sectorStats": "avg {avg} · bullish {bull} / bearish {bear} · Top: {top} · Bottom: {bottom}",
+  // Status labels
+  "status.bullish": "BULLISH",
+  "status.bearish": "BEARISH",
+  "status.neutral": "NEUTRAL",
+  "status.riskOn": "RISK ON",
+  "status.riskOff": "RISK OFF",
+  "status.crisis": "CRISIS",
+  "status.caution": "CAUTION",
+  "status.go": "GO",
+  "status.stop": "STOP",
+  "status.high": "High",
+  "status.medium": "Medium",
+  "status.low": "Low",
+  "status.confidence": "Confidence",
+  // Strategy
+  "strategy.aggressive": "Aggressive",
+  "strategy.balanced": "Balanced",
+  "strategy.defensive": "Defensive",
+  // Top Picks page
+  "top.heroTitle": "Smart Money Top 10",
+  "top.heroSubtitle": "Institutional flow & AI scoring · {n} screened",
+  "top.colTicker": "Ticker",
+  "top.colGrade": "Grade",
+  "top.colComposite": "Composite Score",
+  "top.colStrategy": "Strategy",
+  "top.colSetup": "Setup",
+  "top.colTech": "Tech",
+  "top.colFund": "Fund",
+  "top.colAnalyst": "Analyst",
+  "top.colRs": "RS vs SPY",
+  "top.colAction": "Action",
+  // ML page
+  "ml.breakdownTitle": "Quantitative Score Breakdown",
+  "ml.colNumber": "#",
+  "ml.colComposite": "Composite",
+  "ml.colTech": "Tech",
+  "ml.colFund": "Fund",
+  "ml.colAnalyst": "Analyst",
+  "ml.colRsScore": "RS Score",
+  "ml.colVolume": "Volume",
+  "ml.col13f": "13F",
+  "ml.colRsVsSpy": "RS vs SPY",
+  "ml.colStrength": "Strength",
+  // Forecast page
+  "forecast.title": "Index Forecast",
+  "forecast.probUp": "Probability (UP)",
+  "forecast.predReturn": "Predicted Return",
+  "forecast.modelAcc": "Model Acc",
+  "forecast.keyDriversSpy": "Key Drivers (SPY)",
+  "forecast.keyDriversQqq": "Key Drivers (QQQ)",
+  "forecast.modelInfo": "Model Info",
+  "forecast.modelMeta": "SPY/QQQ · 5-day horizon",
+  "forecast.spyCvAcc": "SPY CV Acc",
+  "forecast.qqqCvAcc": "QQQ CV Acc",
+  "forecast.trained": "Trained",
+  "forecast.features": "Features",
+  "forecast.history": "Prediction History",
+  "forecast.colDate": "Date",
+  "forecast.colSpy": "SPY",
+  "forecast.colSpyProb": "SPY Prob",
+  "forecast.colQqq": "QQQ",
+  "forecast.colQqqProb": "QQQ Prob",
+  // Risk page
+  "risk.title": "Risk Monitor",
+  "risk.riskBudget": "Risk Budget",
+  "risk.colLevel": "Level",
+  "risk.colCategory": "Category",
+  "risk.colTicker": "Ticker",
+  "risk.colMessage": "Message",
+  "risk.colValue": "Value",
+  "risk.colThreshold": "Threshold",
+  "risk.colAction": "Action",
+  "risk.stopLossMonitor": "Stop-Loss Monitor",
+  "risk.colCompany": "Company",
+  "risk.colEntry": "Entry",
+  "risk.colCurrent": "Current",
+  "risk.colDeltaEntry": "Δ Entry",
+  "risk.colDeltaPeak": "Δ Peak",
+  "risk.colFixed": "Fixed",
+  "risk.colTrailing": "Trailing",
+  "risk.colStatus": "Status",
+  "risk.sectorConc": "Sector Concentration",
+  "risk.correlationRisk": "Correlation Risk",
+  "risk.correlationExposure": "Correlation Exposure",
+  "risk.componentVar": "Component VaR",
+  "risk.stressTesting": "Stress Testing",
+  "risk.cdarCvar": "CDaR / CVaR",
+  "risk.colCdar": "CDaR",
+  "risk.colCvar": "CVaR",
+  "risk.colMaxDd": "Max DD",
+  "risk.colCurrentDd": "Current DD",
+  // Performance page
+  "perf.totalReturn": "Total Return",
+  "perf.sharpe": "Sharpe Ratio",
+  "perf.alpha": "Alpha vs SPY",
+  "perf.maxDd": "Max Drawdown",
+  "perf.winRate": "Win Rate",
+  "perf.backtester": "Strategy Backtester",
+  "perf.equityCurve": "Equity Curve",
+  "perf.signalTimeline": "Signal Timeline",
+  "perf.colInvest": "Invest",
+  "perf.col5dReturn": "5D Return",
+  // AI page
+  "ai.title": "{ticker} AI Analysis",
+  "ai.thesis": "Investment Thesis",
+  "ai.signalStrength": "AI Signal Strength",
+  "ai.bullCatalysts": "Bull Catalysts",
+  "ai.bearRisks": "Bear Risks",
+  "ai.aiEngine": "AI Engine - Neural Analysis Active",
+  "ai.composite": "Composite",
+  "ai.technical": "Technical",
+  "ai.fundamental": "Fundamental",
+  "ai.analyst": "Analyst",
+  "ai.rsVsSpy": "RS vs SPY",
+  // Stock detail
+  "stock.crossRef": "6-Indicator Cross-Reference",
+  "stock.marketRegime": "Market Regime",
+  "stock.aiAnalysis": "AI Analysis",
+  "stock.indexForecast": "Index Forecast",
+  "stock.mlRankings": "ML Rankings",
+  "stock.riskMonitor": "Risk Monitor",
+  "stock.performance": "Performance",
+  "stock.stockGrade": "Stock Grade",
+  "stock.action": "Action",
+  "stock.sectorGate": "Sector Gate",
+  // VerdictHero
+  "stock.strategyPrefix": "Strategy:",
+  "stock.setupPrefix": "Setup:",
+  "stock.vsSpy": "vs SPY:",
+  "stock.verdictPrefix": "Verdict",
+  // ScoreWaterfall
+  "stock.composite": "Composite",
+  "stock.technical": "Technical",
+  "stock.fundamental": "Fundamental",
+  "stock.analyst": "Analyst",
+  "stock.rs": "RS",
+  "stock.volume": "Volume",
+  "stock.13f": "13F",
+  "stock.scoreBreakdown": "Composite Score Breakdown",
+  "stock.weightedSum": "Weighted Sum",
+  // Costs
+  "costs.apiPricing": "API Pricing",
+  "costs.freeTier": "Free tier available",
+  "costs.perRequest": "Per-request pricing",
+  "costs.estCost": "Estimated Cost (10 stocks · per run)",
+  "costs.input": "Input",
+  "costs.output": "Output",
+  // Graph page
+  "graph.title": "System Knowledge Graph",
+  "graph.typeDataSource": "Data Source",
+  "graph.typeCollector": "Collector",
+  "graph.typeAnalyzer": "Analyzer",
+  "graph.typeSignal": "Signal",
+  "graph.typeOutput": "Output",
+  "graph.typeDashboardPage": "Dashboard Page",
+  "graph.typeStockTicker": "Stock Ticker",
+  "graph.typeSector": "Sector",
+  "graph.typeAiAgent": "AI Agent",
+  "graph.typeSubIndicator": "Sub Indicator",
+  // Sensor names
+  "sensor.vix": "VIX",
+  "sensor.trend": "Trend",
+  "sensor.breadth": "Breadth",
+  "sensor.credit": "Credit",
+  "sensor.yieldCurve": "Yield Curve",
+  "sensor.putCall": "Put/Call",
+  "sensor.regime": "Regime",
+  "sensor.gate": "Gate",
+  // Live badge
+  "live": "LIVE",
+};
+
+const KO: Dict = {
+  // Navigation - sidebar
+  "nav.overview": "개요",
+  "nav.regime": "시장 체제",
+  "nav.topPicks": "상위 종목",
+  "nav.ai": "AI 분석",
+  "nav.forecast": "지수 예측",
+  "nav.ml": "ML 랭킹",
+  "nav.risk": "리스크 모니터",
+  "nav.performance": "성과",
+  "nav.graph": "시스템 그래프",
+  "nav.aiBuilder": "AI 빌더",
+  "nav.board": "게시판",
+  "nav.download": "다운로드",
+  "nav.costs": "API 비용",
+  // Mobile short forms
+  "nav.mobile.overview": "개요",
+  "nav.mobile.regime": "체제",
+  "nav.mobile.topPicks": "픽",
+  "nav.mobile.ai": "AI",
+  "nav.mobile.forecast": "예측",
+  "nav.mobile.ml": "ML",
+  "nav.mobile.risk": "리스크",
+  "nav.mobile.performance": "성과",
+  "nav.mobile.graph": "그래프",
+  "nav.mobile.aiBuilder": "빌더",
+  "nav.mobile.board": "게시판",
+  "nav.mobile.download": "파일",
+  "nav.mobile.costs": "비용",
+  // Sidebar meta
+  "side.title": "Frindle Tools",
+  "side.subtitle": "경영자용 인텔리전스",
+  "side.status": "시스템 상태",
+  "side.synced": "동기화",
+  // Top nav
+  "top.tools": "도구",
+  "top.board": "게시판",
+  "top.download": "다운로드",
+  // Common
+  "common.reportDate": "리포트 날짜",
+  "common.verdict": "종합 판정",
+  "common.confidence": "신뢰도",
+  "common.screened": "스크리닝",
+  "common.stocksAnalyzed": "종목 분석됨",
+  "common.marketGate": "시장 게이트",
+  "common.score": "점수",
+  "common.regime": "체제",
+  "common.gate": "게이트",
+  "common.noData": "데이터 없음",
+  "common.loading": "로딩 중...",
+  "common.critical": "심각",
+  "common.warning": "경고",
+  // Dashboard
+  "dash.heroTitle": "미국 주식 마켓 인텔리전스",
+  "dash.heroSubtitle": "실시간 체제 감지 · 스마트머니 스크리닝 · AI 분석",
+  "dash.coreIndicators": "핵심 체제 지표",
+  "dash.topAlphaPicks": "상위 5 알파 픽",
+  "dash.fullTerminal": "전체 터미널 보기",
+  "dash.integratedVerdict": "통합 판정",
+  "dash.gateScore": "게이트 점수",
+  "dash.breadthGauge": "시장폭 게이지",
+  "dash.aiFeed": "AI 피드",
+  "dash.bearish": "약세",
+  "dash.neutral": "중립",
+  "dash.bullish": "강세",
+  "dash.riskStatus": "리스크 상태",
+  "dash.allocation": "배분",
+  "dash.var5d": "VaR (5일)",
+  "dash.portfolio": "포트폴리오",
+  "dash.totalValue": "총 자산가치",
+  "dash.riskAlerts": "리스크 알림",
+  "dash.allClear": "정상 — 리스크 항목 없음",
+  "dash.positionSizing": "포지션 사이징",
+  "dash.stopLossStatus": "손절선 상태",
+  "dash.breached": "돌파",
+  "dash.warningCount": "경고",
+  "dash.ok": "정상",
+  "dash.fullRiskMonitor": "리스크 모니터 전체보기",
+  "dash.alert": "경보",
+  "dash.watch": "주시",
+  "dash.clear": "정상",
+  "dash.invested": "투자",
+  "dash.cash": "현금",
+  "dash.budget": "예산",
+  "dash.reportNotFound": "해당 날짜에 리포트가 없습니다",
+  "dash.reportNotFoundHint": "다른 날짜를 선택하거나 파이프라인을 실행해주세요",
+  // Regime page
+  "regime.globalStatus": "전체 상태",
+  "regime.regimeScore": "체제 점수",
+  "regime.stopLoss": "손절선",
+  "regime.mddWarning": "MDD 경고",
+  "regime.strategy": "전략",
+  "regime.aiInsight": "AI 인사이트",
+  "regime.insightRiskOn": "시장 확장 — 모멘텀 활성화",
+  "regime.insightOther": "확장 전 정체 구간",
+  "regime.sensorStatus": "5개 센서 상태",
+  "regime.noSensors": "센서 데이터 없음",
+  "regime.adaptiveParams": "적응형 파라미터",
+  "regime.volumeDivergence": "거래량-가격 다이버전스 (SPY)",
+  "regime.divergenceSub": "거래량-가격 불일치 / 클라이맥스 경보",
+  "regime.noSignal": "특이 신호 없음",
+  "regime.noDivergence": "SPY 거래량-가격 다이버전스 탐지되지 않음 (lookback 10일)",
+  "regime.sectorGate": "섹터 게이트 · 11 SPDR ETF",
+  "regime.noSectorGate": "섹터 게이트 데이터 없음",
+  "regime.sectorFormula": "점수 ≥60 강세 · 40~60 중립 · <40 약세 · 공식: RSI 30% + MACD 30% + 거래량 20% + RS vs SPY 20%",
+  "regime.sectorStats": "평균 {avg}점 · 강세 {bull} / 약세 {bear} · Top: {top} · Bottom: {bottom}",
+  // Status labels
+  "status.bullish": "강세",
+  "status.bearish": "약세",
+  "status.neutral": "중립",
+  "status.riskOn": "위험 선호",
+  "status.riskOff": "위험 회피",
+  "status.crisis": "위기",
+  "status.caution": "주의",
+  "status.go": "매수",
+  "status.stop": "중단",
+  "status.high": "높음",
+  "status.medium": "보통",
+  "status.low": "낮음",
+  "status.confidence": "신뢰도",
+  // Strategy
+  "strategy.aggressive": "공격적",
+  "strategy.balanced": "균형",
+  "strategy.defensive": "방어적",
+  // Top Picks page
+  "top.heroTitle": "스마트머니 상위 10",
+  "top.heroSubtitle": "기관 자금흐름 & AI 스코어링 · {n}개 스크리닝",
+  "top.colTicker": "티커",
+  "top.colGrade": "등급",
+  "top.colComposite": "종합 점수",
+  "top.colStrategy": "전략",
+  "top.colSetup": "셋업",
+  "top.colTech": "기술",
+  "top.colFund": "펀더멘털",
+  "top.colAnalyst": "애널리스트",
+  "top.colRs": "RS vs SPY",
+  "top.colAction": "액션",
+  // ML page
+  "ml.breakdownTitle": "정량 점수 분해",
+  "ml.colNumber": "#",
+  "ml.colComposite": "종합",
+  "ml.colTech": "기술",
+  "ml.colFund": "펀더",
+  "ml.colAnalyst": "애널리스트",
+  "ml.colRsScore": "RS 점수",
+  "ml.colVolume": "거래량",
+  "ml.col13f": "13F",
+  "ml.colRsVsSpy": "RS vs SPY",
+  "ml.colStrength": "강도",
+  // Forecast page
+  "forecast.title": "지수 예측",
+  "forecast.probUp": "상승 확률",
+  "forecast.predReturn": "예측 수익률",
+  "forecast.modelAcc": "모델 정확도",
+  "forecast.keyDriversSpy": "핵심 드라이버 (SPY)",
+  "forecast.keyDriversQqq": "핵심 드라이버 (QQQ)",
+  "forecast.modelInfo": "모델 정보",
+  "forecast.modelMeta": "SPY/QQQ · 5일 전망",
+  "forecast.spyCvAcc": "SPY CV 정확도",
+  "forecast.qqqCvAcc": "QQQ CV 정확도",
+  "forecast.trained": "학습일",
+  "forecast.features": "피처 수",
+  "forecast.history": "예측 이력",
+  "forecast.colDate": "날짜",
+  "forecast.colSpy": "SPY",
+  "forecast.colSpyProb": "SPY 확률",
+  "forecast.colQqq": "QQQ",
+  "forecast.colQqqProb": "QQQ 확률",
+  // Risk page
+  "risk.title": "리스크 모니터",
+  "risk.riskBudget": "리스크 예산",
+  "risk.colLevel": "등급",
+  "risk.colCategory": "카테고리",
+  "risk.colTicker": "티커",
+  "risk.colMessage": "메시지",
+  "risk.colValue": "값",
+  "risk.colThreshold": "임계값",
+  "risk.colAction": "액션",
+  "risk.stopLossMonitor": "손절선 모니터",
+  "risk.colCompany": "종목",
+  "risk.colEntry": "진입가",
+  "risk.colCurrent": "현재가",
+  "risk.colDeltaEntry": "진입 대비",
+  "risk.colDeltaPeak": "고점 대비",
+  "risk.colFixed": "고정",
+  "risk.colTrailing": "추적",
+  "risk.colStatus": "상태",
+  "risk.sectorConc": "섹터 집중도",
+  "risk.correlationRisk": "상관관계 리스크",
+  "risk.correlationExposure": "상관관계 익스포저",
+  "risk.componentVar": "컴포넌트 VaR",
+  "risk.stressTesting": "스트레스 테스트",
+  "risk.cdarCvar": "CDaR / CVaR",
+  "risk.colCdar": "CDaR",
+  "risk.colCvar": "CVaR",
+  "risk.colMaxDd": "최대 낙폭",
+  "risk.colCurrentDd": "현재 낙폭",
+  // Performance page
+  "perf.totalReturn": "총 수익률",
+  "perf.sharpe": "샤프 비율",
+  "perf.alpha": "SPY 대비 알파",
+  "perf.maxDd": "최대 낙폭",
+  "perf.winRate": "승률",
+  "perf.backtester": "전략 백테스터",
+  "perf.equityCurve": "자산 곡선",
+  "perf.signalTimeline": "시그널 타임라인",
+  "perf.colInvest": "투자",
+  "perf.col5dReturn": "5일 수익",
+  // AI page
+  "ai.title": "{ticker} AI 분석",
+  "ai.thesis": "투자 논리",
+  "ai.signalStrength": "AI 시그널 강도",
+  "ai.bullCatalysts": "강세 촉매",
+  "ai.bearRisks": "약세 리스크",
+  "ai.aiEngine": "AI 엔진 - 신경망 분석 가동 중",
+  "ai.composite": "종합",
+  "ai.technical": "기술",
+  "ai.fundamental": "펀더멘털",
+  "ai.analyst": "애널리스트",
+  "ai.rsVsSpy": "RS vs SPY",
+  // Stock detail
+  "stock.crossRef": "6개 지표 교차 검증",
+  "stock.marketRegime": "시장 체제",
+  "stock.aiAnalysis": "AI 분석",
+  "stock.indexForecast": "지수 예측",
+  "stock.mlRankings": "ML 랭킹",
+  "stock.riskMonitor": "리스크 모니터",
+  "stock.performance": "성과",
+  "stock.stockGrade": "종목 등급",
+  "stock.action": "액션",
+  "stock.sectorGate": "섹터 게이트",
+  // VerdictHero
+  "stock.strategyPrefix": "전략:",
+  "stock.setupPrefix": "셋업:",
+  "stock.vsSpy": "vs SPY:",
+  "stock.verdictPrefix": "판정",
+  // ScoreWaterfall
+  "stock.composite": "종합",
+  "stock.technical": "기술",
+  "stock.fundamental": "펀더멘털",
+  "stock.analyst": "애널리스트",
+  "stock.rs": "RS",
+  "stock.volume": "거래량",
+  "stock.13f": "13F",
+  "stock.scoreBreakdown": "종합 점수 분해",
+  "stock.weightedSum": "가중 합계",
+  // Costs
+  "costs.apiPricing": "API 요금제",
+  "costs.freeTier": "무료 티어 제공",
+  "costs.perRequest": "요청당 과금",
+  "costs.estCost": "예상 비용 (10개 종목 · 회당)",
+  "costs.input": "입력",
+  "costs.output": "출력",
+  // Graph page
+  "graph.title": "시스템 지식 그래프",
+  "graph.typeDataSource": "데이터 소스",
+  "graph.typeCollector": "수집기",
+  "graph.typeAnalyzer": "분석기",
+  "graph.typeSignal": "시그널",
+  "graph.typeOutput": "산출물",
+  "graph.typeDashboardPage": "대시보드 페이지",
+  "graph.typeStockTicker": "종목 티커",
+  "graph.typeSector": "섹터",
+  "graph.typeAiAgent": "AI 에이전트",
+  "graph.typeSubIndicator": "세부 항목",
+  // Sensor names (공유명사 — 유지)
+  "sensor.vix": "VIX",
+  "sensor.trend": "TREND",
+  "sensor.breadth": "BREADTH",
+  "sensor.credit": "CREDIT",
+  "sensor.yieldCurve": "YIELD CURVE",
+  "sensor.putCall": "PUT/CALL",
+  "sensor.regime": "REGIME",
+  "sensor.gate": "GATE",
+  // Live badge
+  "live": "LIVE",
+};
+
+const MESSAGES: Record<Lang, Dict> = { en: EN, ko: KO };
+
+export function translate(lang: Lang, key: string, vars?: Record<string, string | number>): string {
+  const raw = MESSAGES[lang][key] ?? MESSAGES.en[key] ?? key;
+  if (!vars) return raw;
+  return Object.entries(vars).reduce(
+    (acc, [k, v]) => acc.replace(new RegExp(`\\{${k}\\}`, "g"), String(v)),
+    raw,
+  );
+}
+
+export function useT() {
+  const { lang } = useLang();
+  return useCallback(
+    (key: string, vars?: Record<string, string | number>) => translate(lang, key, vars),
+    [lang],
+  );
+}
+
+// --- Runtime enum mappers (JSON-sourced values) ---
+
+const REGIME_MAP: Record<Lang, Dict> = {
+  en: {
+    risk_on: "RISK ON",
+    neutral: "NEUTRAL",
+    risk_off: "RISK OFF",
+    crisis: "CRISIS",
+    bullish: "BULLISH",
+    bearish: "BEARISH",
+    BULLISH: "BULLISH",
+    BEARISH: "BEARISH",
+    NEUTRAL: "NEUTRAL",
+  },
+  ko: {
+    risk_on: "위험 선호",
+    neutral: "중립",
+    risk_off: "위험 회피",
+    crisis: "위기",
+    bullish: "강세",
+    bearish: "약세",
+    BULLISH: "강세",
+    BEARISH: "약세",
+    NEUTRAL: "중립",
+  },
+};
+
+export function mapRegime(lang: Lang, v: string | undefined | null): string {
+  if (!v) return "";
+  return REGIME_MAP[lang][v] ?? v.replace("_", " ").toUpperCase();
+}
+
+const GATE_MAP: Record<Lang, Dict> = {
+  en: { GO: "GO", CAUTION: "CAUTION", STOP: "STOP" },
+  ko: { GO: "매수", CAUTION: "주의", STOP: "중단" },
+};
+
+export function mapGate(lang: Lang, v: string | undefined | null): string {
+  if (!v) return "";
+  return GATE_MAP[lang][v] ?? v;
+}
+
+const STRATEGY_MAP: Record<Lang, Dict> = {
+  en: { Trend: "Trend", Swing: "Swing", Reversal: "Reversal" },
+  ko: { Trend: "추세", Swing: "스윙", Reversal: "반전" },
+};
+
+export function mapStrategy(lang: Lang, v: string | undefined | null): string {
+  if (!v) return "";
+  return STRATEGY_MAP[lang][v] ?? v;
+}
+
+const SETUP_MAP: Record<Lang, Dict> = {
+  en: { Breakout: "Breakout", Pullback: "Pullback", Base: "Base" },
+  ko: { Breakout: "브레이크아웃", Pullback: "눌림목", Base: "바닥 다지기" },
+};
+
+export function mapSetup(lang: Lang, v: string | undefined | null): string {
+  if (!v) return "";
+  return SETUP_MAP[lang][v] ?? v;
+}
+
+const ACTION_MAP: Record<Lang, Dict> = {
+  en: {
+    BUY: "BUY",
+    "SMALL BUY": "SMALL BUY",
+    WATCH: "WATCH",
+    HOLD: "HOLD",
+    SELL: "SELL",
+    REDUCE: "REDUCE",
+  },
+  ko: {
+    BUY: "매수",
+    "SMALL BUY": "소량 매수",
+    WATCH: "관찰",
+    HOLD: "보유",
+    SELL: "매도",
+    REDUCE: "축소",
+  },
+};
+
+export function mapAction(lang: Lang, v: string | undefined | null): string {
+  if (!v) return "";
+  return ACTION_MAP[lang][v] ?? v;
+}
+
+const CONF_MAP: Record<Lang, Dict> = {
+  en: { High: "High", Medium: "Medium", Low: "Low", high: "high", medium: "medium", low: "low" },
+  ko: { High: "높음", Medium: "보통", Low: "낮음", high: "높음", medium: "보통", low: "낮음" },
+};
+
+export function mapConfLevel(lang: Lang, v: string | undefined | null): string {
+  if (!v) return "";
+  return CONF_MAP[lang][v] ?? v;
+}
+
+const GRADE_LABEL_MAP: Record<Lang, Dict> = {
+  en: {
+    "Strong Accumulation": "Strong Accumulation",
+    "Moderate Accumulation": "Moderate Accumulation",
+    "Neutral": "Neutral",
+    "Distribution": "Distribution",
+    "Capitulation": "Capitulation",
+  },
+  ko: {
+    "Strong Accumulation": "강한 매집",
+    "Moderate Accumulation": "중간 매집",
+    "Neutral": "중립",
+    "Distribution": "분산",
+    "Capitulation": "투매",
+  },
+};
+
+export function mapGradeLabel(lang: Lang, v: string | undefined | null): string {
+  if (!v) return "";
+  return GRADE_LABEL_MAP[lang][v] ?? v;
+}
+
+// Sensor key → display label
+const SENSOR_LABEL_MAP: Record<string, string> = {
+  vix: "VIX",
+  trend: "TREND",
+  breadth: "BREADTH",
+  credit: "CREDIT",
+  yield_curve: "YIELD CURVE",
+  put_call: "PUT/CALL",
+  regime: "REGIME",
+  gate: "GATE",
+};
+
+export function mapSensorKey(key: string): string {
+  return SENSOR_LABEL_MAP[key] ?? key.replace(/_/g, " ").toUpperCase();
+}

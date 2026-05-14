@@ -1,0 +1,1428 @@
+{
+  "generated_at": "2026-04-16",
+  "system_graph": {
+    "nodes": [
+      {
+        "id": "yahoo_finance",
+        "name": "Yahoo Finance",
+        "type": "data_source",
+        "description": "주가·재무 OHLCV 데이터 (yfinance)"
+      },
+      {
+        "id": "fred",
+        "name": "FRED",
+        "type": "data_source",
+        "description": "연준 거시경제 지표 (금리, CPI 등)"
+      },
+      {
+        "id": "vix",
+        "name": "VIX Index",
+        "type": "data_source",
+        "description": "공포지수 — ^VIX (CBOE)"
+      },
+      {
+        "id": "finnhub",
+        "name": "Finnhub",
+        "type": "data_source",
+        "description": "애널리스트 의견 + 뉴스 피드"
+      },
+      {
+        "id": "wikipedia",
+        "name": "Wikipedia",
+        "type": "data_source",
+        "description": "S&P 500 종목 목록 (HTML 파싱)"
+      },
+      {
+        "id": "us_price_fetcher",
+        "name": "USPriceFetcher",
+        "type": "collector",
+        "description": "S&P500 503종목 일별 OHLCV 수집 (curl_cffi)"
+      },
+      {
+        "id": "macro_collector",
+        "name": "MacroCollector",
+        "type": "collector",
+        "description": "VIX, FRED, Fear&Greed 거시 데이터 수집"
+      },
+      {
+        "id": "sp500_list",
+        "name": "SP500List",
+        "type": "collector",
+        "description": "Wikipedia에서 S&P500 종목+섹터 목록"
+      },
+      {
+        "id": "market_regime",
+        "name": "MarketRegime",
+        "type": "analyzer",
+        "description": "5-Sensor 가중투표: VIX(30%) + Trend(25%) + Breadth(18%) + Credit(15%) + YieldCurve(12%)"
+      },
+      {
+        "id": "market_gate",
+        "name": "MarketGate",
+        "type": "analyzer",
+        "description": "11개 섹터 ETF 분석 → GO/CAUTION/STOP"
+      },
+      {
+        "id": "smart_money",
+        "name": "SmartMoney",
+        "type": "analyzer",
+        "description": "기술(25%) + 펀더멘털(20%) + 애널리스트(15%) + RS(15%) + 볼륨(15%) + 13F(10%)"
+      },
+      {
+        "id": "ai_analysis",
+        "name": "AIAnalysis",
+        "type": "analyzer",
+        "description": "Gemini/GPT/Perplexity 멀티 AI 분석 + 폴백"
+      },
+      {
+        "id": "ml_predictor",
+        "name": "MLPredictor (GBM)",
+        "type": "analyzer",
+        "description": "LightGBM — SPY/QQQ 5일 방향 예측 (bullish/bearish)"
+      },
+      {
+        "id": "final_report_gen",
+        "name": "FinalReportGen",
+        "type": "analyzer",
+        "description": "Quant + AI 점수 결합 → 최종 Top10 랭킹"
+      },
+      {
+        "id": "risk_alert_engine",
+        "name": "RiskAlertEngine",
+        "type": "analyzer",
+        "description": "Stop-loss / VaR / CDaR / 집중도 / 스트레스 테스트"
+      },
+      {
+        "id": "sig_regime",
+        "name": "Regime Signal",
+        "type": "signal",
+        "description": "risk_on / neutral / risk_off / crisis"
+      },
+      {
+        "id": "sig_gate",
+        "name": "Gate Signal",
+        "type": "signal",
+        "description": "GO / CAUTION / STOP"
+      },
+      {
+        "id": "sig_ml",
+        "name": "ML Signal",
+        "type": "signal",
+        "description": "bullish / bearish + confidence %"
+      },
+      {
+        "id": "sig_verdict",
+        "name": "Verdict",
+        "type": "signal",
+        "description": "최종 진입 판정: GO / CAUTION / STOP"
+      },
+      {
+        "id": "out_top_picks",
+        "name": "TopPicks JSON",
+        "type": "output",
+        "description": "final_top10_report.json — 최종 추천 10종목"
+      },
+      {
+        "id": "out_risk_alerts",
+        "name": "RiskAlerts JSON",
+        "type": "output",
+        "description": "risk_alerts.json — 포지션·리스크 경보"
+      },
+      {
+        "id": "out_performance",
+        "name": "Performance JSON",
+        "type": "output",
+        "description": "performance.json — 전략 백테스트 시뮬레이션"
+      },
+      {
+        "id": "out_daily_report",
+        "name": "DailyReport JSON",
+        "type": "output",
+        "description": "daily_report_YYYYMMDD.json — 43개 일별 리포트"
+      },
+      {
+        "id": "page_overview",
+        "name": "Overview",
+        "type": "page",
+        "href": "/",
+        "description": "메인 대시보드 — 시장 요약"
+      },
+      {
+        "id": "page_regime",
+        "name": "Market Regime",
+        "type": "page",
+        "href": "/regime",
+        "description": "5-Sensor 레짐 분석"
+      },
+      {
+        "id": "page_risk",
+        "name": "Risk Monitor",
+        "type": "page",
+        "href": "/risk",
+        "description": "포지션 리스크 + 스트레스 테스트"
+      },
+      {
+        "id": "page_top_picks",
+        "name": "Top Picks",
+        "type": "page",
+        "href": "/top-picks",
+        "description": "Smart Money Top 10 종목"
+      },
+      {
+        "id": "page_ai",
+        "name": "AI Analysis",
+        "type": "page",
+        "href": "/ai",
+        "description": "AI 종목별 투자 논리"
+      },
+      {
+        "id": "page_forecast",
+        "name": "Index Forecast",
+        "type": "page",
+        "href": "/forecast",
+        "description": "SPY/QQQ 방향 예측"
+      },
+      {
+        "id": "page_ml",
+        "name": "ML Rankings",
+        "type": "page",
+        "href": "/ml",
+        "description": "GBM 모델 종목 랭킹"
+      },
+      {
+        "id": "page_performance",
+        "name": "Performance",
+        "type": "page",
+        "href": "/performance",
+        "description": "전략 백테스트 시뮬레이션"
+      },
+      {
+        "id": "page_graph",
+        "name": "System Graph",
+        "type": "page",
+        "href": "/graph",
+        "description": "시스템 아키텍처 지식 그래프"
+      }
+    ],
+    "edges": [
+      {
+        "source": "yahoo_finance",
+        "target": "us_price_fetcher",
+        "type": "feeds"
+      },
+      {
+        "source": "yahoo_finance",
+        "target": "macro_collector",
+        "type": "feeds"
+      },
+      {
+        "source": "fred",
+        "target": "macro_collector",
+        "type": "feeds"
+      },
+      {
+        "source": "vix",
+        "target": "macro_collector",
+        "type": "feeds"
+      },
+      {
+        "source": "finnhub",
+        "target": "us_price_fetcher",
+        "type": "feeds"
+      },
+      {
+        "source": "wikipedia",
+        "target": "sp500_list",
+        "type": "feeds"
+      },
+      {
+        "source": "us_price_fetcher",
+        "target": "market_regime",
+        "type": "feeds"
+      },
+      {
+        "source": "us_price_fetcher",
+        "target": "market_gate",
+        "type": "feeds"
+      },
+      {
+        "source": "us_price_fetcher",
+        "target": "smart_money",
+        "type": "feeds"
+      },
+      {
+        "source": "us_price_fetcher",
+        "target": "ml_predictor",
+        "type": "feeds"
+      },
+      {
+        "source": "macro_collector",
+        "target": "market_regime",
+        "type": "feeds"
+      },
+      {
+        "source": "sp500_list",
+        "target": "smart_money",
+        "type": "feeds"
+      },
+      {
+        "source": "sp500_list",
+        "target": "us_price_fetcher",
+        "type": "feeds"
+      },
+      {
+        "source": "smart_money",
+        "target": "ai_analysis",
+        "type": "feeds"
+      },
+      {
+        "source": "smart_money",
+        "target": "final_report_gen",
+        "type": "feeds"
+      },
+      {
+        "source": "ai_analysis",
+        "target": "final_report_gen",
+        "type": "enhances"
+      },
+      {
+        "source": "final_report_gen",
+        "target": "out_top_picks",
+        "type": "produces"
+      },
+      {
+        "source": "out_top_picks",
+        "target": "risk_alert_engine",
+        "type": "feeds"
+      },
+      {
+        "source": "market_regime",
+        "target": "risk_alert_engine",
+        "type": "feeds"
+      },
+      {
+        "source": "market_regime",
+        "target": "sig_regime",
+        "type": "produces"
+      },
+      {
+        "source": "market_gate",
+        "target": "sig_gate",
+        "type": "produces"
+      },
+      {
+        "source": "ml_predictor",
+        "target": "sig_ml",
+        "type": "produces"
+      },
+      {
+        "source": "sig_regime",
+        "target": "sig_verdict",
+        "type": "determines"
+      },
+      {
+        "source": "sig_gate",
+        "target": "sig_verdict",
+        "type": "determines"
+      },
+      {
+        "source": "sig_ml",
+        "target": "sig_verdict",
+        "type": "determines"
+      },
+      {
+        "source": "sig_verdict",
+        "target": "out_daily_report",
+        "type": "gates"
+      },
+      {
+        "source": "out_top_picks",
+        "target": "out_daily_report",
+        "type": "feeds"
+      },
+      {
+        "source": "sig_regime",
+        "target": "out_daily_report",
+        "type": "feeds"
+      },
+      {
+        "source": "risk_alert_engine",
+        "target": "out_risk_alerts",
+        "type": "produces"
+      },
+      {
+        "source": "out_top_picks",
+        "target": "out_performance",
+        "type": "feeds"
+      },
+      {
+        "source": "sig_verdict",
+        "target": "out_performance",
+        "type": "feeds"
+      },
+      {
+        "source": "out_daily_report",
+        "target": "page_overview",
+        "type": "displays"
+      },
+      {
+        "source": "sig_regime",
+        "target": "page_regime",
+        "type": "displays"
+      },
+      {
+        "source": "sig_gate",
+        "target": "page_regime",
+        "type": "displays"
+      },
+      {
+        "source": "out_risk_alerts",
+        "target": "page_risk",
+        "type": "displays"
+      },
+      {
+        "source": "out_top_picks",
+        "target": "page_top_picks",
+        "type": "displays"
+      },
+      {
+        "source": "ai_analysis",
+        "target": "page_ai",
+        "type": "displays"
+      },
+      {
+        "source": "sig_ml",
+        "target": "page_forecast",
+        "type": "displays"
+      },
+      {
+        "source": "ml_predictor",
+        "target": "page_ml",
+        "type": "displays"
+      },
+      {
+        "source": "out_performance",
+        "target": "page_performance",
+        "type": "displays"
+      },
+      {
+        "source": "out_top_picks",
+        "target": "page_graph",
+        "type": "displays"
+      },
+      {
+        "source": "out_risk_alerts",
+        "target": "page_graph",
+        "type": "displays"
+      }
+    ]
+  },
+  "stock_graph": {
+    "nodes": [
+      {
+        "id": "sector_Financials",
+        "name": "Financials",
+        "type": "sector",
+        "description": "Financials 섹터",
+        "color": "#facc15"
+      },
+      {
+        "id": "sector_Industrials",
+        "name": "Industrials",
+        "type": "sector",
+        "description": "Industrials 섹터",
+        "color": "#22d3ee"
+      },
+      {
+        "id": "sector_Information_Technology",
+        "name": "Information Technology",
+        "type": "sector",
+        "description": "Information Technology 섹터",
+        "color": "#60a5fa"
+      },
+      {
+        "id": "sector_Unknown",
+        "name": "Unknown",
+        "type": "sector",
+        "description": "Unknown 섹터",
+        "color": "#94a3b8"
+      },
+      {
+        "id": "DAL",
+        "name": "DAL",
+        "type": "ticker",
+        "description": "Grade B · 2.5% 비중",
+        "sector": "Industrials",
+        "weight": 2.5
+      },
+      {
+        "id": "WDC",
+        "name": "WDC",
+        "type": "ticker",
+        "description": "Grade B · 2.5% 비중",
+        "sector": "Information Technology",
+        "weight": 2.5
+      },
+      {
+        "id": "HPE",
+        "name": "HPE",
+        "type": "ticker",
+        "description": "Grade B · 2.5% 비중",
+        "sector": "Information Technology",
+        "weight": 2.5
+      },
+      {
+        "id": "CCL",
+        "name": "CCL",
+        "type": "ticker",
+        "description": "Grade B · 2.5% 비중",
+        "sector": "Unknown",
+        "weight": 2.5
+      },
+      {
+        "id": "SNDK",
+        "name": "SNDK",
+        "type": "ticker",
+        "description": "Grade B · 2.5% 비중",
+        "sector": "Information Technology",
+        "weight": 2.5
+      },
+      {
+        "id": "UAL",
+        "name": "UAL",
+        "type": "ticker",
+        "description": "Grade B · 2.5% 비중",
+        "sector": "Industrials",
+        "weight": 2.5
+      },
+      {
+        "id": "LYV",
+        "name": "LYV",
+        "type": "ticker",
+        "description": "Grade B · 2.5% 비중",
+        "sector": "Unknown",
+        "weight": 2.5
+      },
+      {
+        "id": "LITE",
+        "name": "LITE",
+        "type": "ticker",
+        "description": "Grade B · 2.5% 비중",
+        "sector": "Information Technology",
+        "weight": 2.5
+      },
+      {
+        "id": "Q",
+        "name": "Q",
+        "type": "ticker",
+        "description": "Grade B · 2.5% 비중",
+        "sector": "Unknown",
+        "weight": 2.5
+      },
+      {
+        "id": "ALL",
+        "name": "ALL",
+        "type": "ticker",
+        "description": "Grade B · 2.5% 비중",
+        "sector": "Financials",
+        "weight": 2.5
+      },
+      {
+        "id": "CVNA",
+        "name": "CVNA",
+        "type": "ticker",
+        "description": "Grade B · 2.5% 비중",
+        "sector": "Unknown",
+        "weight": 2.5
+      },
+      {
+        "id": "TER",
+        "name": "TER",
+        "type": "ticker",
+        "description": "Grade B · 2.5% 비중",
+        "sector": "Unknown",
+        "weight": 2.5
+      },
+      {
+        "id": "GLW",
+        "name": "GLW",
+        "type": "ticker",
+        "description": "Grade B · 2.5% 비중",
+        "sector": "Unknown",
+        "weight": 2.5
+      },
+      {
+        "id": "MRK",
+        "name": "MRK",
+        "type": "ticker",
+        "description": "Grade B · 2.5% 비중",
+        "sector": "Unknown",
+        "weight": 2.5
+      },
+      {
+        "id": "BKR",
+        "name": "BKR",
+        "type": "ticker",
+        "description": "Grade B · 2.5% 비중",
+        "sector": "Unknown",
+        "weight": 2.5
+      },
+      {
+        "id": "CRH",
+        "name": "CRH",
+        "type": "ticker",
+        "description": "Grade B · 2.5% 비중",
+        "sector": "Unknown",
+        "weight": 2.5
+      },
+      {
+        "id": "EBAY",
+        "name": "EBAY",
+        "type": "ticker",
+        "description": "Grade B · 2.5% 비중",
+        "sector": "Unknown",
+        "weight": 2.5
+      },
+      {
+        "id": "WST",
+        "name": "WST",
+        "type": "ticker",
+        "description": "Grade B · 2.5% 비중",
+        "sector": "Unknown",
+        "weight": 2.5
+      },
+      {
+        "id": "FITB",
+        "name": "FITB",
+        "type": "ticker",
+        "description": "Grade B · 2.5% 비중",
+        "sector": "Unknown",
+        "weight": 2.5
+      },
+      {
+        "id": "AMD",
+        "name": "AMD",
+        "type": "ticker",
+        "description": "Grade B · 2.5% 비중",
+        "sector": "Unknown",
+        "weight": 2.5
+      },
+      {
+        "id": "CASH",
+        "name": "CASH",
+        "type": "ticker",
+        "description": "Grade  · 50.0% 비중",
+        "sector": "Unknown",
+        "weight": 50.0
+      }
+    ],
+    "edges": [
+      {
+        "source": "sector_Industrials",
+        "target": "DAL",
+        "type": "sector_peer"
+      },
+      {
+        "source": "sector_Information_Technology",
+        "target": "WDC",
+        "type": "sector_peer"
+      },
+      {
+        "source": "sector_Information_Technology",
+        "target": "HPE",
+        "type": "sector_peer"
+      },
+      {
+        "source": "sector_Unknown",
+        "target": "CCL",
+        "type": "sector_peer"
+      },
+      {
+        "source": "sector_Information_Technology",
+        "target": "SNDK",
+        "type": "sector_peer"
+      },
+      {
+        "source": "sector_Industrials",
+        "target": "UAL",
+        "type": "sector_peer"
+      },
+      {
+        "source": "sector_Unknown",
+        "target": "LYV",
+        "type": "sector_peer"
+      },
+      {
+        "source": "sector_Information_Technology",
+        "target": "LITE",
+        "type": "sector_peer"
+      },
+      {
+        "source": "sector_Unknown",
+        "target": "Q",
+        "type": "sector_peer"
+      },
+      {
+        "source": "sector_Financials",
+        "target": "ALL",
+        "type": "sector_peer"
+      },
+      {
+        "source": "sector_Unknown",
+        "target": "CVNA",
+        "type": "sector_peer"
+      },
+      {
+        "source": "sector_Unknown",
+        "target": "TER",
+        "type": "sector_peer"
+      },
+      {
+        "source": "sector_Unknown",
+        "target": "GLW",
+        "type": "sector_peer"
+      },
+      {
+        "source": "sector_Unknown",
+        "target": "MRK",
+        "type": "sector_peer"
+      },
+      {
+        "source": "sector_Unknown",
+        "target": "BKR",
+        "type": "sector_peer"
+      },
+      {
+        "source": "sector_Unknown",
+        "target": "CRH",
+        "type": "sector_peer"
+      },
+      {
+        "source": "sector_Unknown",
+        "target": "EBAY",
+        "type": "sector_peer"
+      },
+      {
+        "source": "sector_Unknown",
+        "target": "WST",
+        "type": "sector_peer"
+      },
+      {
+        "source": "sector_Unknown",
+        "target": "FITB",
+        "type": "sector_peer"
+      },
+      {
+        "source": "sector_Unknown",
+        "target": "AMD",
+        "type": "sector_peer"
+      },
+      {
+        "source": "sector_Unknown",
+        "target": "CASH",
+        "type": "sector_peer"
+      },
+      {
+        "source": "DAL",
+        "target": "UAL",
+        "type": "correlation",
+        "value": 0.889,
+        "label": "r=0.89"
+      }
+    ]
+  },
+  "stock_market_graph": {
+    "nodes": [
+      {
+        "id": "mkt_spy",
+        "name": "SPY BULLISH",
+        "type": "signal",
+        "color": "#4ade80",
+        "description": "5일 예측 -0.32% · 신뢰도 58%"
+      },
+      {
+        "id": "mkt_qqq",
+        "name": "QQQ BEARISH",
+        "type": "signal",
+        "color": "#f87171",
+        "description": "5일 예측 -0.35% · 신뢰도 85%"
+      },
+      {
+        "id": "mkt_regime",
+        "name": "REGIME\nRISK_ON",
+        "type": "signal",
+        "color": "#4ade80",
+        "description": "신뢰도 98%"
+      },
+      {
+        "id": "mkt_gate",
+        "name": "GATE\nCAUTION",
+        "type": "signal",
+        "color": "#facc15",
+        "description": "시장 진입 게이트"
+      },
+      {
+        "id": "mkt_vix",
+        "name": "VIX",
+        "type": "signal",
+        "color": "#facc15",
+        "description": "VIX 보통 — 경계 수준"
+      },
+      {
+        "id": "mkt_trend",
+        "name": "TREND",
+        "type": "signal",
+        "color": "#4ade80",
+        "description": "SPY 이동평균선 위 — 강한 상승 추세"
+      },
+      {
+        "id": "mkt_breadth",
+        "name": "BREADTH",
+        "type": "signal",
+        "color": "#4ade80",
+        "description": "S&P500 종목 전반 상승 — 건강한 시장"
+      },
+      {
+        "id": "mkt_credit",
+        "name": "CREDIT",
+        "type": "signal",
+        "color": "#4ade80",
+        "description": "하이일드 채권 강세 — 투자자 위험 선호"
+      },
+      {
+        "id": "mkt_yield_curve",
+        "name": "YIELD CURVE",
+        "type": "signal",
+        "color": "#4ade80",
+        "description": "장단기 금리차 정상 — 경기 건강"
+      },
+      {
+        "id": "mkt_put_call",
+        "name": "PUT_CALL",
+        "type": "signal",
+        "color": "#facc15",
+        "description": "neutral"
+      },
+      {
+        "id": "page_risk_m",
+        "name": "Risk Monitor",
+        "type": "page",
+        "href": "/risk"
+      },
+      {
+        "id": "page_ai_m",
+        "name": "AI Analysis",
+        "type": "page",
+        "href": "/ai"
+      },
+      {
+        "id": "page_ml_m",
+        "name": "ML Rankings",
+        "type": "page",
+        "href": "/ml"
+      },
+      {
+        "id": "page_forecast_m",
+        "name": "Index Forecast",
+        "type": "page",
+        "href": "/forecast"
+      },
+      {
+        "id": "page_regime_m",
+        "name": "Market Regime",
+        "type": "page",
+        "href": "/regime"
+      },
+      {
+        "id": "ai_builder",
+        "name": "AI Builder",
+        "type": "agent",
+        "color": "#a78bfa",
+        "href": "/ai-builder",
+        "description": "Claude Code 에이전트 실행 포털"
+      },
+      {
+        "id": "t_AVGO",
+        "name": "AVGO",
+        "type": "ticker",
+        "color": "#86efac",
+        "description": "Grade B | WATCH | Score 69.8"
+      },
+      {
+        "id": "t_SNDK",
+        "name": "SNDK",
+        "type": "ticker",
+        "color": "#86efac",
+        "description": "Grade B | WATCH | Score 69.6"
+      },
+      {
+        "id": "t_SLB",
+        "name": "SLB",
+        "type": "ticker",
+        "color": "#86efac",
+        "description": "Grade B | WATCH | Score 68.9"
+      },
+      {
+        "id": "t_DAL",
+        "name": "DAL",
+        "type": "ticker",
+        "color": "#86efac",
+        "description": "Grade B | WATCH | Score 68.4"
+      },
+      {
+        "id": "t_HUBB",
+        "name": "HUBB",
+        "type": "ticker",
+        "color": "#86efac",
+        "description": "Grade B | WATCH | Score 68.2"
+      },
+      {
+        "id": "t_GLW",
+        "name": "GLW",
+        "type": "ticker",
+        "color": "#86efac",
+        "description": "Grade B | WATCH | Score 68.1"
+      },
+      {
+        "id": "t_LITE",
+        "name": "LITE",
+        "type": "ticker",
+        "color": "#86efac",
+        "description": "Grade B | WATCH | Score 68.0"
+      },
+      {
+        "id": "t_LRCX",
+        "name": "LRCX",
+        "type": "ticker",
+        "color": "#86efac",
+        "description": "Grade B | WATCH | Score 67.9"
+      },
+      {
+        "id": "t_FDS",
+        "name": "FDS",
+        "type": "ticker",
+        "color": "#86efac",
+        "description": "Grade B | WATCH | Score 67.8"
+      },
+      {
+        "id": "t_AMD",
+        "name": "AMD",
+        "type": "ticker",
+        "color": "#86efac",
+        "description": "Grade B | WATCH | Score 67.8"
+      }
+    ],
+    "edges": [
+      {
+        "source": "mkt_vix",
+        "target": "mkt_regime",
+        "type": "determines",
+        "color": "#facc15"
+      },
+      {
+        "source": "mkt_trend",
+        "target": "mkt_regime",
+        "type": "determines",
+        "color": "#4ade80"
+      },
+      {
+        "source": "mkt_breadth",
+        "target": "mkt_regime",
+        "type": "determines",
+        "color": "#4ade80"
+      },
+      {
+        "source": "mkt_credit",
+        "target": "mkt_regime",
+        "type": "determines",
+        "color": "#4ade80"
+      },
+      {
+        "source": "mkt_yield_curve",
+        "target": "mkt_regime",
+        "type": "determines",
+        "color": "#4ade80"
+      },
+      {
+        "source": "mkt_put_call",
+        "target": "mkt_regime",
+        "type": "determines",
+        "color": "#facc15"
+      },
+      {
+        "source": "mkt_regime",
+        "target": "mkt_gate",
+        "type": "determines",
+        "color": "#4ade80"
+      },
+      {
+        "source": "mkt_spy",
+        "target": "page_forecast_m",
+        "type": "displays",
+        "color": "#4ade80"
+      },
+      {
+        "source": "mkt_qqq",
+        "target": "page_forecast_m",
+        "type": "displays",
+        "color": "#f87171"
+      },
+      {
+        "source": "mkt_regime",
+        "target": "page_regime_m",
+        "type": "displays",
+        "color": "#4ade80"
+      },
+      {
+        "source": "ai_builder",
+        "target": "page_risk_m",
+        "type": "enhances",
+        "color": "#a78bfa"
+      },
+      {
+        "source": "ai_builder",
+        "target": "page_ai_m",
+        "type": "enhances",
+        "color": "#a78bfa"
+      },
+      {
+        "source": "ai_builder",
+        "target": "page_ml_m",
+        "type": "enhances",
+        "color": "#a78bfa"
+      },
+      {
+        "source": "ai_builder",
+        "target": "page_forecast_m",
+        "type": "enhances",
+        "color": "#a78bfa"
+      },
+      {
+        "source": "ai_builder",
+        "target": "page_regime_m",
+        "type": "enhances",
+        "color": "#a78bfa"
+      },
+      {
+        "source": "mkt_regime",
+        "target": "t_AVGO",
+        "type": "determines",
+        "color": "#4ade80"
+      },
+      {
+        "source": "mkt_gate",
+        "target": "t_AVGO",
+        "type": "gates",
+        "color": "#facc15"
+      },
+      {
+        "source": "mkt_spy",
+        "target": "t_AVGO",
+        "type": "correlation",
+        "color": "#4ade80"
+      },
+      {
+        "source": "t_AVGO",
+        "target": "page_ai_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "t_AVGO",
+        "target": "page_ml_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "t_AVGO",
+        "target": "page_risk_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "ai_builder",
+        "target": "t_AVGO",
+        "type": "enhances",
+        "color": "#a78bfa50"
+      },
+      {
+        "source": "mkt_regime",
+        "target": "t_SNDK",
+        "type": "determines",
+        "color": "#4ade80"
+      },
+      {
+        "source": "mkt_gate",
+        "target": "t_SNDK",
+        "type": "gates",
+        "color": "#facc15"
+      },
+      {
+        "source": "mkt_spy",
+        "target": "t_SNDK",
+        "type": "correlation",
+        "color": "#4ade80"
+      },
+      {
+        "source": "t_SNDK",
+        "target": "page_ai_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "t_SNDK",
+        "target": "page_ml_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "t_SNDK",
+        "target": "page_risk_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "ai_builder",
+        "target": "t_SNDK",
+        "type": "enhances",
+        "color": "#a78bfa50"
+      },
+      {
+        "source": "mkt_regime",
+        "target": "t_SLB",
+        "type": "determines",
+        "color": "#4ade80"
+      },
+      {
+        "source": "mkt_gate",
+        "target": "t_SLB",
+        "type": "gates",
+        "color": "#facc15"
+      },
+      {
+        "source": "mkt_spy",
+        "target": "t_SLB",
+        "type": "correlation",
+        "color": "#4ade80"
+      },
+      {
+        "source": "t_SLB",
+        "target": "page_ai_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "t_SLB",
+        "target": "page_ml_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "t_SLB",
+        "target": "page_risk_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "ai_builder",
+        "target": "t_SLB",
+        "type": "enhances",
+        "color": "#a78bfa50"
+      },
+      {
+        "source": "mkt_regime",
+        "target": "t_DAL",
+        "type": "determines",
+        "color": "#4ade80"
+      },
+      {
+        "source": "mkt_gate",
+        "target": "t_DAL",
+        "type": "gates",
+        "color": "#facc15"
+      },
+      {
+        "source": "mkt_spy",
+        "target": "t_DAL",
+        "type": "correlation",
+        "color": "#4ade80"
+      },
+      {
+        "source": "t_DAL",
+        "target": "page_ai_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "t_DAL",
+        "target": "page_ml_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "t_DAL",
+        "target": "page_risk_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "ai_builder",
+        "target": "t_DAL",
+        "type": "enhances",
+        "color": "#a78bfa50"
+      },
+      {
+        "source": "mkt_regime",
+        "target": "t_HUBB",
+        "type": "determines",
+        "color": "#4ade80"
+      },
+      {
+        "source": "mkt_gate",
+        "target": "t_HUBB",
+        "type": "gates",
+        "color": "#facc15"
+      },
+      {
+        "source": "mkt_spy",
+        "target": "t_HUBB",
+        "type": "correlation",
+        "color": "#4ade80"
+      },
+      {
+        "source": "t_HUBB",
+        "target": "page_ai_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "t_HUBB",
+        "target": "page_ml_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "t_HUBB",
+        "target": "page_risk_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "ai_builder",
+        "target": "t_HUBB",
+        "type": "enhances",
+        "color": "#a78bfa50"
+      },
+      {
+        "source": "mkt_regime",
+        "target": "t_GLW",
+        "type": "determines",
+        "color": "#4ade80"
+      },
+      {
+        "source": "mkt_gate",
+        "target": "t_GLW",
+        "type": "gates",
+        "color": "#facc15"
+      },
+      {
+        "source": "mkt_spy",
+        "target": "t_GLW",
+        "type": "correlation",
+        "color": "#4ade80"
+      },
+      {
+        "source": "t_GLW",
+        "target": "page_ai_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "t_GLW",
+        "target": "page_ml_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "t_GLW",
+        "target": "page_risk_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "ai_builder",
+        "target": "t_GLW",
+        "type": "enhances",
+        "color": "#a78bfa50"
+      },
+      {
+        "source": "mkt_regime",
+        "target": "t_LITE",
+        "type": "determines",
+        "color": "#4ade80"
+      },
+      {
+        "source": "mkt_gate",
+        "target": "t_LITE",
+        "type": "gates",
+        "color": "#facc15"
+      },
+      {
+        "source": "mkt_spy",
+        "target": "t_LITE",
+        "type": "correlation",
+        "color": "#4ade80"
+      },
+      {
+        "source": "t_LITE",
+        "target": "page_ai_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "t_LITE",
+        "target": "page_ml_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "t_LITE",
+        "target": "page_risk_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "ai_builder",
+        "target": "t_LITE",
+        "type": "enhances",
+        "color": "#a78bfa50"
+      },
+      {
+        "source": "mkt_regime",
+        "target": "t_LRCX",
+        "type": "determines",
+        "color": "#4ade80"
+      },
+      {
+        "source": "mkt_gate",
+        "target": "t_LRCX",
+        "type": "gates",
+        "color": "#facc15"
+      },
+      {
+        "source": "mkt_spy",
+        "target": "t_LRCX",
+        "type": "correlation",
+        "color": "#4ade80"
+      },
+      {
+        "source": "t_LRCX",
+        "target": "page_ai_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "t_LRCX",
+        "target": "page_ml_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "t_LRCX",
+        "target": "page_risk_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "ai_builder",
+        "target": "t_LRCX",
+        "type": "enhances",
+        "color": "#a78bfa50"
+      },
+      {
+        "source": "mkt_regime",
+        "target": "t_FDS",
+        "type": "determines",
+        "color": "#4ade80"
+      },
+      {
+        "source": "mkt_gate",
+        "target": "t_FDS",
+        "type": "gates",
+        "color": "#facc15"
+      },
+      {
+        "source": "mkt_spy",
+        "target": "t_FDS",
+        "type": "correlation",
+        "color": "#4ade80"
+      },
+      {
+        "source": "t_FDS",
+        "target": "page_ai_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "t_FDS",
+        "target": "page_ml_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "t_FDS",
+        "target": "page_risk_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "ai_builder",
+        "target": "t_FDS",
+        "type": "enhances",
+        "color": "#a78bfa50"
+      },
+      {
+        "source": "mkt_regime",
+        "target": "t_AMD",
+        "type": "determines",
+        "color": "#4ade80"
+      },
+      {
+        "source": "mkt_gate",
+        "target": "t_AMD",
+        "type": "gates",
+        "color": "#facc15"
+      },
+      {
+        "source": "mkt_spy",
+        "target": "t_AMD",
+        "type": "correlation",
+        "color": "#4ade80"
+      },
+      {
+        "source": "t_AMD",
+        "target": "page_ai_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "t_AMD",
+        "target": "page_ml_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "t_AMD",
+        "target": "page_risk_m",
+        "type": "displays",
+        "color": "#86efac"
+      },
+      {
+        "source": "ai_builder",
+        "target": "t_AMD",
+        "type": "enhances",
+        "color": "#a78bfa50"
+      }
+    ]
+  }
+}

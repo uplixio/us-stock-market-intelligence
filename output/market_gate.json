@@ -1,0 +1,137 @@
+{
+  "gate": "CAUTION",
+  "score": 50.2,
+  "reasons": [
+    "섹터 평균 점수 50.2점 — 혼조세",
+    "강세 2개 / 약세 5개 섹터"
+  ],
+  "metrics": {
+    "avg_score": 50.2,
+    "bullish_sectors": 2,
+    "bearish_sectors": 5,
+    "top_sector": "Technology",
+    "bottom_sector": "Utilities",
+    "divergence": "normal",
+    "divergence_warning": false
+  },
+  "sectors": [
+    {
+      "name": "Technology",
+      "ticker": "XLK",
+      "score": 87.5,
+      "signal": "BULLISH",
+      "price": 175.2,
+      "change_1d": -1.51,
+      "rsi": 77.64,
+      "rs_vs_spy": 0.111
+    },
+    {
+      "name": "Health Care",
+      "ticker": "XLV",
+      "score": 55.6,
+      "signal": "NEUTRAL",
+      "price": 145.85,
+      "change_1d": 1.96,
+      "rsi": 50.08,
+      "rs_vs_spy": -0.0676
+    },
+    {
+      "name": "Financials",
+      "ticker": "XLF",
+      "score": 38.9,
+      "signal": "BEARISH",
+      "price": 51.58,
+      "change_1d": 0.78,
+      "rsi": 52.32,
+      "rs_vs_spy": -0.0659
+    },
+    {
+      "name": "Cons Disc",
+      "ticker": "XLY",
+      "score": 36.5,
+      "signal": "BEARISH",
+      "price": 118.29,
+      "change_1d": -0.9,
+      "rsi": 54.62,
+      "rs_vs_spy": -0.0537
+    },
+    {
+      "name": "Cons Staples",
+      "ticker": "XLP",
+      "score": 65.3,
+      "signal": "BULLISH",
+      "price": 84.44,
+      "change_1d": 1.28,
+      "rsi": 57.33,
+      "rs_vs_spy": -0.0129
+    },
+    {
+      "name": "Energy",
+      "ticker": "XLE",
+      "score": 38.1,
+      "signal": "BEARISH",
+      "price": 57.57,
+      "change_1d": 0.7,
+      "rsi": 50.47,
+      "rs_vs_spy": -0.0222
+    },
+    {
+      "name": "Industrials",
+      "ticker": "XLI",
+      "score": 56.4,
+      "signal": "NEUTRAL",
+      "price": 174.35,
+      "change_1d": -0.39,
+      "rsi": 55.17,
+      "rs_vs_spy": -0.0361
+    },
+    {
+      "name": "Materials",
+      "ticker": "XLB",
+      "score": 59.1,
+      "signal": "NEUTRAL",
+      "price": 52.14,
+      "change_1d": -0.23,
+      "rsi": 56.33,
+      "rs_vs_spy": -0.0398
+    },
+    {
+      "name": "Real Estate",
+      "ticker": "XLRE",
+      "score": 44.1,
+      "signal": "NEUTRAL",
+      "price": 44.58,
+      "change_1d": 0.02,
+      "rsi": 62.0,
+      "rs_vs_spy": -0.0277
+    },
+    {
+      "name": "Utilities",
+      "ticker": "XLU",
+      "score": 34.4,
+      "signal": "BEARISH",
+      "price": 45.19,
+      "change_1d": 0.11,
+      "rsi": 43.48,
+      "rs_vs_spy": -0.0727
+    },
+    {
+      "name": "Communication",
+      "ticker": "XLC",
+      "score": 35.8,
+      "signal": "BEARISH",
+      "price": 115.86,
+      "change_1d": 0.24,
+      "rsi": 49.92,
+      "rs_vs_spy": -0.0674
+    }
+  ],
+  "spy_divergence": {
+    "signal": "normal",
+    "label": "특이 신호 없음",
+    "severity": "neutral",
+    "spy_price": 738.18,
+    "change_10d_pct": 3.72,
+    "vol_ratio_2d_vs_20d_avg": 0.99
+  }
+}

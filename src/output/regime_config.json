@@ -1,0 +1,17 @@
+{
+  "regime": "risk_on",
+  "weighted_score": 0.33,
+  "confidence": 97.5,
+  "signals": {
+    "vix": "neutral",
+    "trend": "risk_on",
+    "breadth": "risk_on",
+    "credit": "risk_on",
+    "yield_curve": "risk_on",
+    "put_call": "neutral"
+  },
+  "adaptive_params": {
+    "stop_loss": "-10%",
+    "max_drawdown_warning": "-12%"
+  }
+}

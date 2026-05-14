@@ -1,0 +1,21 @@
+﻿ticker,company_name,composite_score,grade,grade_label,strategy,setup,technical_score,fundamental_score,analyst_score,rs_score,volume_score,13f_score,rs_vs_spy,sector
+BIIB,Biogen Inc.,73.7,B,Moderate Accumulation,Trend,Breakout,90,72,67,60.2,50.0,50,4.1,Health Care
+BKR,Baker Hughes Company,68.5,B,Moderate Accumulation,Trend,Pullback,73,76,67,82.0,50.0,50,12.8,Energy
+AIZ,"Assurant, Inc.",67.8,B,Moderate Accumulation,Swing,Breakout,95,80,65,45.5,50.0,50,-1.8,Financials
+BA,The Boeing Company,67.6,B,Moderate Accumulation,Trend,Breakout,95,60,70,60.0,50.0,50,4.0,Industrials
+AMZN,"Amazon.com, Inc.",67.0,B,Moderate Accumulation,Trend,Breakout,77,76,75,80.8,50.0,50,12.3,Consumer Discretionary
+AVB,"AvalonBay Communities, Inc.",64.9,C,Neutral,Swing,Breakout,90,68,57,42.0,50.0,50,-3.2,Real Estate
+ALB,Albemarle Corporation,64.0,C,Neutral,Trend,Base,86,68,67,100.0,50.0,50,30.2,Materials
+BLK,"BlackRock, Inc.",64.0,C,Neutral,Swing,Breakout,95,76,60,38.5,50.0,50,-4.6,Financials
+APA,APA Corporation,63.9,C,Neutral,Swing,Base,54,68,60,100.0,50.0,50,26.1,Energy
+BK,The Bank of New York Mellon Corporation,63.4,C,Neutral,Trend,Breakout,77,68,67,69.0,50.0,50,7.6,Financials
+AMD,"Advanced Micro Devices, Inc.",62.5,C,Neutral,Trend,Breakout,90,64,72,100.0,50.0,50,86.6,Information Technology
+AES,The AES Corporation,62.2,C,Neutral,Swing,Breakout,95,64,52,26.0,50.0,50,-9.6,Utilities
+AMAT,"Applied Materials, Inc.",61.8,C,Neutral,Trend,Breakout,95,52,72,100.0,50.0,50,45.5,Information Technology
+ADI,"Analog Devices, Inc.",60.0,C,Neutral,Trend,Breakout,90,64,55,100.0,50.0,50,47.5,Information Technology
+AMP,"Ameriprise Financial, Inc.",59.8,C,Neutral,Swing,Pullback,73,84,70,32.8,50.0,50,-6.9,Financials
+LNT,Alliant Energy Corporation,59.1,C,Neutral,Swing,Pullback,73,64,67,36.0,50.0,50,-5.6,Utilities
+ADM,Archer-Daniels-Midland Company,58.9,C,Neutral,Trend,Breakout,90,60,40,99.0,50.0,50,19.6,Consumer Staples
+ADP,"Automatic Data Processing, Inc.",58.5,C,Neutral,Swing,Pullback,86,80,60,6.8,50.0,50,-17.3,Industrials
+AME,"AMETEK, Inc.",58.5,C,Neutral,Swing,Base,58,72,70,51.5,50.0,50,0.6,Industrials
+ALL,The Allstate Corporation,57.7,C,Neutral,Swing,Pullback,73,80,70,29.2,50.0,50,-8.3,Financials

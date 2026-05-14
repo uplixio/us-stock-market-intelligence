@@ -1,0 +1,639 @@
+{
+  "generated_at": "2026-04-16 13:59:35",
+  "regime": "risk_on",
+  "verdict": "CAUTION",
+  "portfolio_summary": {
+    "total_value": 100000,
+    "invested_pct": 50.0,
+    "cash_pct": 50.0,
+    "total_var_dollar": 4034.0,
+    "risk_budget_status": "WARNING"
+  },
+  "alerts": [
+    {
+      "level": "WARNING",
+      "category": "risk_budget",
+      "ticker": "PORTFOLIO",
+      "message": "리스크 예산 주의: ",
+      "value": 4.03,
+      "threshold": 5.0,
+      "action": "MONITOR",
+      "timestamp": "2026-04-16T13:59:35.120748"
+    },
+    {
+      "level": "INFO",
+      "category": "regime",
+      "ticker": "PORTFOLIO",
+      "message": "Regime: risk_on | Verdict: CAUTION",
+      "value": 0,
+      "threshold": 0,
+      "action": "MONITOR",
+      "timestamp": "2026-04-16T13:59:35.120748"
+    },
+    {
+      "level": "INFO",
+      "category": "risk_budget",
+      "ticker": "PORTFOLIO",
+      "message": "VaR(5일): $4,034 (WARNING)",
+      "value": -4.03,
+      "threshold": 5.0,
+      "action": "MONITOR",
+      "timestamp": "2026-04-16T13:59:35.120748"
+    }
+  ],
+  "position_sizes": [
+    {
+      "ticker": "AVGO",
+      "company_name": "Broadcom Inc.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 1.0,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "SNDK",
+      "company_name": "Sandisk Corporation",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 1.0,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "SLB",
+      "company_name": "SLB N.V.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 1.0,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "DAL",
+      "company_name": "Delta Air Lines, Inc.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 1.0,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "HUBB",
+      "company_name": "Hubbell Incorporated",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 1.0,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "GLW",
+      "company_name": "Corning Incorporated",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 1.0,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "LITE",
+      "company_name": "Lumentum Holdings Inc.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 1.0,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "LRCX",
+      "company_name": "Lam Research Corporation",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 1.0,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "FDS",
+      "company_name": "FactSet Research Systems Inc.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 1.0,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "AMD",
+      "company_name": "Advanced Micro Devices, Inc.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 1.0,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "AMZN",
+      "company_name": "Amazon.com, Inc.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 1.0,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "HST",
+      "company_name": "Host Hotels & Resorts, Inc.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 1.0,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "WAB",
+      "company_name": "Westinghouse Air Brake Technologies Corporation",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 1.0,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "TER",
+      "company_name": "Teradyne, Inc.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 1.0,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "MPWR",
+      "company_name": "Monolithic Power Systems, Inc.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 1.0,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "C",
+      "company_name": "Citigroup Inc.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 1.0,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "CIEN",
+      "company_name": "Ciena Corporation",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 1.0,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "FOXA",
+      "company_name": "Fox Corporation",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 1.0,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "HUM",
+      "company_name": "Humana Inc.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 1.0,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "CCL",
+      "company_name": "Carnival Corporation & plc",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 1.0,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "CASH",
+      "company_name": "",
+      "grade": "",
+      "base_pct": 0,
+      "grade_multiplier": 0,
+      "regime_multiplier": 0,
+      "verdict_cap": "",
+      "final_pct": 50.0,
+      "dollar_amount": 50000.0
+    }
+  ],
+  "stop_loss_status": [],
+  "drawdowns": {},
+  "concentration": {
+    "sector_concentration": {},
+    "concentration_warnings": [],
+    "high_correlation_pairs": [
+      {
+        "pair": [
+          "LRCX",
+          "MPWR"
+        ],
+        "corr": 0.824
+      }
+    ],
+    "correlation_exposure": {},
+    "correlation_threshold": 0.8
+  },
+  "component_var": [
+    {
+      "ticker": "SNDK",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.388,
+      "component_var_dollar": 387.93,
+      "contribution_pct": 12.4,
+      "marginal_var": 15.517
+    },
+    {
+      "ticker": "LITE",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.315,
+      "component_var_dollar": 315.39,
+      "contribution_pct": 10.1,
+      "marginal_var": 12.616
+    },
+    {
+      "ticker": "CIEN",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.257,
+      "component_var_dollar": 256.63,
+      "contribution_pct": 8.2,
+      "marginal_var": 10.265
+    },
+    {
+      "ticker": "TER",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.255,
+      "component_var_dollar": 254.58,
+      "contribution_pct": 8.1,
+      "marginal_var": 10.183
+    },
+    {
+      "ticker": "LRCX",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.232,
+      "component_var_dollar": 231.93,
+      "contribution_pct": 7.4,
+      "marginal_var": 9.277
+    },
+    {
+      "ticker": "MPWR",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.205,
+      "component_var_dollar": 204.61,
+      "contribution_pct": 6.5,
+      "marginal_var": 8.184
+    },
+    {
+      "ticker": "AMD",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.198,
+      "component_var_dollar": 197.67,
+      "contribution_pct": 6.3,
+      "marginal_var": 7.907
+    },
+    {
+      "ticker": "GLW",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.18,
+      "component_var_dollar": 179.54,
+      "contribution_pct": 5.7,
+      "marginal_var": 7.182
+    },
+    {
+      "ticker": "CCL",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.167,
+      "component_var_dollar": 167.32,
+      "contribution_pct": 5.3,
+      "marginal_var": 6.693
+    },
+    {
+      "ticker": "AVGO",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.149,
+      "component_var_dollar": 148.82,
+      "contribution_pct": 4.7,
+      "marginal_var": 5.953
+    },
+    {
+      "ticker": "DAL",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.144,
+      "component_var_dollar": 143.83,
+      "contribution_pct": 4.6,
+      "marginal_var": 5.753
+    },
+    {
+      "ticker": "HUBB",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.131,
+      "component_var_dollar": 131.19,
+      "contribution_pct": 4.2,
+      "marginal_var": 5.248
+    },
+    {
+      "ticker": "C",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.1,
+      "component_var_dollar": 99.86,
+      "contribution_pct": 3.2,
+      "marginal_var": 3.994
+    },
+    {
+      "ticker": "AMZN",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.088,
+      "component_var_dollar": 87.97,
+      "contribution_pct": 2.8,
+      "marginal_var": 3.519
+    },
+    {
+      "ticker": "WAB",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.089,
+      "component_var_dollar": 88.89,
+      "contribution_pct": 2.8,
+      "marginal_var": 3.555
+    },
+    {
+      "ticker": "SLB",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.072,
+      "component_var_dollar": 72.14,
+      "contribution_pct": 2.3,
+      "marginal_var": 2.886
+    },
+    {
+      "ticker": "HST",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.073,
+      "component_var_dollar": 73.43,
+      "contribution_pct": 2.3,
+      "marginal_var": 2.937
+    },
+    {
+      "ticker": "HUM",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.055,
+      "component_var_dollar": 55.46,
+      "contribution_pct": 1.8,
+      "marginal_var": 2.219
+    },
+    {
+      "ticker": "FOXA",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.036,
+      "component_var_dollar": 36.0,
+      "contribution_pct": 1.1,
+      "marginal_var": 1.44
+    },
+    {
+      "ticker": "FDS",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.002,
+      "component_var_dollar": 1.75,
+      "contribution_pct": 0.1,
+      "marginal_var": 0.07
+    }
+  ],
+  "stress_scenarios": [],
+  "cdar": [
+    {
+      "ticker": "AVGO",
+      "cdar_pct": -25.67,
+      "cvar_pct": -5.651,
+      "max_dd_pct": -28.67,
+      "current_dd_pct": -3.55,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "SNDK",
+      "cdar_pct": -28.807,
+      "cvar_pct": -13.24,
+      "max_dd_pct": -31.34,
+      "current_dd_pct": -6.38,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "SLB",
+      "cdar_pct": -12.048,
+      "cvar_pct": -4.422,
+      "max_dd_pct": -14.06,
+      "current_dd_pct": -2.02,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "DAL",
+      "cdar_pct": -20.999,
+      "cvar_pct": -4.854,
+      "max_dd_pct": -22.9,
+      "current_dd_pct": -4.2,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "HUBB",
+      "cdar_pct": -11.544,
+      "cvar_pct": -3.825,
+      "max_dd_pct": -13.8,
+      "current_dd_pct": -3.42,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "GLW",
+      "cdar_pct": -20.224,
+      "cvar_pct": -7.337,
+      "max_dd_pct": -23.01,
+      "current_dd_pct": -3.94,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "LITE",
+      "cdar_pct": -20.823,
+      "cvar_pct": -12.14,
+      "max_dd_pct": -28.7,
+      "current_dd_pct": -8.17,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "LRCX",
+      "cdar_pct": -16.812,
+      "cvar_pct": -6.975,
+      "max_dd_pct": -20.01,
+      "current_dd_pct": -2.66,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "FDS",
+      "cdar_pct": -34.604,
+      "cvar_pct": -7.571,
+      "max_dd_pct": -35.99,
+      "current_dd_pct": -21.88,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "AMD",
+      "cdar_pct": -26.596,
+      "cvar_pct": -8.02,
+      "max_dd_pct": -27.76,
+      "current_dd_pct": -2.35,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "AMZN",
+      "cdar_pct": -20.771,
+      "cvar_pct": -3.978,
+      "max_dd_pct": -21.74,
+      "current_dd_pct": -2.17,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "HST",
+      "cdar_pct": -8.247,
+      "cvar_pct": -3.063,
+      "max_dd_pct": -9.26,
+      "current_dd_pct": -1.05,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "WAB",
+      "cdar_pct": -10.314,
+      "cvar_pct": -2.803,
+      "max_dd_pct": -10.85,
+      "current_dd_pct": -5.0,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "TER",
+      "cdar_pct": -17.134,
+      "cvar_pct": -7.109,
+      "max_dd_pct": -20.35,
+      "current_dd_pct": -1.4,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "MPWR",
+      "cdar_pct": -20.363,
+      "cvar_pct": -5.6,
+      "max_dd_pct": -22.45,
+      "current_dd_pct": -1.4,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "C",
+      "cdar_pct": -13.86,
+      "cvar_pct": -4.457,
+      "max_dd_pct": -14.76,
+      "current_dd_pct": 0.0,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "CIEN",
+      "cdar_pct": -15.547,
+      "cvar_pct": -10.285,
+      "max_dd_pct": -16.84,
+      "current_dd_pct": -4.08,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "FOXA",
+      "cdar_pct": -26.562,
+      "cvar_pct": -3.858,
+      "max_dd_pct": -28.89,
+      "current_dd_pct": -15.95,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "HUM",
+      "cdar_pct": -43.077,
+      "cvar_pct": -7.865,
+      "max_dd_pct": -44.37,
+      "current_dd_pct": -32.23,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "CCL",
+      "cdar_pct": -28.617,
+      "cvar_pct": -6.66,
+      "max_dd_pct": -29.3,
+      "current_dd_pct": -14.82,
+      "period": "6mo",
+      "alpha": 0.05
+    }
+  ]
+}

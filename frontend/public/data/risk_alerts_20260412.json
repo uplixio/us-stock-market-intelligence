@@ -1,0 +1,639 @@
+{
+  "generated_at": "2026-04-16 13:57:44",
+  "regime": "neutral",
+  "verdict": "CAUTION",
+  "portfolio_summary": {
+    "total_value": 100000,
+    "invested_pct": 50.0,
+    "cash_pct": 50.0,
+    "total_var_dollar": 4783.0,
+    "risk_budget_status": "WARNING"
+  },
+  "alerts": [
+    {
+      "level": "WARNING",
+      "category": "risk_budget",
+      "ticker": "PORTFOLIO",
+      "message": "리스크 예산 주의: ",
+      "value": 4.78,
+      "threshold": 5.0,
+      "action": "MONITOR",
+      "timestamp": "2026-04-16T13:57:44.022403"
+    },
+    {
+      "level": "INFO",
+      "category": "regime",
+      "ticker": "PORTFOLIO",
+      "message": "Regime: neutral | Verdict: CAUTION",
+      "value": 0,
+      "threshold": 0,
+      "action": "MONITOR",
+      "timestamp": "2026-04-16T13:57:44.022403"
+    },
+    {
+      "level": "INFO",
+      "category": "risk_budget",
+      "ticker": "PORTFOLIO",
+      "message": "VaR(5일): $4,783 (WARNING)",
+      "value": -4.78,
+      "threshold": 5.0,
+      "action": "MONITOR",
+      "timestamp": "2026-04-16T13:57:44.022403"
+    }
+  ],
+  "position_sizes": [
+    {
+      "ticker": "DAL",
+      "company_name": "Delta Air Lines, Inc.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 0.8,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "WDC",
+      "company_name": "Western Digital Corporation",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 0.8,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "HPE",
+      "company_name": "Hewlett Packard Enterprise Company",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 0.8,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "CCL",
+      "company_name": "Carnival Corporation & plc",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 0.8,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "SNDK",
+      "company_name": "Sandisk Corporation",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 0.8,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "UAL",
+      "company_name": "United Airlines Holdings, Inc.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 0.8,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "LYV",
+      "company_name": "Live Nation Entertainment, Inc.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 0.8,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "LITE",
+      "company_name": "Lumentum Holdings Inc.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 0.8,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "Q",
+      "company_name": "Qnity Electronics, Inc.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 0.8,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "ALL",
+      "company_name": "The Allstate Corporation",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 0.8,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "CVNA",
+      "company_name": "Carvana Co.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 0.8,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "TER",
+      "company_name": "Teradyne, Inc.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 0.8,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "GLW",
+      "company_name": "Corning Incorporated",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 0.8,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "MRK",
+      "company_name": "Merck & Co., Inc.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 0.8,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "BKR",
+      "company_name": "Baker Hughes Company",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 0.8,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "CRH",
+      "company_name": "CRH plc",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 0.8,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "EBAY",
+      "company_name": "eBay Inc.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 0.8,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "WST",
+      "company_name": "West Pharmaceutical Services, Inc.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 0.8,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "FITB",
+      "company_name": "Fifth Third Bancorp",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 0.8,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "AMD",
+      "company_name": "Advanced Micro Devices, Inc.",
+      "grade": "B",
+      "base_pct": 5.0,
+      "grade_multiplier": 1.0,
+      "regime_multiplier": 0.8,
+      "verdict_cap": "50% cap",
+      "final_pct": 2.5,
+      "dollar_amount": 2500.0
+    },
+    {
+      "ticker": "CASH",
+      "company_name": "",
+      "grade": "",
+      "base_pct": 0,
+      "grade_multiplier": 0,
+      "regime_multiplier": 0,
+      "verdict_cap": "",
+      "final_pct": 50.0,
+      "dollar_amount": 50000.0
+    }
+  ],
+  "stop_loss_status": [],
+  "drawdowns": {},
+  "concentration": {
+    "sector_concentration": {},
+    "concentration_warnings": [],
+    "high_correlation_pairs": [
+      {
+        "pair": [
+          "DAL",
+          "UAL"
+        ],
+        "corr": 0.889
+      }
+    ],
+    "correlation_exposure": {},
+    "correlation_threshold": 0.8
+  },
+  "component_var": [
+    {
+      "ticker": "SNDK",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.472,
+      "component_var_dollar": 472.27,
+      "contribution_pct": 12.9,
+      "marginal_var": 18.891
+    },
+    {
+      "ticker": "LITE",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.405,
+      "component_var_dollar": 404.55,
+      "contribution_pct": 11.1,
+      "marginal_var": 16.182
+    },
+    {
+      "ticker": "WDC",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.356,
+      "component_var_dollar": 356.19,
+      "contribution_pct": 9.8,
+      "marginal_var": 14.248
+    },
+    {
+      "ticker": "TER",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.308,
+      "component_var_dollar": 308.02,
+      "contribution_pct": 8.4,
+      "marginal_var": 12.321
+    },
+    {
+      "ticker": "GLW",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.252,
+      "component_var_dollar": 252.03,
+      "contribution_pct": 6.9,
+      "marginal_var": 10.081
+    },
+    {
+      "ticker": "Q",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.234,
+      "component_var_dollar": 233.87,
+      "contribution_pct": 6.4,
+      "marginal_var": 9.355
+    },
+    {
+      "ticker": "AMD",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.21,
+      "component_var_dollar": 210.04,
+      "contribution_pct": 5.8,
+      "marginal_var": 8.402
+    },
+    {
+      "ticker": "CVNA",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.21,
+      "component_var_dollar": 209.52,
+      "contribution_pct": 5.7,
+      "marginal_var": 8.381
+    },
+    {
+      "ticker": "UAL",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.203,
+      "component_var_dollar": 202.76,
+      "contribution_pct": 5.6,
+      "marginal_var": 8.11
+    },
+    {
+      "ticker": "CCL",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.199,
+      "component_var_dollar": 198.59,
+      "contribution_pct": 5.4,
+      "marginal_var": 7.944
+    },
+    {
+      "ticker": "DAL",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.162,
+      "component_var_dollar": 161.92,
+      "contribution_pct": 4.4,
+      "marginal_var": 6.477
+    },
+    {
+      "ticker": "HPE",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.126,
+      "component_var_dollar": 126.31,
+      "contribution_pct": 3.5,
+      "marginal_var": 5.052
+    },
+    {
+      "ticker": "CRH",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.114,
+      "component_var_dollar": 114.1,
+      "contribution_pct": 3.1,
+      "marginal_var": 4.564
+    },
+    {
+      "ticker": "EBAY",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.083,
+      "component_var_dollar": 83.48,
+      "contribution_pct": 2.3,
+      "marginal_var": 3.339
+    },
+    {
+      "ticker": "FITB",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.083,
+      "component_var_dollar": 82.51,
+      "contribution_pct": 2.3,
+      "marginal_var": 3.301
+    },
+    {
+      "ticker": "BKR",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.08,
+      "component_var_dollar": 79.74,
+      "contribution_pct": 2.2,
+      "marginal_var": 3.19
+    },
+    {
+      "ticker": "WST",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.081,
+      "component_var_dollar": 80.84,
+      "contribution_pct": 2.2,
+      "marginal_var": 3.233
+    },
+    {
+      "ticker": "LYV",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.056,
+      "component_var_dollar": 55.55,
+      "contribution_pct": 1.5,
+      "marginal_var": 2.222
+    },
+    {
+      "ticker": "MRK",
+      "weight_pct": 2.5,
+      "component_var_pct": 0.036,
+      "component_var_dollar": 35.63,
+      "contribution_pct": 1.0,
+      "marginal_var": 1.425
+    },
+    {
+      "ticker": "ALL",
+      "weight_pct": 2.5,
+      "component_var_pct": -0.019,
+      "component_var_dollar": -19.11,
+      "contribution_pct": -0.5,
+      "marginal_var": -0.764
+    }
+  ],
+  "stress_scenarios": [],
+  "cdar": [
+    {
+      "ticker": "DAL",
+      "cdar_pct": -20.999,
+      "cvar_pct": -4.854,
+      "max_dd_pct": -22.9,
+      "current_dd_pct": -4.2,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "WDC",
+      "cdar_pct": -17.438,
+      "cvar_pct": -8.563,
+      "max_dd_pct": -20.59,
+      "current_dd_pct": -0.33,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "HPE",
+      "cdar_pct": -18.272,
+      "cvar_pct": -5.837,
+      "max_dd_pct": -20.35,
+      "current_dd_pct": -4.5,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "CCL",
+      "cdar_pct": -28.617,
+      "cvar_pct": -6.66,
+      "max_dd_pct": -29.3,
+      "current_dd_pct": -14.82,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "SNDK",
+      "cdar_pct": -28.807,
+      "cvar_pct": -13.24,
+      "max_dd_pct": -31.34,
+      "current_dd_pct": -6.38,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "UAL",
+      "cdar_pct": -25.089,
+      "cvar_pct": -5.755,
+      "max_dd_pct": -27.5,
+      "current_dd_pct": -19.79,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "LYV",
+      "cdar_pct": -17.833,
+      "cvar_pct": -4.944,
+      "max_dd_pct": -20.12,
+      "current_dd_pct": -6.29,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "LITE",
+      "cdar_pct": -20.823,
+      "cvar_pct": -12.14,
+      "max_dd_pct": -28.7,
+      "current_dd_pct": -8.17,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "Q",
+      "cdar_pct": -24.866,
+      "cvar_pct": -6.735,
+      "max_dd_pct": -27.12,
+      "current_dd_pct": -2.39,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "ALL",
+      "cdar_pct": -9.01,
+      "cvar_pct": -3.166,
+      "max_dd_pct": -9.86,
+      "current_dd_pct": 0.0,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "CVNA",
+      "cdar_pct": -38.796,
+      "cvar_pct": -9.342,
+      "max_dd_pct": -41.21,
+      "current_dd_pct": -22.44,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "TER",
+      "cdar_pct": -17.134,
+      "cvar_pct": -7.109,
+      "max_dd_pct": -20.35,
+      "current_dd_pct": -1.4,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "GLW",
+      "cdar_pct": -20.224,
+      "cvar_pct": -7.337,
+      "max_dd_pct": -23.01,
+      "current_dd_pct": -3.94,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "MRK",
+      "cdar_pct": -7.21,
+      "cvar_pct": -2.937,
+      "max_dd_pct": -8.3,
+      "current_dd_pct": -4.29,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "BKR",
+      "cdar_pct": -13.571,
+      "cvar_pct": -4.215,
+      "max_dd_pct": -16.86,
+      "current_dd_pct": -7.95,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "CRH",
+      "cdar_pct": -22.897,
+      "cvar_pct": -3.932,
+      "max_dd_pct": -23.82,
+      "current_dd_pct": -11.24,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "EBAY",
+      "cdar_pct": -19.152,
+      "cvar_pct": -6.269,
+      "max_dd_pct": -19.97,
+      "current_dd_pct": -0.39,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "WST",
+      "cdar_pct": -24.236,
+      "cvar_pct": -4.49,
+      "max_dd_pct": -24.7,
+      "current_dd_pct": -13.11,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "FITB",
+      "cdar_pct": -20.36,
+      "cvar_pct": -3.825,
+      "max_dd_pct": -21.21,
+      "current_dd_pct": -8.7,
+      "period": "6mo",
+      "alpha": 0.05
+    },
+    {
+      "ticker": "AMD",
+      "cdar_pct": -26.596,
+      "cvar_pct": -8.02,
+      "max_dd_pct": -27.76,
+      "current_dd_pct": -2.35,
+      "period": "6mo",
+      "alpha": 0.05
+    }
+  ]
+}

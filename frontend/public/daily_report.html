@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>US Market Daily Report</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#131722;--bg-card:#1e222d;--bg-hover:#2a2e39;--bg-input:#363a45;
+  --border:#2a2e39;--border-light:#363a45;
+  --text:#d1d4dc;--text-muted:#787b86;--text-dim:#565b66;
+  --green:#089981;--green-bg:rgba(8,153,129,.12);--green-light:#26a69a;
+  --red:#f23645;--red-bg:rgba(242,54,69,.12);
+  --blue:#2962ff;--blue-bg:rgba(41,98,255,.12);
+  --yellow:#f7a600;--yellow-bg:rgba(247,166,0,.12);
+  --font:-apple-system,BlinkMacSystemFont,"Trebuchet MS",Roboto,Ubuntu,sans-serif;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.5;min-height:100vh}
+
+/* Header */
+.header{background:var(--bg-card);border-bottom:1px solid var(--border);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header-logo{display:flex;align-items:center;gap:12px}
+.header-logo svg{width:32px;height:32px}
+.header-title{font-size:18px;font-weight:700;color:var(--text);letter-spacing:-.3px}
+.header-subtitle{font-size:12px;color:var(--text-muted);font-weight:400}
+.header-right{display:flex;align-items:center;gap:12px}
+.header-date{font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:6px}
+.header-date .dot{width:6px;height:6px;border-radius:50%;display:inline-block}
+
+/* Date Picker */
+.date-picker{display:flex;align-items:center;gap:4px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:4px}
+.date-picker button{background:none;border:none;color:var(--text-muted);cursor:pointer;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:4px;font-size:16px;transition:all .15s}
+.date-picker button:hover{background:var(--bg-hover);color:var(--text)}
+.date-picker input[type="date"]{background:transparent;border:none;color:var(--text);font-family:var(--font);font-size:13px;font-weight:600;padding:4px 8px;cursor:pointer;outline:none}
+.date-picker input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(.7);cursor:pointer}
+
+/* Layout */
+.container{max-width:1400px;margin:0 auto;padding:24px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid-main{display:grid;grid-template-columns:1fr 320px;gap:16px}
+@media(max-width:1024px){.grid-3,.grid-2,.grid-main{grid-template-columns:1fr}}
+
+/* Cards */
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.card-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.card-title{font-size:14px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.5px}
+.card-body{padding:20px}
+.card-compact .card-body{padding:16px}
+
+/* Help Button */
+.help-btn{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--border-light);background:transparent;color:var(--text-dim);font-size:12px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:all .15s;margin-left:8px;flex-shrink:0}
+.help-btn:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-bg)}
+
+/* Help Modal */
+.help-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1000;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.help-overlay.show{display:flex}
+.help-modal{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;max-width:480px;width:90%;max-height:80vh;overflow-y:auto;box-shadow:0 24px 48px rgba(0,0,0,.4)}
+.help-modal-header{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.help-modal-title{font-size:16px;font-weight:700}
+.help-modal-close{background:none;border:none;color:var(--text-muted);font-size:22px;cursor:pointer;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:6px;transition:background .15s}
+.help-modal-close:hover{background:var(--bg-hover);color:var(--text)}
+.help-modal-body{padding:24px;font-size:14px;line-height:1.8;color:var(--text-muted)}
+.help-modal-body h4{color:var(--text);font-size:14px;margin:16px 0 8px;font-weight:700}
+.help-modal-body h4:first-child{margin-top:0}
+.help-modal-body .example{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:12px 16px;margin:8px 0;font-size:13px;color:var(--text)}
+.help-modal-body .emoji{font-size:18px;margin-right:6px}
+
+/* No Data Banner */
+.no-data-banner{text-align:center;padding:40px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;margin-bottom:20px}
+.no-data-banner p{color:var(--text-dim);font-size:14px}
+.no-data-banner .big{font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px}
+
+/* Verdict Banner */
+.verdict-banner{padding:28px 32px;display:flex;align-items:center;justify-content:space-between;border-radius:8px;border:1px solid var(--border)}
+.verdict-banner.go{background:linear-gradient(135deg,rgba(8,153,129,.15),rgba(8,153,129,.05));border-color:var(--green)}
+.verdict-banner.caution{background:linear-gradient(135deg,rgba(247,166,0,.15),rgba(247,166,0,.05));border-color:var(--yellow)}
+.verdict-banner.stop{background:linear-gradient(135deg,rgba(242,54,69,.15),rgba(242,54,69,.05));border-color:var(--red)}
+.verdict-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
+.verdict-value{font-size:42px;font-weight:800;letter-spacing:-1px;line-height:1}
+.verdict-desc{font-size:13px;color:var(--text-muted);margin-top:8px;max-width:400px}
+.verdict-meta{text-align:right}
+.verdict-meta-item{font-size:12px;color:var(--text-muted);margin-bottom:4px}
+.verdict-meta-item span{font-weight:700}
+
+/* Sensor Row */
+.sensor-label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;font-weight:600}
+.sensor-value{font-size:20px;font-weight:700}
+.sensor-sub{font-size:11px;color:var(--text-dim);margin-top:2px}
+
+/* Prediction Cards */
+.pred-direction{font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:4px;margin-top:6px}
+.pred-direction.bullish{background:var(--green-bg);color:var(--green)}
+.pred-direction.bearish{background:var(--red-bg);color:var(--red)}
+.pred-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
+.pred-stat-label{font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px}
+.pred-stat-value{font-size:15px;font-weight:700;margin-top:2px}
+
+/* Key Drivers */
+.driver-row{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--border)}
+.driver-row:last-child{border-bottom:none}
+.driver-rank{width:20px;font-size:11px;color:var(--text-dim);text-align:center;font-weight:600}
+.driver-name{flex:1;font-size:12px;font-family:'Menlo','Consolas',monospace;color:var(--text-muted)}
+.driver-bar-wrap{width:100px;height:4px;background:var(--bg);border-radius:2px;overflow:hidden}
+.driver-bar{height:100%;border-radius:2px}
+.driver-dir{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;width:55px;text-align:right}
+.driver-val{font-size:11px;color:var(--text-dim);width:50px;text-align:right;font-family:'Menlo','Consolas',monospace}
+
+/* Table */
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{font-size:11px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;text-align:left;padding:10px 16px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg-card)}
+.tbl td{padding:12px 16px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:middle}
+.tbl tr:hover td{background:var(--bg-hover)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl .rank{color:var(--text-dim);font-size:12px;font-weight:600;width:36px}
+.tbl .ticker{font-weight:800;font-size:14px;letter-spacing:-.2px}
+.tbl .company{font-size:11px;color:var(--text-dim);margin-top:1px}
+
+/* Badges */
+.badge{display:inline-flex;align-items:center;justify-content:center;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:.3px}
+.badge-grade{min-width:28px;height:28px;border-radius:6px;font-size:13px}
+.badge-A{background:var(--green-bg);color:var(--green);border:1px solid rgba(8,153,129,.3)}
+.badge-B{background:var(--blue-bg);color:var(--blue);border:1px solid rgba(41,98,255,.3)}
+.badge-C{background:var(--yellow-bg);color:var(--yellow);border:1px solid rgba(247,166,0,.3)}
+.badge-D,.badge-E,.badge-F{background:var(--red-bg);color:var(--red);border:1px solid rgba(242,54,69,.3)}
+.badge-action{padding:4px 12px;border-radius:4px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.badge-BUY{background:var(--green);color:#fff}
+.badge-SMALL-BUY{background:var(--green-bg);color:var(--green);border:1px solid var(--green)}
+.badge-WATCH{background:var(--yellow-bg);color:var(--yellow);border:1px solid rgba(247,166,0,.3)}
+.badge-HOLD{background:var(--bg);color:var(--text-dim);border:1px solid var(--border)}
+.badge-strategy{background:var(--bg);border:1px solid var(--border);color:var(--text-muted);padding:3px 8px;border-radius:4px;font-size:11px}
+
+/* Score Bar */
+.score-bar{display:flex;align-items:center;gap:8px}
+.score-bar-track{flex:1;height:4px;background:var(--bg);border-radius:2px;overflow:hidden;max-width:80px}
+.score-bar-fill{height:100%;border-radius:2px;transition:width .3s}
+.score-num{font-size:14px;font-weight:700;min-width:36px}
+
+/* Distribution */
+.dist-row{display:flex;align-items:center;gap:12px;padding:8px 0}
+.dist-label{font-size:12px;color:var(--text-muted);width:80px;text-align:right}
+.dist-bar-wrap{flex:1;height:20px;background:var(--bg);border-radius:4px;overflow:hidden;position:relative}
+.dist-bar{height:100%;border-radius:4px;display:flex;align-items:center;padding:0 8px;font-size:11px;font-weight:700;color:#fff;min-width:24px}
+.dist-count{font-size:12px;color:var(--text-dim);width:28px;text-align:right}
+
+/* TradingView link */
+.tv-link{display:inline-flex;align-items:center;gap:4px;color:var(--blue);font-size:12px;font-weight:600;text-decoration:none;padding:4px 8px;border-radius:4px;transition:background .15s}
+.tv-link:hover{background:var(--blue-bg)}
+.tv-link svg{width:14px;height:14px}
+
+/* Footer */
+.footer{text-align:center;padding:32px;color:var(--text-dim);font-size:11px;border-top:1px solid var(--border);margin-top:24px}
+
+/* Animate */
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.fade-in{animation:fadeIn .4s ease-out both}
+.d1{animation-delay:.05s}.d2{animation-delay:.1s}.d3{animation-delay:.15s}.d4{animation-delay:.2s}
+.d5{animation-delay:.25s}.d6{animation-delay:.3s}.d7{animation-delay:.35s}.d8{animation-delay:.4s}
+</style>
+</head>
+<body>
+
+<!-- Help Modal -->
+<div class="help-overlay" id="help-overlay" onclick="if(event.target===this)closeHelp()">
+  <div class="help-modal">
+    <div class="help-modal-header">
+      <span class="help-modal-title" id="help-title"></span>
+      <button class="help-modal-close" onclick="closeHelp()">&times;</button>
+    </div>
+    <div class="help-modal-body" id="help-body"></div>
+  </div>
+</div>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-logo">
+    <svg viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#2962ff"/><path d="M8 24l6-8 5 4 9-12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="28" cy="8" r="3" fill="#fff"/></svg>
+    <div>
+      <div class="header-title">US Market Daily Report</div>
+      <div class="header-subtitle">Integrated Analysis · Automated Intelligence</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="date-picker">
+      <button onclick="shiftDate(-1)" title="이전 날짜">◀</button>
+      <input type="date" id="date-input" onchange="loadDate(this.value)"/>
+      <button onclick="shiftDate(1)" title="다음 날짜">▶</button>
+    </div>
+    <div class="header-date">
+      <span class="dot" id="hdr-dot"></span>
+      <span id="hdr-date">Loading...</span>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="main-container">
+
+  <!-- Verdict Banner -->
+  <div id="verdict-banner" class="verdict-banner caution fade-in" style="margin-bottom:20px">
+    <div>
+      <div class="verdict-label">Market Verdict <button class="help-btn" onclick="showHelp('verdict')">?</button></div>
+      <div class="verdict-value" id="v-value">—</div>
+      <div class="verdict-desc" id="v-desc"></div>
+    </div>
+    <div class="verdict-meta" id="v-meta"></div>
+  </div>
+
+  <!-- Market Timing Row -->
+  <div class="grid-3 fade-in d1" style="margin-bottom:16px">
+    <div class="card card-compact">
+      <div class="card-header"><span class="card-title">Market Regime</span><button class="help-btn" onclick="showHelp('regime')">?</button></div>
+      <div class="card-body">
+        <div class="sensor-value" id="regime-val">—</div>
+        <div class="sensor-sub" id="regime-sub"></div>
+        <div style="margin-top:12px;display:flex;gap:16px">
+          <div><div class="sensor-label">Score</div><div style="font-size:16px;font-weight:700" id="regime-score">—</div></div>
+          <div><div class="sensor-label">Confidence</div><div style="font-size:16px;font-weight:700" id="regime-conf">—</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="card card-compact">
+      <div class="card-header"><span class="card-title">Sector Gate</span><button class="help-btn" onclick="showHelp('gate')">?</button></div>
+      <div class="card-body">
+        <div class="sensor-value" id="gate-val">—</div>
+        <div class="sensor-sub" id="gate-sub"></div>
+        <div style="margin-top:12px">
+          <div class="sensor-label">Gate Score</div>
+          <div style="font-size:16px;font-weight:700" id="gate-score">—</div>
+        </div>
+      </div>
+    </div>
+    <div class="card card-compact">
+      <div class="card-header"><span class="card-title">ML Predictor</span><button class="help-btn" onclick="showHelp('ml')">?</button></div>
+      <div class="card-body" id="ml-summary">—</div>
+    </div>
+  </div>
+
+  <!-- SPY / QQQ Predictions -->
+  <div class="grid-2 fade-in d2" style="margin-bottom:16px" id="pred-cards"></div>
+
+  <!-- Main: Picks Table + Sidebar -->
+  <div class="grid-main fade-in d3">
+    <div class="card">
+      <div class="card-header">
+        <div style="display:flex;align-items:center"><span class="card-title">Stock Picks</span><button class="help-btn" onclick="showHelp('picks')">?</button></div>
+        <span style="font-size:12px;color:var(--text-dim)" id="picks-count"></span>
+      </div>
+      <div style="overflow-x:auto">
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Ticker</th>
+              <th>Grade <button class="help-btn" onclick="event.stopPropagation();showHelp('grade')" style="margin-left:4px">?</button></th>
+              <th>Score</th>
+              <th>Strategy <button class="help-btn" onclick="event.stopPropagation();showHelp('strategy')" style="margin-left:4px">?</button></th>
+              <th>RS vs SPY</th>
+              <th>Action <button class="help-btn" onclick="event.stopPropagation();showHelp('action')" style="margin-left:4px">?</button></th>
+              <th>Chart</th>
+            </tr>
+          </thead>
+          <tbody id="picks-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="card card-compact">
+        <div class="card-header"><span class="card-title">Action Distribution</span><button class="help-btn" onclick="showHelp('action')">?</button></div>
+        <div class="card-body" id="action-dist"></div>
+      </div>
+      <div class="card card-compact">
+        <div class="card-header"><span class="card-title">Strategy Distribution</span><button class="help-btn" onclick="showHelp('strategy')">?</button></div>
+        <div class="card-body" id="strategy-dist"></div>
+      </div>
+      <div class="card card-compact">
+        <div class="card-header"><span class="card-title">Grade Distribution</span><button class="help-btn" onclick="showHelp('grade')">?</button></div>
+        <div class="card-body" id="grade-dist"></div>
+      </div>
+      <div class="card card-compact">
+        <div class="card-header"><span class="card-title">Key Drivers — SPY</span><button class="help-btn" onclick="showHelp('drivers')">?</button></div>
+        <div class="card-body" id="drivers-spy"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  US Market Daily Report · Generated by Integrated Analysis Pipeline<br>
+  Educational purpose only — not financial advice
+</div>
+
+<script>
+/* ── Help Content (한글, 초등학생 수준) ────────────────── */
+const HELP={
+  verdict:{
+    title:'Verdict (판정) 이게 뭐야?',
+    body:`
+<h4><span class="emoji">🚦</span> 신호등이라고 생각하면 돼요!</h4>
+<p>오늘 주식을 사도 되는지, 조심해야 하는지, 쉬어야 하는지를 <b>신호등</b>처럼 알려줘요.</p>
+
+<div class="example">
+  <b style="color:var(--green)">GO (초록불)</b> = "지금 사도 좋아요!"<br>
+  <b style="color:var(--yellow)">CAUTION (노란불)</b> = "조심해서 사세요!"<br>
+  <b style="color:var(--red)">STOP (빨간불)</b> = "지금은 사지 마세요, 기다려요!"
+</div>
+
+<h4><span class="emoji">🗳️</span> 어떻게 결정해요?</h4>
+<p>3명이 투표해요:</p>
+<p>1. <b>Regime</b> (시장 체제) — 시장이 위험한지 안전한지<br>
+2. <b>Gate</b> (섹터 신호등) — 11개 업종 점수<br>
+3. <b>ML</b> (AI 로봇) — 다음 주에 오를 것 같은지</p>
+<p>3명 다 "좋다!" → <b style="color:var(--green)">GO</b><br>
+하나라도 "위험!" → <b style="color:var(--red)">STOP</b><br>
+나머지 → <b style="color:var(--yellow)">CAUTION</b></p>
+`},
+  regime:{
+    title:'Market Regime (시장 체제) 이게 뭐야?',
+    body:`
+<h4><span class="emoji">🌡️</span> 시장의 체온계예요!</h4>
+<p>사람이 아프면 열이 나듯, 주식 시장도 <b>"지금 건강한지, 아픈지"</b> 측정하는 거예요.</p>
+
+<h4>5개 센서로 측정해요</h4>
+<div class="example">
+  <b>VIX (30%)</b> — 공포 지수. 숫자가 높으면 사람들이 무서워하는 중<br>
+  <b>Trend (25%)</b> — 주가가 오르는 중인지 내리는 중인지<br>
+  <b>Breadth (18%)</b> — 전체 주식 중 몇 개가 오르고 있는지<br>
+  <b>Credit (15%)</b> — 위험한 투자를 하는 사람이 많은지<br>
+  <b>Yield Curve (12%)</b> — 단기/장기 이자 차이
+</div>
+
+<h4>결과는 4단계</h4>
+<p><b style="color:var(--green)">RISK ON</b> = 안전해요! 투자하기 좋은 날씨 ☀️<br>
+<b style="color:var(--yellow)">NEUTRAL</b> = 보통이에요. 구름 좀 있어요 ⛅<br>
+<b style="color:var(--red)">RISK OFF</b> = 조심! 비 올 것 같아요 🌧️<br>
+<b style="color:var(--red)">CRISIS</b> = 위험! 태풍이에요! 🌪️</p>
+
+<h4>Score와 Confidence</h4>
+<p><b>Score</b> = 5개 센서 종합 점수 (낮을수록 안전)<br>
+<b>Confidence</b> = "이 진단 얼마나 확신해요?" (100%에 가까울수록 확실)</p>
+`},
+  gate:{
+    title:'Sector Gate (섹터 신호등) 이게 뭐야?',
+    body:`
+<h4><span class="emoji">🏢</span> 11개 업종의 건강검진표예요!</h4>
+<p>미국 주식은 <b>11개 업종</b>으로 나뉘어요 (기술, 금융, 에너지, 건강 등).<br>
+각 업종마다 "잘하고 있어?" 점수를 매기고, 평균을 내요.</p>
+
+<div class="example">
+  <b>점수 70점 이상</b> → <b style="color:var(--green)">GO</b> (대부분 업종이 잘하는 중!)<br>
+  <b>점수 40~70점</b> → <b style="color:var(--yellow)">CAUTION</b> (반반이에요)<br>
+  <b>점수 40점 미만</b> → <b style="color:var(--red)">STOP</b> (대부분 업종이 안 좋아요)
+</div>
+
+<p><b>Gate Score</b> = 11개 업종 평균 점수 (0~100)<br>
+점수가 높을수록 시장이 전체적으로 건강하다는 뜻이에요.</p>
+`},
+  ml:{
+    title:'ML Predictor (AI 예측 로봇) 이게 뭐야?',
+    body:`
+<h4><span class="emoji">🤖</span> AI 로봇이 다음 주를 예측해요!</h4>
+<p>컴퓨터가 <b>27가지 정보</b>를 보고, "다음 5일 동안 오를까? 내릴까?" 예측해요.</p>
+
+<h4>SPY와 QQQ 두 개를 따로 예측해요</h4>
+<div class="example">
+  <b>SPY</b> = 미국 대표 회사 500개 평균 (삼성+현대+SK 같은 거)<br>
+  <b>QQQ</b> = 미국 IT 회사 100개 평균 (애플+구글+테슬라 같은 거)
+</div>
+
+<h4>결과 읽는 법</h4>
+<p><b style="color:var(--green)">▲ BULLISH</b> = "오를 것 같아요!" (황소가 뿔로 위로 들어올려요)<br>
+<b style="color:var(--red)">▼ BEARISH</b> = "내릴 것 같아요!" (곰이 발로 아래로 내려쳐요)</p>
+<p><b>Probability</b> = 오를 확률 (50% 넘으면 오를 가능성이 더 높아요)<br>
+<b>Confidence</b> = AI가 얼마나 확신하는지 (HIGH=확신, LOW=잘 모르겠어)</p>
+`},
+  picks:{
+    title:'Stock Picks (추천 종목) 이게 뭐야?',
+    body:`
+<h4><span class="emoji">🏆</span> 선생님이 뽑은 "공부 잘하는 학생" 명단이에요!</h4>
+<p>미국 주식 503개 중에서 컴퓨터가 <b>가장 좋아 보이는 20개</b>를 골라줘요.</p>
+
+<h4>6가지를 보고 점수를 매겨요</h4>
+<div class="example">
+  <b>기술 분석 (25%)</b> — 주가 그래프가 예쁜 모양인지<br>
+  <b>기본 분석 (20%)</b> — 회사가 돈을 잘 버는지<br>
+  <b>애널리스트 (15%)</b> — 전문가들이 "사라"고 했는지<br>
+  <b>상대 강도 (15%)</b> — 시장 평균보다 잘하고 있는지<br>
+  <b>거래량 (15%)</b> — 많은 사람들이 사고팔고 있는지<br>
+  <b>기관 투자 (10%)</b> — 큰 회사들이 이 주식을 사고 있는지
+</div>
+<p>6가지를 합산해서 <b>100점 만점</b>으로 순위를 매겨요!</p>
+`},
+  grade:{
+    title:'Grade (등급) 이게 뭐야?',
+    body:`
+<h4><span class="emoji">📊</span> 주식의 성적표예요!</h4>
+<p>학교에서 A, B, C, D, F 등급 받는 것처럼, 주식도 점수에 따라 등급을 받아요.</p>
+
+<div class="example">
+  <b style="color:var(--green)">A (80점 이상)</b> = 최우수! "이 주식 정말 좋아요!"<br>
+  <b style="color:var(--blue)">B (65~79점)</b> = 우수! "꽤 괜찮아요"<br>
+  <b style="color:var(--yellow)">C (50~64점)</b> = 보통. "그저 그래요"<br>
+  <b style="color:var(--red)">D (35~49점)</b> = 미흡. "별로예요"<br>
+  <b style="color:var(--red)">E/F (35점 미만)</b> = 부진. "지금은 안 좋아요"
+</div>
+`},
+  strategy:{
+    title:'Strategy / Setup (전략) 이게 뭐야?',
+    body:`
+<h4><span class="emoji">🎯</span> "이 주식은 어떤 상황이야?" 알려줘요!</h4>
+
+<h4>Strategy (전략) — 큰 그림</h4>
+<div class="example">
+  <b>Trend (추세)</b> = 에스컬레이터를 타고 꾸준히 올라가는 중 📈<br>
+  <b>Swing (스윙)</b> = 그네처럼 왔다갔다 하는 중 🎢<br>
+  <b>Reversal (반전)</b> = 떨어지다가 바닥 찍고 올라오는 중 ⬆️
+</div>
+
+<h4>Setup (진입 패턴) — 지금 어디쯤?</h4>
+<div class="example">
+  <b>Breakout (돌파)</b> = 벽을 뚫고 나가는 중! 🚀<br>
+  <b>Pullback (눌림)</b> = 올라가다 잠깐 쉬는 중. 계단에서 앉았다 일어나요 🪜<br>
+  <b>Base (바닥)</b> = 바닥에서 준비 중. 로켓 발사 대기 중 🛸
+</div>
+
+<p>예: <b>Trend/Breakout</b> = "꾸준히 오르다가 저항선을 뚫었어!" → 아주 좋은 신호!</p>
+`},
+  action:{
+    title:'Action (행동 지침) 이게 뭐야?',
+    body:`
+<h4><span class="emoji">🎬</span> "이 주식 어떻게 해?" 알려줘요!</h4>
+<p>시장 상태(Verdict)와 주식 등급(Grade)을 합쳐서 <b>"뭘 해야 할지"</b> 정해줘요.</p>
+
+<div class="example">
+  <b style="color:var(--green)">BUY (매수)</b> = "지금 사세요!" 시장 좋고 + 주식도 좋을 때<br>
+  <b style="color:var(--green-light)">SMALL BUY (소량 매수)</b> = "조금만 사세요!" 시장은 애매하지만 주식은 좋을 때<br>
+  <b style="color:var(--yellow)">WATCH (관망)</b> = "지켜보세요!" 아직 확실하지 않을 때<br>
+  <b style="color:var(--text-dim)">HOLD (보유)</b> = "가만히 기다리세요!" 시장이 안 좋을 때
+</div>
+
+<h4>어떻게 결정해요?</h4>
+<div class="example">
+  시장이 <b>GO</b>이고 등급 <b>A/B</b> → <b style="color:var(--green)">BUY</b><br>
+  시장이 <b>CAUTION</b>이고 등급 <b>A</b> → <b style="color:var(--green-light)">SMALL BUY</b><br>
+  시장이 <b>CAUTION</b>이고 등급 <b>B/C</b> → <b style="color:var(--yellow)">WATCH</b><br>
+  시장이 <b>STOP</b> → 무조건 <b>HOLD</b>
+</div>
+`},
+  drivers:{
+    title:'Key Drivers (핵심 요인) 이게 뭐야?',
+    body:`
+<h4><span class="emoji">🔍</span> AI가 "왜 그렇게 생각했는지" 이유를 알려줘요!</h4>
+<p>시험 볼 때 "왜 이 답 골랐어?" 설명하는 것처럼, AI도 <b>가장 중요한 이유 5가지</b>를 보여줘요.</p>
+
+<div class="example">
+  <b>막대 길이</b> = 얼마나 중요한 이유인지 (길수록 중요!)<br>
+  <b style="color:var(--green)">BULLISH (초록)</b> = "이 신호는 오른다는 뜻이에요"<br>
+  <b style="color:var(--red)">BEARISH (빨강)</b> = "이 신호는 내린다는 뜻이에요"
+</div>
+
+<h4>자주 나오는 이유들</h4>
+<div class="example">
+  <b>yield_spread_proxy</b> — 단기/장기 이자 차이<br>
+  <b>spy_return_1m</b> — 최근 한 달 수익률<br>
+  <b>spy_vol_trend_5d</b> — 최근 거래량 추세<br>
+  <b>vix_change_5d</b> — 공포 지수 변화<br>
+  <b>xlu_relative_1m</b> — 안전 업종 강세 여부
+</div>
+`}
+};
+
+function showHelp(key){
+  const h=HELP[key];if(!h)return;
+  document.getElementById('help-title').textContent=h.title;
+  document.getElementById('help-body').innerHTML=h.body;
+  document.getElementById('help-overlay').classList.add('show');
+}
+function closeHelp(){document.getElementById('help-overlay').classList.remove('show')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeHelp()});
+
+/* ── Date Picker ─────────────────────────────────── */
+let currentDate='';
+
+function todayStr(){const d=new Date();return d.toISOString().slice(0,10)}
+
+function shiftDate(delta){
+  const inp=document.getElementById('date-input');
+  const d=new Date(inp.value);
+  d.setDate(d.getDate()+delta);
+  inp.value=d.toISOString().slice(0,10);
+  loadDate(inp.value);
+}
+
+async function loadDate(dateStr){
+  const ymd=dateStr.replace(/-/g,'');
+  const url=`/data/reports/daily_report_${ymd}.json`;
+  try{
+    const r=await fetch(url);
+    if(!r.ok)throw new Error(r.status);
+    const data=await r.json();
+    currentDate=dateStr;
+    renderReport(data);
+  }catch(e){
+    // 해당 날짜 데이터 없음
+    document.getElementById('hdr-date').textContent=dateStr+' · 데이터 없음';
+    document.getElementById('hdr-dot').style.background='var(--text-dim)';
+    document.getElementById('verdict-banner').className='verdict-banner';
+    document.getElementById('v-value').textContent='—';
+    document.getElementById('v-value').style.color='var(--text-dim)';
+    document.getElementById('v-desc').textContent=`${dateStr} 날짜에 리포트가 없습니다. 다른 날짜를 선택하거나 파이프라인을 실행해주세요.`;
+    document.getElementById('v-meta').innerHTML='';
+    document.getElementById('regime-val').textContent='—';
+    document.getElementById('regime-sub').textContent='';
+    document.getElementById('regime-score').textContent='—';
+    document.getElementById('regime-conf').textContent='—';
+    document.getElementById('gate-val').textContent='—';
+    document.getElementById('gate-sub').textContent='';
+    document.getElementById('gate-score').textContent='—';
+    document.getElementById('ml-summary').textContent='—';
+    document.getElementById('pred-cards').innerHTML='';
+    document.getElementById('picks-body').innerHTML='';
+    document.getElementById('picks-count').textContent='';
+    document.getElementById('action-dist').innerHTML='';
+    document.getElementById('strategy-dist').innerHTML='';
+    document.getElementById('grade-dist').innerHTML='';
+    document.getElementById('drivers-spy').innerHTML='';
+  }
+}
+
+/* ── Render ───────────────────────────────────────── */
+const VERDICT_DESC={
+  GO:'Market timing signals are aligned. Regime is favorable, gate shows strength, and ML predicts upside.',
+  CAUTION:'Mixed signals detected. Some indicators show strength while others suggest caution. Monitor closely.',
+  STOP:'Risk signals elevated. Regime or gate indicates unfavorable conditions. Capital preservation recommended.'
+};
+const REGIME_DESC={
+  risk_on:'Low volatility, strong trend. Favorable for equity exposure.',
+  neutral:'Mixed signals. Normal market conditions with moderate risk.',
+  risk_off:'Elevated caution. Defensive positioning recommended.',
+  crisis:'High stress environment. Risk assets under pressure.'
+};
+
+function verdictColor(v){return v==='GO'?'var(--green)':v==='STOP'?'var(--red)':'var(--yellow)'}
+function dirColor(d){return d==='bullish'?'var(--green)':'var(--red)'}
+function scoreColor(s){return s>=80?'var(--green)':s>=65?'var(--blue)':s>=50?'var(--yellow)':'var(--red)'}
+function gradeClass(g){return 'badge badge-grade badge-'+g}
+function actionClass(a){return 'badge badge-action badge-'+a.replace(/\s/g,'-')}
+
+function renderReport(data){
+  const mt=data.market_timing||{};
+  const v=data.verdict||'CAUTION';
+  const picks=data.stock_picks||[];
+  const summary=data.summary||{};
+
+  // Header
+  document.getElementById('hdr-date').textContent=data.data_date+' · '+data.generated_at.split(' ')[1];
+  document.getElementById('hdr-dot').style.background=verdictColor(v);
+
+  // Verdict
+  document.getElementById('verdict-banner').className='verdict-banner fade-in '+v.toLowerCase();
+  const vVal=document.getElementById('v-value');
+  vVal.textContent=v;vVal.style.color=verdictColor(v);
+  document.getElementById('v-desc').textContent=VERDICT_DESC[v]||'';
+  document.getElementById('v-meta').innerHTML=`
+    <div class="verdict-meta-item">Regime: <span style="color:${verdictColor(v)}">${(mt.regime||'').toUpperCase()}</span></div>
+    <div class="verdict-meta-item">Gate: <span style="color:${verdictColor(v)}">${mt.gate||''}</span> (${(mt.gate_score||0).toFixed(1)})</div>
+    <div class="verdict-meta-item">SPY ML: <span style="color:${dirColor(mt.ml_predictor?.spy?.direction)}">${(mt.ml_predictor?.spy?.direction||'').toUpperCase()}</span></div>
+    <div class="verdict-meta-item">QQQ ML: <span style="color:${dirColor(mt.ml_predictor?.qqq?.direction)}">${(mt.ml_predictor?.qqq?.direction||'').toUpperCase()}</span></div>`;
+
+  // Regime
+  const regime=mt.regime||'neutral';
+  const rv=document.getElementById('regime-val');
+  rv.textContent=regime.toUpperCase().replace('_',' ');
+  rv.style.color=regime==='risk_on'?'var(--green)':regime==='crisis'?'var(--red)':'var(--yellow)';
+  document.getElementById('regime-sub').textContent=REGIME_DESC[regime]||'';
+  document.getElementById('regime-score').textContent=(mt.regime_score||0).toFixed(2);
+  document.getElementById('regime-conf').textContent=(mt.regime_confidence||0).toFixed(0)+'%';
+
+  // Gate
+  const gv=document.getElementById('gate-val');
+  gv.textContent=mt.gate||'CAUTION';
+  gv.style.color=mt.gate==='GO'?'var(--green)':mt.gate==='STOP'?'var(--red)':'var(--yellow)';
+  document.getElementById('gate-sub').textContent='11-sector composite signal';
+  document.getElementById('gate-score').textContent=(mt.gate_score||0).toFixed(1);
+
+  // ML
+  const spy=mt.ml_predictor?.spy||{};
+  const qqq=mt.ml_predictor?.qqq||{};
+  document.getElementById('ml-summary').innerHTML=`
+    <div style="display:flex;gap:16px">
+      <div style="flex:1"><div style="font-size:13px;font-weight:700;margin-bottom:4px">SPY</div>
+        <div class="pred-direction ${spy.direction||''}">${spy.direction==='bullish'?'▲':'▼'} ${(spy.direction||'').toUpperCase()}</div>
+        <div style="font-size:12px;color:var(--text-dim);margin-top:6px">${(spy.predicted_return||0).toFixed(2)}% · ${(spy.confidence_pct||0).toFixed(0)}% conf</div></div>
+      <div style="flex:1"><div style="font-size:13px;font-weight:700;margin-bottom:4px">QQQ</div>
+        <div class="pred-direction ${qqq.direction||''}">${qqq.direction==='bullish'?'▲':'▼'} ${(qqq.direction||'').toUpperCase()}</div>
+        <div style="font-size:12px;color:var(--text-dim);margin-top:6px">${(qqq.predicted_return||0).toFixed(2)}% · ${(qqq.confidence_pct||0).toFixed(0)}% conf</div></div>
+    </div>`;
+
+  // Pred Cards
+  const pc=document.getElementById('pred-cards');pc.innerHTML='';
+  [['SPY',spy],['QQQ',qqq]].forEach(([tk,p])=>{
+    if(!p.direction)return;
+    const dir=p.direction;const arrow=dir==='bullish'?'▲':'▼';
+    const drivers=(p.key_drivers||[]).slice(0,5);
+    pc.innerHTML+=`<div class="card card-compact">
+      <div class="card-header"><span class="card-title">${tk} — 5-Day Forecast</span><button class="help-btn" onclick="event.stopPropagation();showHelp('ml')">?</button><span class="pred-direction ${dir}" style="margin-left:auto">${arrow} ${dir.toUpperCase()}</span></div>
+      <div class="card-body">
+        <div class="pred-stats">
+          <div><div class="pred-stat-label">Probability (UP)</div><div class="pred-stat-value" style="color:${dirColor(dir)}">${((p.probability_up||0)*100).toFixed(1)}%</div></div>
+          <div><div class="pred-stat-label">Predicted Return</div><div class="pred-stat-value" style="color:${(p.predicted_return||0)>=0?'var(--green)':'var(--red)'}">${(p.predicted_return||0)>=0?'+':''}${(p.predicted_return||0).toFixed(2)}%</div></div>
+          <div><div class="pred-stat-label">Confidence</div><div class="pred-stat-value">${(p.confidence_pct||0).toFixed(0)}% <span style="font-size:10px;color:var(--text-dim)">${(p.confidence||'').toUpperCase()}</span></div></div>
+        </div>
+        <div style="margin-top:16px">
+          <div style="font-size:11px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Key Drivers <button class="help-btn" onclick="event.stopPropagation();showHelp('drivers')" style="margin-left:4px">?</button></div>
+          ${drivers.map((d,i)=>{const pct=((d.importance||0)*100/0.1).toFixed(0);const dc=d.direction==='bullish'?'var(--green)':'var(--red)';
+            return `<div class="driver-row"><div class="driver-rank">${i+1}</div><div class="driver-name">${d.feature}</div><div class="driver-bar-wrap"><div class="driver-bar" style="width:${Math.min(pct,100)}%;background:${dc}"></div></div><div class="driver-dir" style="color:${dc}">${d.direction}</div><div class="driver-val">${(d.value||0).toFixed(3)}</div></div>`;}).join('')}
+        </div>
+      </div></div>`;
+  });
+
+  // Picks Table
+  const tbody=document.getElementById('picks-body');tbody.innerHTML='';
+  document.getElementById('picks-count').textContent=`${picks.length} stocks`;
+  picks.forEach((p,i)=>{
+    const sc=p.composite_score||0;const rs=p.rs_vs_spy||0;const rsCol=rs>=0?'var(--green)':'var(--red)';
+    tbody.innerHTML+=`<tr class="fade-in d${Math.min(i+1,8)}">
+      <td class="rank">${i+1}</td>
+      <td><div class="ticker">${p.ticker||''}</div><div class="company">${p.company_name||''}</div></td>
+      <td><span class="${gradeClass(p.grade||'C')}">${p.grade||'C'}</span></td>
+      <td><div class="score-bar"><span class="score-num" style="color:${scoreColor(sc)}">${sc.toFixed(1)}</span><div class="score-bar-track"><div class="score-bar-fill" style="width:${sc}%;background:${scoreColor(sc)}"></div></div></div></td>
+      <td><span class="badge-strategy">${p.strategy||''}/${p.setup||''}</span></td>
+      <td style="color:${rsCol};font-weight:700;font-size:13px">${rs>=0?'+':''}${rs.toFixed(1)}%</td>
+      <td><span class="${actionClass(p.action||'HOLD')}">${p.action||'HOLD'}</span></td>
+      <td><a href="https://kr.tradingview.com/chart/?symbol=${p.ticker}" target="_blank" rel="noopener" class="tv-link"><svg viewBox="0 0 15 15" fill="none"><path d="M3.5 2C3.22 2 3 2.22 3 2.5v10c0 .28.22.5.5.5h10c.28 0 .5-.22.5-.5V8h-1v4H4V3h4V2H3.5zM8.5 2v1H12l-5.5 5.5.7.7L12.8 3.5V7h1V2H8.5z" fill="currentColor"/></svg></a></td>
+    </tr>`;
+  });
+
+  // Distributions
+  renderDist('action-dist',summary.action_distribution||{},{BUY:'var(--green)','SMALL BUY':'var(--green-light)',WATCH:'var(--yellow)',HOLD:'var(--text-dim)'});
+  renderDist('strategy-dist',summary.strategy_distribution||{},{Trend:'var(--blue)',Swing:'var(--yellow)',Reversal:'var(--red)'});
+  renderDist('grade-dist',summary.grade_distribution||{},{A:'var(--green)',B:'var(--blue)',C:'var(--yellow)',D:'var(--red)',E:'var(--red)',F:'var(--red)'});
+  renderDrivers('drivers-spy',spy.key_drivers||[]);
+}
+
+function renderDist(id,dist,colors){
+  const el=document.getElementById(id);
+  const total=Object.values(dist).reduce((a,b)=>a+b,0)||1;
+  el.innerHTML=Object.entries(dist).sort((a,b)=>b[1]-a[1]).map(([k,v])=>{
+    const pct=(v/total*100).toFixed(0);const bg=colors[k]||'var(--text-dim)';
+    return `<div class="dist-row"><div class="dist-label">${k}</div><div class="dist-bar-wrap"><div class="dist-bar" style="width:${pct}%;background:${bg}">${v}</div></div><div class="dist-count">${pct}%</div></div>`;
+  }).join('');
+}
+
+function renderDrivers(id,drivers){
+  const el=document.getElementById(id);
+  el.innerHTML=drivers.slice(0,5).map((d,i)=>{const pct=((d.importance||0)*100/0.1).toFixed(0);const dc=d.direction==='bullish'?'var(--green)':'var(--red)';
+    return `<div class="driver-row"><div class="driver-rank">${i+1}</div><div class="driver-name">${d.feature}</div><div class="driver-bar-wrap"><div class="driver-bar" style="width:${Math.min(pct,100)}%;background:${dc}"></div></div><div class="driver-dir" style="color:${dc}">${d.direction}</div></div>`;
+  }).join('');
+}
+
+/* ── Init ─────────────────────────────────────────── */
+async function init(){
+  // 최신 리포트로 시작
+  try{
+    const r=await fetch('/data/latest_report.json');
+    const data=await r.json();
+    currentDate=data.data_date||todayStr();
+    document.getElementById('date-input').value=currentDate;
+    renderReport(data);
+  }catch(e){
+    document.getElementById('date-input').value=todayStr();
+    document.getElementById('hdr-date').textContent='데이터 없음';
+    document.getElementById('v-desc').textContent='python run_integrated_analysis.py 를 먼저 실행해주세요.';
+  }
+}
+init();
+</script>
+</body>
+</html>
