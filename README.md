@@ -11,6 +11,16 @@ npm --prefix frontend run dev -- --hostname 127.0.0.1 --port 3010
 
 브라우저에서 `http://127.0.0.1:3010`을 엽니다.
 
+## Python Pipeline
+
+Vercel이 Python 프로젝트로 오인하지 않도록 Python 의존성 파일은 `requirements-python.txt`로 둡니다.
+
+```bash
+python3 -m venv .venv
+./.venv/bin/pip install -r requirements-python.txt
+./.venv/bin/python scripts/run_integrated_analysis.py --skip-ai --screening-limit 80
+```
+
 ## GitHub에 올리기
 
 ```bash
@@ -41,4 +51,3 @@ GitHub 저장소를 Vercel에 Import합니다.
 
 - GitHub Pages는 이 앱에 맞지 않습니다. API 라우트, SQLite 읽기, 라이브 데이터 호출이 필요하므로 Next.js 서버 런타임이 필요합니다.
 - Vercel 서버리스 환경에서 게시판 DB는 `/tmp/board.db`를 사용합니다. 서버리스 특성상 영구 게시판 저장소가 필요하면 별도 DB를 연결해야 합니다.
-
