@@ -1,6 +1,14 @@
 {
-  "installCommand": "npm run vercel-install",
-  "buildCommand": "npm run build",
-  "outputDirectory": "frontend/.next"
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "frontend/$1"
+    }
+  ]
 }
-
