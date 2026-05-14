@@ -113,7 +113,10 @@ export function DashboardClient() {
 
     // CSR: 최신 리포트 + regime 초기 로딩
     fetch("/api/data/reports?date=latest", { cache: "no-store" })
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error(String(r.status));
+        return r.json();
+      })
       .then((d: LatestReport) => {
         setReport(d);
         setDate(d.data_date ?? todayStr());
@@ -253,7 +256,7 @@ export function DashboardClient() {
                     </span>
                   </div>
                   <p className="text-xs text-on-surface-variant mt-1">
-                    미국 시장일 {formatIsoDate(live?.market_date)} · 라이브 갱신 {formatLiveTime(live?.generated_at)} · 확정 리포트는 {date}입니다.
+                    미국 시장일 {formatIsoDate(live?.market_date)} · 라이브 갱신 {formatLiveTime(live?.generated_at)} · 확정 리포트는 {report.data_date ?? date}입니다.
                   </p>
                 </div>
               </div>

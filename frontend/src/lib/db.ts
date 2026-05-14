@@ -16,8 +16,17 @@ import { dirname, join } from 'path';
 function getDataDbPath(): string {
   if (process.env.DATA_DB_PATH) return process.env.DATA_DB_PATH;
   if (existsSync('/data')) return '/data/data.db';
-  // local dev: frontend/ is cwd, output/data.db is one level up
-  return join(process.cwd(), '..', 'output', 'data.db');
+
+  const candidates = [
+    // local dev: frontend/ is cwd, output/data.db is one level up
+    join(process.cwd(), '..', 'output', 'data.db'),
+    // Vercel/standalone variants can place traced files from repo root here
+    join(process.cwd(), 'output', 'data.db'),
+    join(process.env.LAMBDA_TASK_ROOT ?? '', 'output', 'data.db'),
+    join(process.env.LAMBDA_TASK_ROOT ?? '', 'frontend', '..', 'output', 'data.db'),
+  ].filter(Boolean);
+
+  return candidates.find((path) => existsSync(path)) ?? candidates[0];
 }
 
 let _db: Database.Database | null = null;
