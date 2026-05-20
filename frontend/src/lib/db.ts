@@ -7,7 +7,8 @@
  * DB path priority:
  *   1. DATA_DB_PATH env var
  *   2. /data/data.db  (Docker / Synology volume)
- *   3. <project_root>/output/data.db  (local dev: cwd = frontend/)
+ *   3. <app_root>/output/data.db  (Vercel / standalone)
+ *   4. <project_root>/output/data.db  (local dev: cwd = frontend/)
  */
 import Database from 'better-sqlite3';
 import { existsSync, mkdirSync, statSync } from 'fs';
@@ -18,11 +19,12 @@ function getDataDbPath(): string {
   if (existsSync('/data')) return '/data/data.db';
 
   const candidates = [
+    // Vercel deploys the frontend app; keep a traced read-only copy here.
+    join(process.cwd(), 'output', 'data.db'),
     // local dev: frontend/ is cwd, output/data.db is one level up
     join(process.cwd(), '..', 'output', 'data.db'),
-    // Vercel/standalone variants can place traced files from repo root here
-    join(process.cwd(), 'output', 'data.db'),
     join(process.env.LAMBDA_TASK_ROOT ?? '', 'output', 'data.db'),
+    join(process.env.LAMBDA_TASK_ROOT ?? '', 'frontend', 'output', 'data.db'),
     join(process.env.LAMBDA_TASK_ROOT ?? '', 'frontend', '..', 'output', 'data.db'),
   ].filter(Boolean);
 

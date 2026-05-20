@@ -5,7 +5,7 @@ const nextConfig = {
   output: 'standalone',
   outputFileTracingRoot: path.join(process.cwd(), '..'),
   outputFileTracingIncludes: {
-    '/api/data/**/*': ['../output/data.db'],
+    '/api/data/**/*': ['output/data.db', '../output/data.db'],
     '/api/download/**/*': ['../downloads/**/*.zip'],
   },
   reactStrictMode: true,
