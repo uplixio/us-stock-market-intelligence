@@ -72,7 +72,7 @@ function quoteColor(changePct: number | null) {
 export function DashboardClient() {
   const t = useT();
   const { lang } = useLang();
-  const [date, setDate] = useState<string>(todayStr());
+  const [date, setDate] = useState<string>("");
   const [report, setReport] = useState<LatestReport | null>(null);
   const [regime, setRegime] = useState<RegimeConfig>({} as RegimeConfig);
   const [live, setLive] = useState<LiveSnapshot | null>(null);
@@ -119,7 +119,7 @@ export function DashboardClient() {
       })
       .then((d: LatestReport) => {
         setReport(d);
-        setDate(d.data_date ?? todayStr());
+        setDate(d.data_date ?? "");
         setStatus("");
       })
       .catch(() => setStatus("데이터 없음"));
@@ -228,8 +228,12 @@ export function DashboardClient() {
           <span className="material-symbols-outlined text-4xl text-on-surface-variant/40 mb-4">
             event_busy
           </span>
-          <p className="text-lg font-bold text-on-surface-variant mb-2">{date}</p>
-          <p className="text-sm text-on-surface-variant/60">{t("dash.reportNotFound")}</p>
+          <p className="text-lg font-bold text-on-surface-variant mb-2">
+            {status === t("common.loading") ? t("common.loading") : date}
+          </p>
+          <p className="text-sm text-on-surface-variant/60">
+            {status === t("common.loading") ? "" : t("dash.reportNotFound")}
+          </p>
           <p className="text-xs text-on-surface-variant/40 mt-2">
             {t("dash.reportNotFoundHint")}
           </p>

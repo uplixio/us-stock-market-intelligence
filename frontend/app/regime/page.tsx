@@ -117,7 +117,7 @@ function quoteColor(changePct: number | null) {
 export default function RegimePage() {
   const t = useT();
   const { lang } = useLang();
-  const [date, setDate] = useState<string>(todayStr());
+  const [date, setDate] = useState<string>("");
   const [mt, setMt] = useState<MarketTiming>({});
   const [live, setLive] = useState<LiveSnapshot | null>(null);
   const [liveStatus, setLiveStatus] = useState<string>("");
@@ -156,9 +156,12 @@ export default function RegimePage() {
       .catch(() => {});
 
     fetch("/api/data/reports?date=latest", { cache: "no-store" })
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error(String(r.status));
+        return r.json();
+      })
       .then((d: DailyReport) => {
-        const dateStr = d.data_date ?? todayStr();
+        const dateStr = d.data_date ?? "";
         setMt(d.market_timing ?? {});
         setDate(dateStr);
         setStatus("");

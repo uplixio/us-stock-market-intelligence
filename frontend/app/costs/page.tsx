@@ -21,7 +21,7 @@ function todayStr() {
 
 export default function CostsPage() {
   const t = useT();
-  const [date, setDate] = useState<string>(todayStr());
+  const [date, setDate] = useState<string>("");
   const [status, setStatus] = useState<string>("");
 
   async function loadReport(dateStr: string) {
@@ -57,9 +57,12 @@ export default function CostsPage() {
 
   useEffect(() => {
     fetch("/api/data/reports?date=latest", { cache: "no-store" })
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error(String(r.status));
+        return r.json();
+      })
       .then((d: DailyReport) => {
-        setDate(d.data_date ?? todayStr());
+        setDate(d.data_date ?? "");
         setStatus("");
       })
       .catch(() => {});

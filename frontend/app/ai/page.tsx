@@ -53,7 +53,7 @@ function todayStr() {
 }
 
 export default function AIPage() {
-  const [date, setDate] = useState<string>(todayStr());
+  const [date, setDate] = useState<string>("");
   const [picks, setPicks] = useState<StockPick[]>([]);
   const [generatedAt, setGeneratedAt] = useState<string>("");
   const [status, setStatus] = useState<string>("로딩 중...");
@@ -93,9 +93,12 @@ export default function AIPage() {
       .catch(() => {});
 
     fetch("/api/data/reports?date=latest", { cache: "no-store" })
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error(String(r.status));
+        return r.json();
+      })
       .then((d: DailyReport) => {
-        const dateStr = d.data_date ?? todayStr();
+        const dateStr = d.data_date ?? "";
         setPicks(d.stock_picks ?? []);
         setGeneratedAt(d.generated_at ?? dateStr);
         setDate(dateStr);

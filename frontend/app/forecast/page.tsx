@@ -173,7 +173,7 @@ function Drivers({ drivers }: { drivers?: KeyDriver[] }) {
 
 export default function ForecastPage() {
   const t = useT();
-  const [date, setDate] = useState<string>(todayStr());
+  const [date, setDate] = useState<string>("");
   const [predictor, setPredictor] = useState<MLPredictor | null>(null);
   const [status, setStatus] = useState<string>(t("common.loading"));
   const [history, setHistory] = useState<HistoryEntry[]>([]);
@@ -214,9 +214,12 @@ export default function ForecastPage() {
 
   useEffect(() => {
     fetch("/api/data/reports?date=latest", { cache: "no-store" })
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error(String(r.status));
+        return r.json();
+      })
       .then((d: DailyReport) => {
-        const dateStr = d.data_date ?? todayStr();
+        const dateStr = d.data_date ?? "";
         setPredictor(d.market_timing?.ml_predictor ?? null);
         setDate(dateStr);
         setStatus("");

@@ -44,7 +44,7 @@ function todayStr() {
 
 export default function MLPage() {
   const t = useT();
-  const [date, setDate] = useState<string>(todayStr());
+  const [date, setDate] = useState<string>("");
   const [picks, setPicks] = useState<StockPick[]>([]);
   const [screened, setScreened] = useState<number>(0);
   const [generatedAt, setGeneratedAt] = useState<string>("");
@@ -85,9 +85,12 @@ export default function MLPage() {
       .catch(() => {});
 
     fetch("/api/data/reports?date=latest", { cache: "no-store" })
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error(String(r.status));
+        return r.json();
+      })
       .then((d: DailyReport) => {
-        const dateStr = d.data_date ?? todayStr();
+        const dateStr = d.data_date ?? "";
         setPicks(d.stock_picks ?? []);
         setScreened(d.summary?.total_screened ?? d.stock_picks?.length ?? 0);
         setGeneratedAt(d.generated_at ?? dateStr);
