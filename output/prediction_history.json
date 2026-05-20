@@ -264,5 +264,19 @@
       "predicted_return": 0.797
     },
     "model_accuracy": 49.7
+  },
+  {
+    "date": "2026-05-20",
+    "spy": {
+      "direction": "bullish",
+      "probability": 0.937,
+      "predicted_return": 2.108
+    },
+    "qqq": {
+      "direction": "bullish",
+      "probability": 0.943,
+      "predicted_return": 1.588
+    },
+    "model_accuracy": 49.7
   }
 ]

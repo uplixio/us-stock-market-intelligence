@@ -1,41 +1,41 @@
 {
-  "date": "2026-05-14",
+  "date": "2026-05-20",
   "predictions": {
     "spy": {
       "direction": "bullish",
-      "probability_up": 0.632,
-      "predicted_return": 0.433,
-      "confidence": "moderate",
-      "confidence_pct": 63.2,
+      "probability_up": 0.937,
+      "predicted_return": 2.108,
+      "confidence": "high",
+      "confidence_pct": 93.7,
       "key_drivers": [
         {
           "feature": "spy_vol_trend_5d",
           "importance": 0.0794,
-          "value": -0.035,
-          "direction": "bearish"
+          "value": 0.046,
+          "direction": "bullish"
         },
         {
           "feature": "spy_price_vs_50ma_pct",
           "importance": 0.077,
-          "value": 7.953,
+          "value": 5.958,
           "direction": "bullish"
         },
         {
           "feature": "xlu_relative_1m",
           "importance": 0.0721,
-          "value": -10.764,
+          "value": -6.611,
           "direction": "bullish"
         },
         {
           "feature": "spy_return_1m",
           "importance": 0.0683,
-          "value": 6.89,
+          "value": 3.529,
           "direction": "bullish"
         },
         {
           "feature": "yield_spread_proxy",
           "importance": 0.0677,
-          "value": 0.351,
+          "value": 0.337,
           "direction": "bullish"
         }
       ],
@@ -44,39 +44,39 @@
     },
     "qqq": {
       "direction": "bullish",
-      "probability_up": 0.833,
-      "predicted_return": 0.797,
+      "probability_up": 0.943,
+      "predicted_return": 1.588,
       "confidence": "high",
-      "confidence_pct": 83.3,
+      "confidence_pct": 94.3,
       "key_drivers": [
         {
           "feature": "yield_spread_proxy",
           "importance": 0.0836,
-          "value": 0.351,
+          "value": 0.337,
           "direction": "bullish"
         },
         {
           "feature": "spy_return_1m",
           "importance": 0.0766,
-          "value": 6.89,
+          "value": 3.529,
           "direction": "bullish"
         },
         {
           "feature": "spy_vol_trend_5d",
           "importance": 0.0759,
-          "value": -0.035,
-          "direction": "bearish"
+          "value": 0.046,
+          "direction": "bullish"
         },
         {
           "feature": "xlk_relative_1m",
           "importance": 0.0734,
-          "value": 12.651,
+          "value": 8.557,
           "direction": "bullish"
         },
         {
           "feature": "xlu_relative_1m",
           "importance": 0.0675,
-          "value": -10.764,
+          "value": -6.611,
           "direction": "bullish"
         }
       ],

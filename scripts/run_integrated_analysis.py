@@ -12,7 +12,7 @@ import os
 import shutil
 import sys
 import time
-from datetime import datetime
+from datetime import datetime, time as dt_time, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -44,12 +44,25 @@ def setup_file_logger(log_path: Path):
 
 
 def current_us_market_datetime() -> datetime:
-    """Return the US market calendar date/time.
+    """Return the latest completed US market report date/time.
 
     The app is usually run from Korea. During US after-hours this is already
-    the next KST day, but the market report should still be dated by New York.
+    the next KST day, but the confirmed daily report should be dated by the
+    latest completed US trading session, not by the current calendar day.
     """
-    return datetime.now(MARKET_TZ).replace(tzinfo=None)
+    now_et = datetime.now(MARKET_TZ)
+    report_date = now_et.date()
+
+    # Before the regular close buffer, today's confirmed report does not exist.
+    if now_et.time() < dt_time(17, 0):
+        report_date -= timedelta(days=1)
+
+    # Weekend fallback. Holiday handling can be layered in later, but this
+    # fixes the main KST morning/afternoon problem: use the last closed session.
+    while report_date.weekday() >= 5:
+        report_date -= timedelta(days=1)
+
+    return datetime.combine(report_date, dt_time(16, 0))
 
 
 # ── Phase 0: 데이터 수집 ──────────────────────────────────────────
